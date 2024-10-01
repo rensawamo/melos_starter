@@ -1,12 +1,11 @@
 import 'dart:async';
-
+import 'package:core_utility/utility.dart';
 import 'package:dio/dio.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../core/exceptions/app_exception.dart';
 import '../../../core/extensions/exception_extension.dart';
-import '../../../core/utils/logger.dart';
 import '../entities/user.dart';
 import 'github_api_client.dart';
 

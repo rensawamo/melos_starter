@@ -1,12 +1,10 @@
 import 'dart:async';
 import 'dart:io';
-
+import 'package:core_utility/utility.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../repositories/file/file_repository.dart';
-import '../../utils/crop_image.dart';
-import '../../utils/navigator_key_provider.dart';
 import 'show_photo_bottom_sheet.dart';
 
 Future<File?> showPhotoAndCropBottomSheet(

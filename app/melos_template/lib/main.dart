@@ -1,5 +1,5 @@
 import 'dart:io';
-
+import 'package:core_utility/utility.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
@@ -17,8 +17,7 @@ import 'app.dart';
 import 'core/repositories/package_info/package_info_repository.dart';
 import 'core/repositories/shared_preferences/shared_preference_repository.dart';
 import 'core/use_cases/images/image_compress.dart';
-import 'core/utils/flavor.dart';
-import 'core/utils/logger.dart';
+
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

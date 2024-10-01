@@ -1,9 +1,9 @@
+import 'package:core_utility/utility.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../core/exceptions/app_exception.dart';
 import '../../../core/repositories/firebase_auth/firebase_auth_repository.dart';
 import '../../../core/use_cases/authentication/auth_state_controller.dart';
-import '../../../core/utils/logger.dart';
 
 part 'sign_out.g.dart';
 

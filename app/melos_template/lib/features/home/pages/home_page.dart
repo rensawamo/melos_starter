@@ -1,3 +1,4 @@
+import 'package:core_utility/utility.dart';
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,6 @@ import '../../../core/custom_hooks/use_effect_once.dart';
 import '../../../core/extensions/context_extension.dart';
 import '../../../core/extensions/scroll_controller_extension.dart';
 import '../../../core/res/gen/assets.gen.dart';
-import '../../../core/utils/tab_tap_operation_provider.dart';
 import '../../authentication/pages/top_email_feature_page.dart';
 import '../../counter/pages/firestore_counter_page.dart';
 import '../../counter/pages/local_counter_page.dart';

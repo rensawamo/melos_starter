@@ -2,9 +2,11 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:collection/collection.dart';
+import 'package:core_utility/utility.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:go_router/go_router.dart';
@@ -13,8 +15,6 @@ import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/extensions/context_extension.dart';
-import '../../../core/utils/clipboard.dart';
-import '../../../core/utils/logger.dart';
 
 class WebViewArgs extends Equatable {
   const WebViewArgs({
@@ -140,7 +140,8 @@ class WebViewPage extends HookConsumerWidget {
                     if (value == null) {
                       return;
                     }
-                    await Clipboard.copy(value.toString());
+                    await Clipboard.setData(
+                        ClipboardData(text: value.toString()));
                     context.showSnackBar('URLをコピーしました');
                   } else if (value == 1) {
                     final box = context.findRenderObject() as RenderBox?;

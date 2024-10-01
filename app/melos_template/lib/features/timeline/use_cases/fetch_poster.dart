@@ -1,8 +1,7 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-
+import 'package:core_utility/utility.dart';
 import '../../../core/entities/developer/developer.dart';
 import '../../../core/repositories/firestore/document_repository.dart';
-import '../../../core/utils/logger.dart';
 
 part 'fetch_poster.g.dart';
 

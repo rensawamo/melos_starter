@@ -1,3 +1,4 @@
+import 'package:core_utility/utility.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -5,7 +6,7 @@ import '../../../core/exceptions/app_exception.dart';
 import '../../../core/repositories/firebase_auth/auth_error_code.dart';
 import '../../../core/repositories/firebase_auth/firebase_auth_repository.dart';
 import '../../../core/use_cases/authentication/auth_state_controller.dart';
-import '../../../core/utils/logger.dart';
+
 
 final signInWithEmailAndPasswordProvider =
     Provider(SignInWithEmailAndPassword.new);

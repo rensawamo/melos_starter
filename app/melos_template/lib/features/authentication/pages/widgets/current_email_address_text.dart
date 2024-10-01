@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/extensions/context_extension.dart';
-import '../../../../core/utils/clipboard.dart';
 import '../../../../core/widgets/buttons/ripple_tap_gesture.dart';
 
 class CurrentEmailAddressText extends StatelessWidget {
@@ -31,7 +30,6 @@ class CurrentEmailAddressText extends StatelessWidget {
             ),
             RippleTapGesture(
               onTap: () {
-                Clipboard.copy(email);
                 context.showSnackBar('メールアドレスをコピーしました');
               },
               child: Text(

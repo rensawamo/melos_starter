@@ -1,9 +1,8 @@
 import 'package:flutter/services.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-
-import '../../../core/utils/logger.dart';
-
+import 'package:core_utility/utility.dart';
 part 'screen_reader_repository.g.dart';
+
 
 @Riverpod(keepAlive: true)
 ScreenReaderRepository screenReaderRepository(ScreenReaderRepositoryRef ref) {

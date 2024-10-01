@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:adaptive_dialog/adaptive_dialog.dart';
+import 'package:core_utility/utility.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_template/core/res/button_style.dart';
@@ -12,7 +13,6 @@ import '../../../core/custom_hooks/use_effect_once.dart';
 import '../../../core/custom_hooks/use_form_field_state_key.dart';
 import '../../../core/extensions/context_extension.dart';
 import '../../../core/extensions/exception_extension.dart';
-import '../../../core/utils/logger.dart';
 import '../../../core/widgets/show_indicator.dart';
 import '../use_cases/change_email_password.dart';
 import 'reset_email_password_page.dart';

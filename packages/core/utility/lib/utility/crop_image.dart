@@ -3,8 +3,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_cropper/image_cropper.dart';
 
-import '../extensions/context_extension.dart';
-
 Future<CroppedFile?> cropAvatar(BuildContext context, String path) =>
     _cropImage(
       context,
@@ -61,7 +59,7 @@ Future<CroppedFile?> _cropImage(
     uiSettings: [
       AndroidUiSettings(
         toolbarTitle: toolbarTitle,
-        toolbarColor: context.primaryColor,
+        toolbarColor: Colors.blue,
         toolbarWidgetColor: Colors.white,
         initAspectRatio: CropAspectRatioPreset.original,
         lockAspectRatio: false,

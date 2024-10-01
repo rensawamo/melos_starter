@@ -3,10 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_template/features/aggregation/pages/firestore_aggregation_page.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
+import 'package:core_utility/utility.dart';
 import '../../features/features.dart';
-import '../utils/logger.dart';
-import '../utils/navigator_key_provider.dart';
 import 'transition_observer.dart';
 
 final routerProvider = Provider((ref) {

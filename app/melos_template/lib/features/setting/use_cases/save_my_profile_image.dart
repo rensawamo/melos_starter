@@ -1,10 +1,10 @@
 import 'dart:typed_data';
 
+import 'package:core_utility/utility.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../../core/entities/developer/developer.dart';
 import '../../../../core/exceptions/app_exception.dart';
-import '../../../../core/utils/uuid_generator.dart';
 import '../../../core/entities/storage_file/storage_file.dart';
 import '../../../core/repositories/firebase_auth/firebase_auth_repository.dart';
 import '../../../core/repositories/firebase_storage/firebase_storage_repository.dart';

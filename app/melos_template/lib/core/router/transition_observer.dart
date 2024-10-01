@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-import '../utils/logger.dart';
+import 'package:core_utility/utility.dart';
 
 enum TransitionType {
   push,

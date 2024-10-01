@@ -10,7 +10,6 @@ import '../../../../core/entities/developer/developer.dart';
 import '../../../../core/entities/post/post.dart';
 import '../../../../core/extensions/context_extension.dart';
 import '../../../../core/extensions/share_extension.dart';
-import '../../../../core/utils/clipboard.dart';
 import '../../../../core/widgets/buttons/ripple_tap_gesture.dart';
 import '../../../../core/widgets/images/thumbnail.dart';
 import '../../enum/menu_result_type.dart';
@@ -127,7 +126,7 @@ class TimelineTile extends HookConsumerWidget {
                                             data.text,
                                           ).ignore();
                                         case MenuResultType.copy:
-                                          Clipboard.copy(data.text).ignore();
+                                          
                                           context.showSnackBar('コピーしました');
                                         case MenuResultType.issueReport ||
                                               MenuResultType.mute ||

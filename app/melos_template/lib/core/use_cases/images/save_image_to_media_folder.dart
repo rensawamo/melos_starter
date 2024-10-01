@@ -1,14 +1,13 @@
 import 'dart:typed_data';
 
 import 'package:adaptive_dialog/adaptive_dialog.dart';
+import 'package:core_utility/utility.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_template/core/extensions/context_extension.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-import '../../extensions/context_extension.dart';
-import '../../utils/logger.dart';
-import '../../utils/navigator_key_provider.dart';
 import '../../widgets/show_indicator.dart';
 import '../permission/request_album_permission.dart';
 

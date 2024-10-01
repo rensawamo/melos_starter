@@ -1,3 +1,4 @@
+import 'package:core_utility/utility.dart';
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,6 @@ import '../../../core/custom_hooks/use_refresh_controller.dart';
 import '../../../core/extensions/context_extension.dart';
 import '../../../core/extensions/exception_extension.dart';
 import '../../../core/extensions/scroll_controller_extension.dart';
-import '../../../core/utils/tab_tap_operation_provider.dart';
 import '../../../core/widgets/smart_refresher/smart_refresher_custom.dart';
 import '../use_cases/memo_controller.dart';
 import 'dialogs/show_edit_memo_dialog.dart';

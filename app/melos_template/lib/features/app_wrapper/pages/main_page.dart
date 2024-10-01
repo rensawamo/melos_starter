@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:page_transition/page_transition.dart';
 
-import '../../../core/utils/tab_tap_operation_provider.dart';
+import 'package:core_utility/utility.dart';
 import '../../github_users/pages/github_users_page.dart';
 import '../../home/pages/home_page.dart';
 import '../../memo/pages/memo_page.dart';

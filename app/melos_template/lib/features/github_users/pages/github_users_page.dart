@@ -1,3 +1,4 @@
+import 'package:core_utility/utility.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -9,7 +10,6 @@ import '../../../core/custom_hooks/use_effect_once.dart';
 import '../../../core/custom_hooks/use_refresh_controller.dart';
 import '../../../core/extensions/context_extension.dart';
 import '../../../core/extensions/scroll_controller_extension.dart';
-import '../../../core/utils/tab_tap_operation_provider.dart';
 import '../../../core/widgets/images/thumbnail.dart';
 import '../../../core/widgets/smart_refresher/smart_refresher_custom.dart';
 import '../use_cases/github_users_controller.dart';

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:adaptive_dialog/adaptive_dialog.dart';
+import 'package:core_utility/utility.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -13,7 +14,6 @@ import '../../../core/extensions/context_extension.dart';
 import '../../../core/extensions/exception_extension.dart';
 import '../../../core/extensions/string_extension.dart';
 import '../../../core/res/button_style.dart';
-import '../../../core/utils/logger.dart';
 import '../../../core/widgets/show_indicator.dart';
 import '../use_cases/sign_up_with_email_and_password.dart';
 import 'top_email_feature_page.dart';

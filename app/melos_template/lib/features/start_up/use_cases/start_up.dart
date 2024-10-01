@@ -1,7 +1,6 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-
+import 'package:core_utility/utility.dart';
 import '../../../core/use_cases/authentication/fetch_logged_in_type.dart';
-import '../../../core/utils/logger.dart';
 import 'sign_in_with_anonymously.dart';
 
 part 'start_up.g.dart';

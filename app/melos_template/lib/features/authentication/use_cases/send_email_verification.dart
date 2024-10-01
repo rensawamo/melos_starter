@@ -1,10 +1,11 @@
+import 'package:core_utility/utility.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../core/exceptions/app_exception.dart';
 import '../../../core/repositories/firebase_auth/auth_error_code.dart';
 import '../../../core/repositories/firebase_auth/firebase_auth_repository.dart';
-import '../../../core/utils/logger.dart';
+
 
 final sendEmailVerificationProvider = Provider(SendEmailVerification.new);
 

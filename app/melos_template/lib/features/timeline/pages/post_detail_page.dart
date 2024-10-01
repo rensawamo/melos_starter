@@ -13,7 +13,6 @@ import '../../../../core/custom_hooks/use_effect_once.dart';
 import '../../../../core/extensions/context_extension.dart';
 import '../../../../core/extensions/selectable_linkify_extension.dart';
 import '../../../../core/extensions/share_extension.dart';
-import '../../../../core/utils/clipboard.dart';
 import '../../../../core/widgets/images/image_viewer.dart';
 import '../../../../core/widgets/images/thumbnail.dart';
 import '../enum/menu_result_type.dart';
@@ -140,7 +139,6 @@ class PostDetailPage extends HookConsumerWidget {
                         text,
                       ).ignore();
                     case MenuResultType.copy:
-                      Clipboard.copy(text).ignore();
                       context.showSnackBar('コピーしました');
                     case MenuResultType.issueReport ||
                           MenuResultType.mute ||
