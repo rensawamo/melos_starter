@@ -2,8 +2,6 @@
 //  ScreenReaderPlugin.swift
 //  Runner
 //
-//  Created by 中川祥平 on 2022/08/14.
-//
 
 import UIKit
 import Flutter

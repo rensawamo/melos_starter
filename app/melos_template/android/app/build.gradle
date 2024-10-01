@@ -33,8 +33,8 @@ if (project.hasProperty('dart-defines')) {
                 [(pair.first()): pair.last()]
             }
 }
-
-// Firebaseの設定ファイルを環境によってコピーする
+println "Dart Environment Variables: ${dartEnvironmentVariables}"  
+println "Using FLAVOR: ${dartEnvironmentVariables.FLAVOR}"  
 task selectGoogleServicesJson(type: Copy) {
     from "src/${dartEnvironmentVariables.FLAVOR}/google-services.json"
     into './'
@@ -46,7 +46,6 @@ tasks.whenTaskAdded { task ->
     }
 }
 
-// アイコン切り替えは設定してません
 
 // START: FlutterFire Configuration
 apply plugin: 'com.google.gms.google-services'
@@ -87,8 +86,8 @@ android {
 
     signingConfigs {
         release {
-            // TODO: release.jksとkey.propertiesを作成する。作成したrelease.jksのパスワード情報はkey.propertiesで管理する
-            def keystorePropertiesFile = rootProject.file('key.properties')
+            
+            def keystorePropertiesFile = rootProject.file('keystore.properties')
             if (keystorePropertiesFile.exists()) {
                 def keystoreProperties = new Properties()
                 keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
@@ -99,7 +98,6 @@ android {
             }
         }
         debug {
-            // TODO: debug.jks作成する。作成したdebug.jksの情報に変更する。debug.jksのパスワードは以下のように設定する
             def debugStoreFile = rootProject.file('debug.jks')
             if (debugStoreFile.exists()) {
                 keyAlias 'androiddebugkey'
