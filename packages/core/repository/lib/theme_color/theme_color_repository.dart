@@ -8,7 +8,7 @@ part 'theme_color_repository.g.dart';
 @riverpod
 class ThemeColorRepository extends _$ThemeColorRepository {
   late final SharedPreferences _sharedPreferences;
-  late final String _themeKey;
+  final String _themeKey = 'APP_THEME_COLOR_KEY';
 
   @override
   ThemeMode build() {
@@ -19,7 +19,7 @@ class ThemeColorRepository extends _$ThemeColorRepository {
 
   Future<void> loadTheme() async {
     final themeIndex =
-        _sharedPreferences.getInt(_themeKey) ?? ThemeMode.system.index;
+        _sharedPreferences.getInt(_themeKey) ?? ThemeMode.light.index;
     state = ThemeMode.values[themeIndex];
   }
 

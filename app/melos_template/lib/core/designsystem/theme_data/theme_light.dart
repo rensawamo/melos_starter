@@ -1,23 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+
+/// 
 ThemeData themeLight() {
   const primary = Color.fromARGB(255, 56, 106, 31);
 
-  // テーマの基本設定
-  // https://zenn.dev/gen_kk/articles/cc538ffa392922
+
   final base = ThemeData(
-    /// アプリのフォントを指定
+
     fontFamily: GoogleFonts.kiwiMaru().fontFamily,
     useMaterial3: true,
     colorScheme: ColorScheme.fromSeed(
-      // ライトテーマの指定
-      brightness: Brightness.light,
       //   必須プロパティ
       //  この色を元にして他の色が生成される
       seedColor: primary,
-      // プライマリカラー(一番よく使う色)
-      // カラーが指定されてない場合、defaultのテキストカラーが primaryで設定されているケースが多い ex) OutlinedButtonの textの色
       primary: primary,
       // appbarなどの 背景色
       surface: primary,

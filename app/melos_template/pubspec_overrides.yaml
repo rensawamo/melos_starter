@@ -1,0 +1,14 @@
+# melos_managed_dependency_overrides: core_di_provider,core_foundation,core_repository,core_ui,core_utility,feature_setting
+dependency_overrides:
+  core_di_provider:
+    path: ../../packages/core/di_provider
+  core_foundation:
+    path: ../../packages/core/foundation
+  core_repository:
+    path: ../../packages/core/repository
+  core_ui:
+    path: ../../packages/core/ui
+  core_utility:
+    path: ../../packages/core/utility
+  feature_setting:
+    path: ../../packages/feature/setting

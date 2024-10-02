@@ -2,9 +2,9 @@ name: flutter_app_template
 repository: https://github.com/altive/flutter_app_template
 
 packages:
-  - "packages/*"
+  - "packages/core/*"
+  - "packages/feature/*"
   - "app/*"
-  
 
 command:
   bootstrap:
@@ -29,8 +29,15 @@ scripts:
       dirExists: lib
       dependsOn: "custom_lint"
 
-  # Issue on file exclusion feature: https://github.com/dart-lang/dart_style/issues/864
-  # NOTE: Using the `exec:` format causes processing to stop
+  analyze:
+    run: |
+      melos run analyze:dart --no-select
+      melos run analyze:flutter --no-select
+      melos run analyze:custom_lint --no-select
+    description: Run all analyze.
+    packageFilters:
+      dirExists: lib
+
   format:ci:
     run: |
       melos exec -- \

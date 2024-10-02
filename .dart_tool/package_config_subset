@@ -54,10 +54,6 @@ file
 3.0
 file:///Users/rs/.pub-cache/hosted/pub.dev/file-7.0.0/
 file:///Users/rs/.pub-cache/hosted/pub.dev/file-7.0.0/lib/
-flutter_lints
-3.1
-file:///Users/rs/.pub-cache/hosted/pub.dev/flutter_lints-3.0.2/
-file:///Users/rs/.pub-cache/hosted/pub.dev/flutter_lints-3.0.2/lib/
 glob
 2.19
 file:///Users/rs/.pub-cache/hosted/pub.dev/glob-2.1.2/
@@ -90,10 +86,6 @@ json_annotation
 3.0
 file:///Users/rs/.pub-cache/hosted/pub.dev/json_annotation-4.9.0/
 file:///Users/rs/.pub-cache/hosted/pub.dev/json_annotation-4.9.0/lib/
-lints
-3.0
-file:///Users/rs/.pub-cache/hosted/pub.dev/lints-3.0.0/
-file:///Users/rs/.pub-cache/hosted/pub.dev/lints-3.0.0/lib/
 matcher
 3.0
 file:///Users/rs/.pub-cache/hosted/pub.dev/matcher-0.12.16+1/
@@ -142,10 +134,6 @@ path_provider_windows
 3.2
 file:///Users/rs/.pub-cache/hosted/pub.dev/path_provider_windows-2.3.0/
 file:///Users/rs/.pub-cache/hosted/pub.dev/path_provider_windows-2.3.0/lib/
-pedantic_mono
-3.4
-file:///Users/rs/.pub-cache/hosted/pub.dev/pedantic_mono-1.27.0/
-file:///Users/rs/.pub-cache/hosted/pub.dev/pedantic_mono-1.27.0/lib/
 platform
 3.2
 file:///Users/rs/.pub-cache/hosted/pub.dev/platform-3.1.5/
@@ -218,6 +206,10 @@ vector_math
 2.14
 file:///Users/rs/.pub-cache/hosted/pub.dev/vector_math-2.1.4/
 file:///Users/rs/.pub-cache/hosted/pub.dev/vector_math-2.1.4/lib/
+very_good_analysis
+3.4
+file:///Users/rs/.pub-cache/hosted/pub.dev/very_good_analysis-6.0.0/
+file:///Users/rs/.pub-cache/hosted/pub.dev/very_good_analysis-6.0.0/lib/
 web
 3.4
 file:///Users/rs/.pub-cache/hosted/pub.dev/web-1.1.0/

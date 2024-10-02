@@ -3,11 +3,15 @@
 /// More dartdocs go here.
 library;
 
+
+
+// utility
+export 'utility/logger/app_logger.dart';
+export 'utility/provider_observer/provider_observer.dart';
 export 'utility/constants.dart';
 export 'utility/crop_image.dart';
 export 'utility/firebase_helper.dart';
 export 'utility/flavor.dart';
-export 'utility/logger.dart';
 export 'utility/navigator_key_provider.dart';
 export 'utility/ngram.dart';
 export 'utility/scroll_controller_provider.dart';

@@ -1,0 +1,3 @@
+eol_at_end_of_file: true
+[*]
+insert_final_newline = true

@@ -16,11 +16,12 @@ dependencies:
 
   firebase_storage: ^12.3.2
   image_cropper: ^4.0.1
-  simple_logger: ^1.9.0+3
+  
   hooks_riverpod: ^2.5.2
   hashids2: ^2.0.0
   uuid: ^4.5.1
-  
+  logger: ^2.4.0
+
   
   
   # path: ^1.8.0
@@ -28,3 +29,4 @@ dependencies:
 dev_dependencies:
   lints: ^3.0.0
   test: ^1.24.0
+  very_good_analysis: ^6.0.0

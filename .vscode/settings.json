@@ -14,13 +14,7 @@
       "addWords": true,
       "scope": "workspace"
     },
-    "organization-words": {
-      "name": "organization-words",
-      "path": "${workspaceRoot}/.cspell/organization-words.txt",
-      "description": "Organization specific Words",
-      "addWords": true,
-      "scope": "workspace"
-    }
+
   },
   "cSpell.ignorePaths": [
     "dart_defines",
@@ -105,5 +99,6 @@
     "**/node_modules": true,
     "**/Pods": true
   },
-  "java.configuration.updateBuildConfiguration": "interactive"
+  "java.configuration.updateBuildConfiguration": "interactive",
+  "java.compile.nullAnalysis.mode": "automatic"
 }

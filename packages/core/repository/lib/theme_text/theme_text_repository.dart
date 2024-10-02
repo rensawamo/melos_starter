@@ -8,7 +8,7 @@ part 'theme_text_repository.g.dart';
 @riverpod
 class ThemeTextRepository extends _$ThemeTextRepository {
   late final SharedPreferences _sharedPreferences;
-  late final String _scaleKey;
+  final String _scaleKey = 'APP_TEXT_SCALE_KEY';
 
   @override
   AppTextScale build() {
@@ -19,9 +19,8 @@ class ThemeTextRepository extends _$ThemeTextRepository {
 
   Future<AppTextScale> loadScale() async {
     final scaleIndex =
-        await _sharedPreferences.getInt(_scaleKey) ?? AppTextScale.normal.index;
-    state = AppTextScale.values[scaleIndex];
-    return state;
+        _sharedPreferences.getInt(_scaleKey) ?? AppTextScale.normal.index;
+    return AppTextScale.values[scaleIndex];
   }
 
   Future<void> setScale(AppTextScale scale) async {

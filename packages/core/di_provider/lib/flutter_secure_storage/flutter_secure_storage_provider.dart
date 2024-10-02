@@ -3,9 +3,12 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'flutter_secure_storage_provider.g.dart';
 
+AndroidOptions _getAndroidOptions() => const AndroidOptions(
+      encryptedSharedPreferences: true,
+      sharedPreferencesName: 'org.lichess.mobile.secure',
+    );
+
 @Riverpod(keepAlive: true)
-FlutterSecureStorage flutterSecureStorage(
-  FlutterSecureStorageRef ref,
-) {
-  throw FlutterSecureStorage();
+FlutterSecureStorage secureStorage(SecureStorageRef ref) {
+  return FlutterSecureStorage(aOptions: _getAndroidOptions());
 }
