@@ -3,7 +3,7 @@
 /// More dartdocs go here.
 library;
 
-export 'theme_color/theme_color_repository.dart';
-export 'theme_text/theme_text_repository.dart';
+export 'shared_preferences/shard_preferences_provider.dart';
+export 'flutter_secure_storage/flutter_secure_storage_provider.dart';
 
 // TODO: Export any libraries intended for clients of this package.

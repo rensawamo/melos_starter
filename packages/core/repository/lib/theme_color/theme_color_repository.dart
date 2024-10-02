@@ -1,28 +1,30 @@
-// import 'package:flutter/material.dart';
-// import 'package:riverpod_annotation/riverpod_annotation.dart';
-// import 'package:shared_preferences/shared_preferences.dart';
-// part 'theme_color_repository.g.dart';
+import 'package:core_di_provider/di_provider.dart';
+import 'package:flutter/material.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-// @riverpod
-// class ThemeColorRepository extends _$ThemeColorRepository {
-//   late final SharedPreferences _preferences;
-//   final String _themeKey;
+part 'theme_color_repository.g.dart';
 
-//   @override
-//   ThemeMode build() {
-//     _preferences = ref.read(prefsRepositoryProvider);
-//     loadTheme();
-//     return state;
-//   }
+@riverpod
+class ThemeColorRepository extends _$ThemeColorRepository {
+  late final SharedPreferences _sharedPreferences;
+  late final String _themeKey;
 
-//   Future<void> loadTheme() async {
-//     final themeIndex =
-//         _prefsRepository.fetch<int>(_themeKey) ?? ThemeMode.light.index;
-//     state = ThemeMode.values[themeIndex];
-//   }
+  @override
+  ThemeMode build() {
+    _sharedPreferences = ref.read(sharedPreferencesProvider);
+    loadTheme();
+    return state;
+  }
 
-//   Future<void> setTheme(ThemeMode themeMode) async {
-//     state = themeMode;
-//     await _prefsRepository.save<int>(_themeKey, themeMode.index);
-//   }
-// }
+  Future<void> loadTheme() async {
+    final themeIndex =
+        _sharedPreferences.getInt(_themeKey) ?? ThemeMode.system.index;
+    state = ThemeMode.values[themeIndex];
+  }
+
+  Future<void> setTheme(ThemeMode themeMode) async {
+    state = themeMode;
+    await _sharedPreferences.setInt(_themeKey, themeMode.index);
+  }
+}

@@ -3,7 +3,6 @@
 /// More dartdocs go here.
 library;
 
-export 'theme_color/theme_color_repository.dart';
-export 'theme_text/theme_text_repository.dart';
+export 'enum/app_text_scale.dart';
 
 // TODO: Export any libraries intended for clients of this package.

@@ -1,6 +1,7 @@
 name: repository
 description: A starting point for Dart libraries or applications.
 version: 1.0.0
+publish_to: 'none'
 # repository: https://github.com/my_org/my_repo
 
 environment:
@@ -8,7 +9,11 @@ environment:
 
 # Add regular dependencies here.
 dependencies:
-  flutter_secure_storage: ^4.2.1
+  core_di_provider:
+    path: ../di_provider
+  core_foundation: 
+    path: ../foundation
+  flutter_secure_storage: ^9.2.2
   riverpod_annotation: ^2.3.5
   shared_preferences: ^2.3.2
   # path: ^1.8.0

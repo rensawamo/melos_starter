@@ -4,6 +4,7 @@ environment:
 dev_dependencies:
   melos: ^6.1.0
 dependencies:
+  google_fonts: ^6.2.1
   pedantic_mono: ^1.27.0
 
 
