@@ -278,10 +278,10 @@
       "languageVersion": "3.4"
     }
   ],
-  "generated": "2024-10-01T08:51:56.625401Z",
+  "generated": "2024-10-01T23:24:13.750232Z",
   "generator": "pub",
-  "generatorVersion": "3.4.4",
-  "flutterRoot": "file:///Users/rs/fvm/versions/3.22.3",
-  "flutterVersion": "3.22.3",
+  "generatorVersion": "3.4.3",
+  "flutterRoot": "file:///Users/rs/Developer/flutter",
+  "flutterVersion": "3.22.2",
   "pubCache": "file:///Users/rs/.pub-cache"
 }

@@ -4,141 +4,24 @@ publish_to: none
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.4.4
+  sdk: ^3.4.3
 
 dependencies:
   flutter:
     sdk: flutter
   core_utility:
     path: ../../packages/core/utility
-  flutter_localizations:
-    sdk: flutter
-  cupertino_icons: ^1.0.2
-
-  # Logger
-  simple_logger:
-
-  # LocalDatabase
-  shared_preferences:
-
-  # Riverpod
-  hooks_riverpod:
-  riverpod_annotation:
-
-  # Hooks
-  flutter_hooks:
-
-  # Entity
-  freezed_annotation:
-  json_annotation:
-  equatable:
-
-  # Dialog
-  adaptive_dialog:
-
-  # Access local storage
-  path_provider:
-
-  # Date
-  intl:
-
-  # Reactive
-  rxdart:
-
-  # Data share
-  share_plus:
-
-  # WebView
-  flutter_inappwebview: ^6.0.0
-
-  # Launcher
-  url_launcher:
-  map_launcher:
-
-  # Transition
-  page_transition:
-
-  # Image
-  image_picker:
-  image_gallery_saver:
-  image_cropper:
-  flutter_image_compress:
-  extended_image:
-  flutter_svg:
-
-  # Picker
-  numberpicker:
-
-  # PullToRefresh
-  pull_to_refresh_flutter3:
-
-  # Permission
-  permission_handler:
-
-  # Firebase
+  firebase_crashlytics: ^4.1.3
   firebase_core: ^3.6.0
-  firebase_analytics:
-  cloud_firestore: ^5.4.3
-  firebase_auth: ^5.3.1
-  firebase_storage: ^12.3.2
-  cloud_functions: 
-  firebase_messaging:
-  firebase_crashlytics: 
-  firebase_remote_config: 
-
-  # LocalNotification
-  flutter_local_notifications:
-  flutter_timezone:
-  timezone:
-
-  # Api
-  retrofit:
-  dio:
-
-  # Navigation
-  go_router:
-
-  # Info
-  package_info_plus:
-  device_info_plus:
-
-  # Text
-  flutter_linkify:
-
-  # Widget
-  flutter_slidable:
-  dismissible_page:
-
-  # Other
-  uuid:
-  synchronized:
-  hashids2:
-  collection:
-  quiver:
-  html:
-
+  flutter_native_splash: ^2.4.1
+ 
 dev_dependencies:
   # Test
   integration_test:
     sdk: flutter
   flutter_test:
     sdk: flutter
-  mockito:
-
-  # Static analysis
-  pedantic_mono:
-  custom_lint:
-  riverpod_lint:
-
-  # Serializer
-  json_serializable:
-
-  # Code generator
-  build_runner:
-  freezed:
-  flutter_gen_runner:
-  retrofit_generator:
-  riverpod_generator:
+  
 
   # Other
   flutter_launcher_icons:
@@ -153,6 +36,18 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
+
+flutter_native_splash:
+  color: '#add8e6'
+  image: 'assets/images/splash.png'
+  color_dark: '#262626'
+  image_dark: 'assets/images/splash.png'
+  fullscreen: true
+  android_12:
+    icon_background_color: '#add8e6'
+    image: 'assets/images/splash.png'
+    icon_background_color_dark: '#262626'
+    image_dark: 'assets/images/splash.png'
 
   # カスタムフォントを利用する場合はここを設定する
   # fonts:

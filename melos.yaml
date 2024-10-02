@@ -9,7 +9,7 @@ packages:
 command:
   bootstrap:
     environment:
-      sdk: ^3.4.4
+      sdk: ^3.4.3
       
   clean:
     hooks:

@@ -1,6 +1,6 @@
 name: melos_starter
 environment:
-  sdk: ^3.4.4
+  sdk: ^3.4.3
 dev_dependencies:
   melos: ^6.1.0
 dependencies:

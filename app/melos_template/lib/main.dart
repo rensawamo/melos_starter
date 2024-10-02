@@ -1,76 +1,91 @@
-import 'dart:io';
-import 'package:core_utility/utility.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_timezone/flutter_timezone.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:package_info_plus/package_info_plus.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:timezone/data/latest.dart' as tz;
-import 'package:timezone/timezone.dart' as tz;
-
-import 'app.dart';
-import 'core/repositories/package_info/package_info_repository.dart';
-import 'core/repositories/shared_preferences/shared_preference_repository.dart';
-import 'core/use_cases/images/image_compress.dart';
-
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  late final PackageInfo packageInfo;
-  late final SharedPreferences sharedPreferences;
-  late final Directory tempDirectory;
-  Logger.configure();
 
-  await (
-    /// Firebase
-    Firebase.initializeApp(),
+  /// Firebase 初期化
+  await Firebase.initializeApp();
 
-    /// 縦固定
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp,
-      DeviceOrientation.portraitDown,
-    ]),
+  /// 縦固定
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
 
-    Future(() async {
-      packageInfo = await PackageInfo.fromPlatform();
-    }),
-    Future(() async {
-      sharedPreferences = await SharedPreferences.getInstance();
-    }),
-    Future(() async {
-      tz.initializeTimeZones();
-      final currentTimeZone = await FlutterTimezone.getLocalTimezone();
-      tz.setLocalLocation(tz.getLocation(currentTimeZone));
-    }),
-    Future(() async {
-      tempDirectory = await getTemporaryDirectory();
-    }),
-  ).wait;
-
-  logger.info(Flavor.environment);
-
-  /// Crashlytics
+  /// Crashlytics エラーハンドリング
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
   PlatformDispatcher.instance.onError = (error, stack) {
     FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
     return true;
   };
 
-  runApp(
-    ProviderScope(
-      overrides: [
-        sharedPreferencesRepositoryProvider
-            .overrideWithValue(SharedPreferencesRepository(sharedPreferences)),
-        packageInfoRepositoryProvider
-            .overrideWithValue(PackageInfoRepository(packageInfo)),
-        imageCompressProvider.overrideWithValue(ImageCompress(tempDirectory)),
-      ],
-      child: const App(),
-    ),
-  );
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
+
+  final String title;
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text(widget.title),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const Text(
+              'You have pushed the button this many times:',
+            ),
+            Text(
+              '$_counter',
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
+      ),
+    );
+  }
 }
