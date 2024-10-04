@@ -22,19 +22,40 @@ command:
     releaseUrl: true
 
 scripts:
-  custom_lint:
-    exec: dart run custom_lint
-    description: Run custom_lint.
-    packageFilters:
-      dirExists: lib
-      dependsOn: "custom_lint"
-
+   
   analyze:
-    run: |
-      melos run analyze:dart --no-select
-      melos run analyze:flutter --no-select
-      melos run analyze:custom_lint --no-select
-    description: Run all analyze.
+    run: melos run analyze:dart && melos run analyze:dcm
+    description: Run all static analysis checks.
+    exec:
+      failFast: true
+  analyze:dart:
+    run: melos exec -c 10 -- dart analyze .
+    description: Run Dart static analysis checks.
+
+  analyze:dcm:
+    run: melos exec -c 10 -- dcm analyze . --fatal-style --fatal-performance --fatal-warnings
+    description: Run DCM static analysis checks.
+    packageFilters:
+      dependsOn: "dart_code_metrics_presets"
+  
+  lint:fix:all:
+    run: melos run lint:dart:fix && melos run lint:dcm:fix
+    description: Run all static analysis checks and apply fixes.
+
+  lint:dart:fix:
+    run: melos exec -- dart fix --apply .
+    description: Run Dart static analysis checks.
+
+  lint:dcm:fix:
+    run: melos exec -- dcm fix .
+    description: Run DCM static analysis checks.
+    packageFilters:
+      dependsOn: "dart_code_metrics_presets"
+
+  
+  fix:
+    exec: dart fix --apply lib
+    description: Run dart fix.
     packageFilters:
       dirExists: lib
 
@@ -47,11 +68,7 @@ scripts:
       flutter: true
       dirExists: [lib, test]
 
-  fix:
-    exec: dart fix --apply lib
-    description: Run dart fix.
-    packageFilters:
-      dirExists: lib
+  
 
   gen:
     run: |

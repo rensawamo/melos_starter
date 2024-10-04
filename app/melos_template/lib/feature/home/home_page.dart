@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_template/core/designsystem/color/color_set.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -16,12 +17,17 @@ class _HomePageState extends State<HomePage>
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SafeArea(
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [Text('remon')],
+            children: [
+              Text(
+                'remon',
+                style: TextStyle(color: ColorSet.exampleColor(context)),
+              ),
+            ],
           ),
         ),
       ),

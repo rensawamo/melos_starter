@@ -1,5 +1,5 @@
-import 'package:feature_setting/setting/setting_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_template/feature/setting/setting_page.dart';
 import 'package:go_router/go_router.dart';
 
 class SettingPageData extends GoRouteData {
@@ -10,4 +10,3 @@ class SettingPageData extends GoRouteData {
     return const SettingPage();
   }
 }
-

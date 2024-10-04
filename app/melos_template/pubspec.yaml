@@ -1,6 +1,6 @@
 name: flutter_app_template
 description: A new Flutter project.
-publish_to: none
+publish_to: 'none'
 version: 1.0.0+1
 
 environment:
@@ -9,45 +9,41 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  # feature
-  feature_setting:
-    path: ../../packages/feature/setting
-  #  core
-  core_di_provider:
-    path: ../../packages/core/di_provider
-  core_utility:
-    path: ../../packages/core/utility
-  core_repository:
-    path: ../../packages/core/repository
-  core_foundation:  
-    path: ../../packages/core/foundation
-  # 3rd party
-  shared_preferences: ^2.3.2
-  firebase_crashlytics: ^4.1.3
-  firebase_core: ^3.6.0
-  flutter_native_splash: ^2.4.1
-  google_fonts: ^4.0.4
-  go_router: ^14.2.8
-  firebase_analytics: ^11.3.3
   build_runner: ^2.4.11
-  riverpod_generator: ^2.4.0
-  go_router_builder: ^2.7.1
+  # core
+  core_ui: 
+    path: ../../packages/ui
+  core_di_provider:
+    path: ../../packages/di_provider
+  core_foundation:  
+    path: ../../packages/foundation
+  core_repository:
+    path: ../../packages/repository
+  core_utility:
+    path: ../../packages/utility
+
+  # 3rd party
+  firebase_auth: ^5.3.1
+  firebase_analytics: ^11.3.3
+  firebase_core: ^3.6.0
+  firebase_crashlytics: ^4.1.3
+  flutter_native_splash: ^2.4.1
   flutter_riverpod: ^2.5.1
-  
-  
- 
+  go_router: ^14.2.8
+  go_router_builder: ^2.7.1
+  google_fonts: ^4.0.4
+  riverpod_generator: ^2.4.0
+  shared_preferences: ^2.3.2
+
 dev_dependencies:
   # Test
-  integration_test:
-    sdk: flutter
+  flutter_launcher_icons:
   flutter_test:
+    sdk: flutter
+  integration_test:
     sdk: flutter
   very_good_analysis: ^6.0.0
   
-
-  # Other
-  flutter_launcher_icons:
-
 flutter_gen:
   output: lib/core/res/gen/
   colors:
@@ -71,18 +67,18 @@ flutter_native_splash:
     icon_background_color_dark: '#262626'
     image_dark: 'assets/images/splash.png'
 
-  # カスタムフォントを利用する場合はここを設定する
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
+# カスタムフォントを利用する場合はここを設定する
+# fonts:
+#   - family: Schyler
+#     fonts:
+#       - asset: fonts/Schyler-Regular.ttf
+#       - asset: fonts/Schyler-Italic.ttf
+#         style: italic
+#   - family: Trajan Pro
+#     fonts:
+#       - asset: fonts/TrajanPro.ttf
+#       - asset: fonts/TrajanPro_Bold.ttf
+#         weight: 700
 
 # flutter_launcher_iconsを利用してアイコンのリサイズする場合はここを設定する
 #flutter_icons:
@@ -92,4 +88,3 @@ flutter_native_splash:
 #  image_path_ios: "assets/icon/icon_ios.png"
 #  adaptive_icon_foreground: "assets/icon/adaptive_icon_foreground.png"
 #  adaptive_icon_background: "#F4A281"
-

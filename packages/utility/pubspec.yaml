@@ -1,0 +1,27 @@
+name: core_utility
+description: A starting point for Dart libraries or applications.
+version: 1.0.0
+publish_to: 'none'
+# repository: https://github.com/my_org/my_repo
+
+environment:
+  sdk: ^3.4.3
+
+# Add regular dependencies here.
+dependencies:
+  cloud_firestore: ^5.4.3
+  firebase_auth: ^5.3.1
+  firebase_storage: ^12.3.2
+  flutter:
+    sdk: flutter
+  flutter_riverpod: ^2.5.1
+  hashids2: ^2.0.0
+  image_cropper: ^4.0.1
+  logger: ^2.4.0
+  uuid: ^4.5.1
+  # path: ^1.8.0
+
+dev_dependencies:
+  lints: ^3.0.0
+  test: ^1.24.0
+  very_good_analysis: ^6.0.0

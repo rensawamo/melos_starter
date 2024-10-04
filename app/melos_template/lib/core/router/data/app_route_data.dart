@@ -13,8 +13,6 @@ final rootNavigatorKey = GlobalKey<NavigatorState>();
 final firstNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'first');
 final secoundNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'secound');
 
-//// statusful shell
-/// アプリ全体の宣言ルート
 @TypedStatefulShellRoute<AppShellRouteData>(
   branches: <TypedStatefulShellBranch<StatefulShellBranchData>>[
     /// bottom tab1
@@ -34,7 +32,6 @@ final secoundNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'secound');
 )
 class AppShellRouteData extends StatefulShellRouteData {
   const AppShellRouteData();
-
   static final GlobalKey<NavigatorState> $navigatorKey = rootNavigatorKey;
 
   @override
@@ -68,33 +65,3 @@ class SecoundBranch extends StatefulShellBranchData {
   ];
   static final GlobalKey<NavigatorState> $navigatorKey = secoundNavigatorKey;
 }
-
-// // sign in
-// @TypedGoRoute<SignInData>(
-//   path: Routes.sign_in,
-//   routes: <TypedGoRoute<GoRouteData>>[],
-// )
-// class SignInData extends GoRouteData {
-//   const SignInData();
-//   @override
-//   Widget build(BuildContext context, GoRouterState state) {
-//     return SignInPage();
-//   }
-// }
-
-// // sign up
-// @TypedGoRoute<SignUpData>(
-//   path: Routes.sign_up,
-//   routes: <TypedGoRoute<GoRouteData>>[
-//     TypedGoRoute<ForgetPasswordData>(path: Routes.forgot_password),
-//     TypedGoRoute<EmailVerificationData>(path: Routes.email_validation),
-//   ],
-// )
-// class SignUpData extends GoRouteData {
-//   const SignUpData();
-//   @override
-//   Widget build(BuildContext context, GoRouterState state) {
-//     return SignUpPage();
-//   }
-// }
-

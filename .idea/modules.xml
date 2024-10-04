@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/packages/core/di_provider/melos_core_di_provider.iml" filepath="$PROJECT_DIR$/packages/core/di_provider/melos_core_di_provider.iml" />
-      <module fileurl="file://$PROJECT_DIR$/packages/core/foundation/melos_core_foundation.iml" filepath="$PROJECT_DIR$/packages/core/foundation/melos_core_foundation.iml" />
-      <module fileurl="file://$PROJECT_DIR$/packages/core/repository/melos_core_repository.iml" filepath="$PROJECT_DIR$/packages/core/repository/melos_core_repository.iml" />
-      <module fileurl="file://$PROJECT_DIR$/packages/core/ui/melos_core_ui.iml" filepath="$PROJECT_DIR$/packages/core/ui/melos_core_ui.iml" />
-      <module fileurl="file://$PROJECT_DIR$/packages/core/utility/melos_core_utility.iml" filepath="$PROJECT_DIR$/packages/core/utility/melos_core_utility.iml" />
-      <module fileurl="file://$PROJECT_DIR$/packages/feature/setting/melos_feature_setting.iml" filepath="$PROJECT_DIR$/packages/feature/setting/melos_feature_setting.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/melos_template/melos_flutter_app_template.iml" filepath="$PROJECT_DIR$/app/melos_template/melos_flutter_app_template.iml" />
       <module fileurl="file://$PROJECT_DIR$/melos_flutter_app_template.iml" filepath="$PROJECT_DIR$/melos_flutter_app_template.iml" />
     </modules>

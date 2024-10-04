@@ -13,8 +13,7 @@
       "description": "Framework specific Words",
       "addWords": true,
       "scope": "workspace"
-    },
-
+    }
   },
   "cSpell.ignorePaths": [
     "dart_defines",

@@ -30,6 +30,7 @@ postbootstrap
 postclean
 pubspec
 Reorderable
+rxdart
 revenuecat
 riverpod
 Routemaster
@@ -48,3 +49,6 @@ xcconfig
 xcodebuild
 xcrun
 xcworkspace
+ngram
+kDebugMode
+hashids2

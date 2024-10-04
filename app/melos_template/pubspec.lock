@@ -236,35 +236,35 @@ packages:
   core_di_provider:
     dependency: "direct main"
     description:
-      path: "../../packages/core/di_provider"
+      path: "../../packages/di_provider"
       relative: true
     source: path
     version: "1.0.0"
   core_foundation:
     dependency: "direct main"
     description:
-      path: "../../packages/core/foundation"
+      path: "../../packages/foundation"
       relative: true
     source: path
     version: "1.0.0"
   core_repository:
     dependency: "direct main"
     description:
-      path: "../../packages/core/repository"
+      path: "../../packages/repository"
       relative: true
     source: path
     version: "1.0.0"
   core_ui:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
-      path: "../../packages/core/ui"
+      path: "../../packages/ui"
       relative: true
     source: path
     version: "1.0.0"
   core_utility:
     dependency: "direct main"
     description:
-      path: "../../packages/core/utility"
+      path: "../../packages/utility"
       relative: true
     source: path
     version: "1.0.0"
@@ -332,13 +332,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.3.1"
-  feature_setting:
-    dependency: "direct main"
-    description:
-      path: "../../packages/feature/setting"
-      relative: true
-    source: path
-    version: "1.0.0"
   ffi:
     dependency: transitive
     description:
@@ -380,7 +373,7 @@ packages:
     source: hosted
     version: "0.5.10+2"
   firebase_auth:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: firebase_auth
       sha256: d453acec0d958ba0e25d41a9901b32cb77d1535766903dea7a61b2788c304596
@@ -509,14 +502,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_hooks:
-    dependency: transitive
-    description:
-      name: flutter_hooks
-      sha256: cde36b12f7188c85286fba9b38cc5a902e7279f36dd676967106c041dc9dde70
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.20.5"
   flutter_launcher_icons:
     dependency: "direct dev"
     description:
@@ -668,14 +653,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.0"
-  hooks_riverpod:
-    dependency: transitive
-    description:
-      name: hooks_riverpod
-      sha256: "97266a91c994951a06ef0ff3a1c7fb261e52ec7f74e87f0614ea0b7411b859b2"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.5.2"
   html:
     dependency: transitive
     description:

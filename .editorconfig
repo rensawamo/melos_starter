@@ -1,3 +1,22 @@
-eol_at_end_of_file: true
+# editorconfig.org
+root = true
+
 [*]
 insert_final_newline = true
+trim_trailing_whitespace = true
+charset = utf-8
+indent_style = space
+indent_size = 2
+
+[*.dart]
+indent_size = 2
+
+[*.yaml]
+indent_size = 2
+
+[Makefile]
+indent_style = tab
+indent_size = 4
+end_of_line = lf
+
+

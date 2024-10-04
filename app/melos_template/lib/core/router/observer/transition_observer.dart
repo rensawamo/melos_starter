@@ -41,23 +41,26 @@ class TransitionObserver extends NavigatorObserver {
 
   @override
   void didStartUserGesture(
-      Route<dynamic> route, Route<dynamic>? previousRoute,) {
+    Route<dynamic> route,
+    Route<dynamic>? previousRoute,
+  ) {
     super.didStartUserGesture(route, previousRoute);
     _onTransition(route, previousRoute, AppTransitionType.startUserGesture);
   }
 
-
-  Future<void> _onTransition(
+  void _onTransition(
     Route<dynamic> route,
     Route<dynamic>? previousRoute,
     AppTransitionType transitionType,
-  ) async {
+  ) {
     final pageName = route.settings.name ?? 'unknown';
-    logger.i('pageName: $pageName, ${transitionType.name}');
-    analytics
-      .logEvent(name: 'page_transition', parameters: {
+    logger.d('pageName: $pageName, ${transitionType.name}');
+    analytics.logEvent(
+      name: 'page_transition',
+      parameters: {
         'page_name': pageName,
         'transition_type': transitionType.name,
-      },);
+      },
+    );
   }
 }

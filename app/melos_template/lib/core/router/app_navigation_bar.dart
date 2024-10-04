@@ -5,7 +5,8 @@ import 'package:go_router/go_router.dart';
 /// [navigationShell] によって、画面遷移を管理する
 class AppNavigationBar extends StatelessWidget {
   const AppNavigationBar({
-    required this.navigationShell, super.key,
+    required this.navigationShell,
+    super.key,
   });
 
   final StatefulNavigationShell navigationShell;
