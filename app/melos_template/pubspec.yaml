@@ -18,9 +18,7 @@ dependencies:
   core_foundation:  
     path: ../../packages/foundation
   core_repository:
-    path: ../../packages/repository
-  core_utility:
-    path: ../../packages/utility
+    path: ../../packages/repository  
 
   # 3rd party
   firebase_auth: ^5.3.1

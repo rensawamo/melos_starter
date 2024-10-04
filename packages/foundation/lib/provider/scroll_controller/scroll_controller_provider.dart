@@ -8,7 +8,7 @@ part 'scroll_controller_provider.g.dart';
 class ScrollBarController extends _$ScrollBarController {
   @override
   ScrollController build() {
-    ScrollController controller = ScrollController();
+    var controller = ScrollController();
     ref.onDispose(() {
       controller.dispose();
     });

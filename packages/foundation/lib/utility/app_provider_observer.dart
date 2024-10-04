@@ -1,4 +1,4 @@
-import 'package:core_utility/utility.dart';
+import 'package:core_foundation/utility/app_logger.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class ProviderLogger implements ProviderObserver {

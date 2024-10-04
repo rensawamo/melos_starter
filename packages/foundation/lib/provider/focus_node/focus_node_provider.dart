@@ -7,7 +7,7 @@ part 'focus_node_provider.g.dart';
 class FocusNodeController extends _$FocusNodeController {
   @override
   FocusNode build() {
-    FocusNode controller = FocusNode();
+    var controller = FocusNode();
     ref.onDispose(() {
       controller.dispose();
     });

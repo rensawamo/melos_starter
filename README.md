@@ -3,4 +3,7 @@
 $ dart create -t package NAME
 ```
 
-# 参考にさせていただいたプロジェクト
+# masonで新しい featureのpageの雛形を作成
+```sh
+$ mason make feature
+```

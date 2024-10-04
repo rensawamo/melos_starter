@@ -2,9 +2,8 @@ name: flutter_app_template
 repository: https://github.com/altive/flutter_app_template
 
 packages:
-  - "packages/core/*"
-  - "packages/feature/*"
   - "app/*"
+  - "packages/*"
 
 command:
   bootstrap:
