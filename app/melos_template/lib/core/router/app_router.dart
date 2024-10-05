@@ -5,7 +5,6 @@ import 'package:flutter_app_template/core/router/routes.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-/// アプリ全体の 宣言的なルーティングを提供するProvider
 final routerProvider = Provider((ref) {
   return GoRouter(
     navigatorKey: rootNavigatorKey,

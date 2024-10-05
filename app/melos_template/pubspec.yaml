@@ -9,18 +9,17 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  build_runner: ^2.4.11
-  # core
   core_ui: 
     path: ../../packages/ui
+  core_network: 
+    path: ../../packages/network
   core_di_provider:
     path: ../../packages/di_provider
   core_foundation:  
     path: ../../packages/foundation
   core_repository:
     path: ../../packages/repository  
-
-  # 3rd party
+  dio: ^5.7.0
   firebase_auth: ^5.3.1
   firebase_analytics: ^11.3.3
   firebase_core: ^3.6.0
@@ -33,20 +32,19 @@ dependencies:
   riverpod_generator: ^2.4.0
   shared_preferences: ^2.3.2
   flutter_launcher_icons: ^0.14.1
+  freezed_annotation: ^2.4.4
+  json_annotation: ^4.9.0
 
 dev_dependencies:
-  # Test
+  build_runner: ^2.4.9
+  freezed: ^2.4.5
+  json_serializable: ^6.7.1
+
   flutter_test:
     sdk: flutter
   integration_test:
     sdk: flutter
   very_good_analysis: ^6.0.0
-  
-flutter_gen:
-  output: lib/core/res/gen/
-  colors:
-    inputs:
-      - assets/color/colors.xml
 
 flutter:
   uses-material-design: true
