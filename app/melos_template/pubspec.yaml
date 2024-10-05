@@ -32,10 +32,10 @@ dependencies:
   google_fonts: ^4.0.4
   riverpod_generator: ^2.4.0
   shared_preferences: ^2.3.2
+  flutter_launcher_icons: ^0.14.1
 
 dev_dependencies:
   # Test
-  flutter_launcher_icons:
   flutter_test:
     sdk: flutter
   integration_test:
@@ -53,6 +53,16 @@ flutter:
   assets:
     - assets/images/
 
+flutter_icons:
+  android: true
+  ios: true
+  assets:
+    - ./assets/images/
+    - ./assets/images/icons/dev.png
+    - ./assets/images/icons/prod.png
+    - ./assets/images/icons/stg.png
+    
+    
 flutter_native_splash:
   color: '#add8e6'
   image: 'assets/images/splash.png'
