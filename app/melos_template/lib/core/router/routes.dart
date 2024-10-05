@@ -5,6 +5,7 @@ mixin Routes {
 
   /// home
   static const home = '/home';
+  static const weature = 'weature';
 
   /// setting
   static const setting = '/setting';

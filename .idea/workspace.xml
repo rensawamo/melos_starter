@@ -5,95 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfde4280-0bfa-4c16-8efb-5f850a8f4b1b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config_subset" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config_subset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/version" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/version" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.fvmrc" beforeDir="false" afterPath="$PROJECT_DIR$/.fvmrc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/analysis_options.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/melos_template/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/android/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/android/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/android/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/core/router/router.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/core/router/router.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/core/router/transition_observer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/core/router/transition_observer.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/core/use_cases/images/save_image_to_media_folder.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/core/use_cases/images/save_image_to_media_folder.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/core/utils/clipboard.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/core/utils/constants.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/core/utils/crop_image.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/core/utils/firebase_helper.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/core/utils/flavor.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/core/utils/logger.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/core/utils/navigator_key_provider.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/core/utils/ngram.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/core/utils/scroll_controller_provider.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/core/utils/tab_tap_operation_provider.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/core/utils/uuid_generator.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/core/utils/validation.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/core/utils/vibration.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/core/widgets/sheets/show_map_launcher.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/core/widgets/sheets/show_map_launcher.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/core/widgets/sheets/show_photo_and_crop_bottom_sheet.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/core/widgets/sheets/show_photo_and_crop_bottom_sheet.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/core/widgets/sheets/show_photo_bottom_sheet.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/core/widgets/sheets/show_photo_bottom_sheet.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/features/app_wrapper/pages/main_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/features/app_wrapper/pages/main_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/features/authentication/pages/change_email_address_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/features/authentication/pages/change_email_address_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/features/authentication/pages/change_email_password_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/features/authentication/pages/change_email_password_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/features/authentication/pages/reset_email_password_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/features/authentication/pages/reset_email_password_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/features/authentication/pages/sign_in_with_email_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/features/authentication/pages/sign_in_with_email_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/features/authentication/pages/sign_up_with_email_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/features/authentication/pages/sign_up_with_email_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/features/authentication/pages/widgets/current_email_address_text.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/features/authentication/pages/widgets/current_email_address_text.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/features/authentication/use_cases/change_email_address.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/features/authentication/use_cases/change_email_address.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/features/authentication/use_cases/change_email_password.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/features/authentication/use_cases/change_email_password.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/features/authentication/use_cases/send_email_verification.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/features/authentication/use_cases/send_email_verification.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/features/authentication/use_cases/send_password_reset_email.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/features/authentication/use_cases/send_password_reset_email.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/features/authentication/use_cases/sign_in_with_email_and_password.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/features/authentication/use_cases/sign_in_with_email_and_password.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/features/authentication/use_cases/sign_up_with_email_and_password.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/features/authentication/use_cases/sign_up_with_email_and_password.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/features/github_users/pages/github_users_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/features/github_users/pages/github_users_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/features/github_users/repositories/github_api_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/features/github_users/repositories/github_api_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/features/home/pages/home_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/features/home/pages/home_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/features/home/repositories/screen_reader_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/features/home/repositories/screen_reader_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/features/memo/pages/memo_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/features/memo/pages/memo_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/features/setting/pages/dialogs/show_edit_profile_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/features/setting/pages/dialogs/show_edit_profile_dialog.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/features/setting/pages/setting_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/features/setting/pages/setting_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/features/setting/pages/web_view_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/features/setting/pages/web_view_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/features/setting/use_cases/fetch_my_profile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/features/setting/use_cases/fetch_my_profile.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/features/setting/use_cases/save_my_profile_image.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/features/setting/use_cases/save_my_profile_image.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/features/setting/use_cases/sign_out.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/features/setting/use_cases/sign_out.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/features/start_up/pages/start_up_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/features/start_up/pages/start_up_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/features/start_up/use_cases/start_up.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/features/start_up/use_cases/start_up.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/features/timeline/pages/edit_post_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/features/timeline/pages/edit_post_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/features/timeline/pages/post_detail_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/features/timeline/pages/post_detail_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/features/timeline/pages/timeline_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/features/timeline/pages/timeline_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/features/timeline/pages/widgets/tile_menu.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/features/timeline/pages/widgets/tile_menu.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/features/timeline/pages/widgets/timeline_tile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/features/timeline/pages/widgets/timeline_tile.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/features/timeline/use_cases/fetch_poster.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/features/timeline/use_cases/fetch_poster.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/melos_template/dart_defines/dev.env" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/dart_defines/dev.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/melos_template/dart_defines/prod.env" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/dart_defines/prod.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/feature/setting/setting_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/feature/setting/setting_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/melos_template/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/sh/create_keystore_debug.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/sh/create_keystore_release.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/sh/show_keystore_debug.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/sh/show_keystore_release.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/test/core/repositories/shared_preferences/shared_preference_repository_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/test/core/repositories/shared_preferences/shared_preference_repository_test.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/test/features/authentication/pages/sign_in_with_email_page_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/test/features/authentication/pages/sign_in_with_email_page_test.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/test/features/authentication/pages/sign_up_with_email_page_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/test/features/authentication/pages/sign_up_with_email_page_test.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/test/features/authentication/use_cases/sign_in_with_email_and_password_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/test/features/authentication/use_cases/sign_in_with_email_and_password_test.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/test/features/authentication/use_cases/sign_up_with_email_and_password_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/test/features/authentication/use_cases/sign_up_with_email_and_password_test.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/test/features/github_users/pages/github_users_page_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/test/features/github_users/pages/github_users_page_test.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/test/features/github_users/repositories/github_api_repository_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/test/features/github_users/repositories/github_api_repository_test.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/test/features/github_users/use_cases/github_users_controller_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/test/features/github_users/use_cases/github_users_controller_test.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/test/features/local_counter/pages/local_counter_page_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/test/features/local_counter/pages/local_counter_page_test.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/test/features/local_counter/use_cases/local_counter_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/test/features/local_counter/use_cases/local_counter_test.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/melos.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/melos.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/melos_flutter_app_template.iml" beforeDir="false" afterPath="$PROJECT_DIR$/melos_flutter_app_template.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/core/core" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/core/repository/analysis_options.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/core/repository/lib/repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/repository/lib/repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/core/repository/lib/theme_color/theme_color_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/repository/lib/theme_color/theme_color_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/core/repository/lib/theme_color/theme_color_repository.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/repository/lib/theme_color/theme_color_repository.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/core/repository/lib/theme_text/theme_text_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/repository/lib/theme_text/theme_text_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/core/repository/lib/theme_text/theme_text_repository.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/repository/lib/theme_text/theme_text_repository.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/core/repository/test/repository_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/repository/test/repository_test.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,9 +26,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2mpQVnDRNLkfd1dVuokZc0k7tUh" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -126,7 +43,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "dev",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/rs/Desktop/melos_starter",
     "show.migrate.to.gradle.popup": "false"

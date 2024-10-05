@@ -1,3 +1,4 @@
+import 'package:core_di_provider/di_provider.dart';
 import 'package:core_foundation/extension/context_extension.dart';
 import 'package:core_ui/widget/app_base_frame.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,9 @@ class SettingPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return AppBaseFrame(
+    final flavor = ref.read(flavorProvider);
+
+    return AppBarFrame(
       hasPrevButton: false,
       title: '設定',
       body: ListView(
@@ -49,18 +52,17 @@ class SettingPage extends ConsumerWidget {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(20),
                             child: Image.asset(
-                              'assets/launcher_icons/prod.png',
+                              'assets/images/icons/${flavor.name}.png',
                             ),
                           ),
                         ),
                       ),
-                      SizedBox(
-                        width: context.mediaQueryWidth * .25,
-                        child: const Column(
+                      const SizedBox(
+                        child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Text(
-                              '韓国語AI会話',
+                              'melos_template',
                             ),
                           ],
                         ),

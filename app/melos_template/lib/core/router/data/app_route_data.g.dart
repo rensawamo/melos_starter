@@ -20,6 +20,12 @@ RouteBase get $appShellRouteData => StatefulShellRouteData.$route(
             GoRouteData.$route(
               path: '/home',
               factory: $HomePageDataExtension._fromState,
+              routes: [
+                GoRouteData.$route(
+                  path: 'weature',
+                  factory: $WeatureRouteDataExtension._fromState,
+                ),
+              ],
             ),
           ],
         ),
@@ -46,6 +52,24 @@ extension $HomePageDataExtension on HomePageData {
 
   String get location => GoRouteData.$location(
         '/home',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $WeatureRouteDataExtension on WeatureRouteData {
+  static WeatureRouteData _fromState(GoRouterState state) =>
+      const WeatureRouteData();
+
+  String get location => GoRouteData.$location(
+        '/home/weature',
       );
 
   void go(BuildContext context) => context.go(location);

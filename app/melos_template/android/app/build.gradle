@@ -36,9 +36,9 @@ if (project.hasProperty('dart-defines')) {
             }
 }
 println "Dart Environment Variables: ${dartEnvironmentVariables}"  
-println "Using FLAVOR: ${dartEnvironmentVariables.FLAVOR}"  
+println "Using flavor: ${dartEnvironmentVariables.flavor}"  
 task selectGoogleServicesJson(type: Copy) {
-    from "src/${dartEnvironmentVariables.FLAVOR}/google-services.json"
+    from "src/${dartEnvironmentVariables.flavor}/google-services.json"
     into './'
 }
 
@@ -75,14 +75,14 @@ android {
     defaultConfig {
         applicationId "com.example.com"
         // flavor設定
-        if (dartEnvironmentVariables.FLAVOR != 'prod') {
-            applicationIdSuffix ".${dartEnvironmentVariables.FLAVOR}"
+        if (dartEnvironmentVariables.flavor != 'prod') {
+            applicationIdSuffix ".${dartEnvironmentVariables.flavor}"
         }
         minSdkVersion 24
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
-        resValue "string", "app_name", (dartEnvironmentVariables.FLAVOR == 'prod' ? '' : "${dartEnvironmentVariables.FLAVOR}.") +
+        resValue "string", "app_name", (dartEnvironmentVariables.flavor == 'prod' ? '' : "${dartEnvironmentVariables.flavor}.") +
                 "template"
     }
 

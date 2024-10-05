@@ -29,7 +29,7 @@ class {{page_name.pascalCase()}}Page extends ConsumerWidget {
       body: state.isLoading
           ? const AppCircleIndicator()
           : Column(
-              children: [
+              children: [ 
               ],
             ),
     );
