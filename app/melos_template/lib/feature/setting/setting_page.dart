@@ -11,6 +11,7 @@ class SettingPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final flavor = ref.read(flavorProvider);
+
     return AppBarFrame(
       hasPrevButton: false,
       title: '設定',
@@ -51,18 +52,17 @@ class SettingPage extends ConsumerWidget {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(20),
                             child: Image.asset(
-                              'assets/icons/$flavor.png',
+                              'assets/images/icons/${flavor.name}.png',
                             ),
                           ),
                         ),
                       ),
-                      SizedBox(
-                        width: context.mediaQueryWidth * .25,
-                        child: const Column(
+                      const SizedBox(
+                        child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Text(
-                              '韓国語AI会話',
+                              'melos_template',
                             ),
                           ],
                         ),

@@ -12,11 +12,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  
   /// Firebase 初期化
   await Firebase.initializeApp();
 
-  /// 縦固定
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
@@ -31,10 +29,12 @@ Future<void> main() async {
 
   /// for di_provider
   final sharedPreferences = await SharedPreferences.getInstance();
+  final flavor = Flavor.values.byName(const String.fromEnvironment('flavor'));
 
   runApp(
     ProviderScope(
       overrides: [
+        flavorProvider.overrideWithValue(flavor),
         sharedPreferencesProvider.overrideWithValue(sharedPreferences),
       ],
       observers: const [ProviderLogger()],

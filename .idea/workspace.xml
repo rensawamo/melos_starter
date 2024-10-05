@@ -5,23 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfde4280-0bfa-4c16-8efb-5f850a8f4b1b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mason/templates/feature/__brick__/{{page_name}}.dart" beforeDir="false" afterPath="$PROJECT_DIR$/.mason/templates/feature/__brick__/{{page_name}}.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/melos_template/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/melos_template/dart_defines/dev.env" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/dart_defines/dev.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/melos_template/dart_defines/prod.env" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/dart_defines/prod.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/melos_template/lib/feature/setting/setting_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/feature/setting/setting_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/melos_flutter_app_template.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/di_provider/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/packages/di_provider/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/foundation/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/packages/foundation/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/repository/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/packages/repository/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/repository/melos_core_repository.iml" beforeDir="false" afterPath="$PROJECT_DIR$/packages/repository/melos_core_repository.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/service/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/packages/service/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/ui/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/packages/ui/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/ui/lib/widget/app_base_frame.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/ui/lib/widget/app_base_frame.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/main.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,21 +34,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/rs/Desktop/melos_starter&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "dev",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/rs/Desktop/melos_starter",
+    "show.migrate.to.gradle.popup": "false"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Flutter.Flutter Run -&gt; 'flutter_app_template'" />
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
