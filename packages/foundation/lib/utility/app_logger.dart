@@ -2,7 +2,9 @@ import 'package:flutter/foundation.dart';
 import 'package:logger/logger.dart';
 
 final logger = Logger(
-  printer: PrettyPrinter(),
+  printer: PrettyPrinter(
+    methodCount: 1, 
+  ),
   level: kDebugMode ? Level.debug : Level.warning,
 );
 

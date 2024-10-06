@@ -5,12 +5,49 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfde4280-0bfa-4c16-8efb-5f850a8f4b1b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.cspell/framework-words.txt" beforeDir="false" afterPath="$PROJECT_DIR$/.cspell/framework-words.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.cspell/project-words.txt" beforeDir="false" afterPath="$PROJECT_DIR$/.cspell/project-words.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config_subset" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config_subset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/dart_defines/dev.env" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/dart_defines/dev.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/melos_template/dart_defines/prod.env" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/dart_defines/prod.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mason/templates/feature/__brick__/{{page_name}}.dart" beforeDir="false" afterPath="$PROJECT_DIR$/.mason/templates/feature/__brick__/{{page_name}}.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/melos_template/lib/feature/setting/setting_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/feature/setting/setting_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/melos_template/lib/feature/weature/weature_viewmodel.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/feature/weature/weature_viewmodel.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/melos_template/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/melos_template/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/melos_template/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/melos_template/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mason-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/mason-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/melos.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/melos.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/di_provider/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/packages/di_provider/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/di_provider/lib/flavor/flavor_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/di_provider/lib/flavor/flavor_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/di_provider/lib/flutter_secure_storage/flutter_secure_storage_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/di_provider/lib/flutter_secure_storage/flutter_secure_storage_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/di_provider/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/packages/di_provider/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/foundation/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/packages/foundation/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/foundation/lib/enum/app_error.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/foundation/lib/enum/app_error.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/foundation/lib/provider/focus_node/focus_node_provider.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/foundation/lib/provider/focus_node/focus_node_provider.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/foundation/lib/provider/life_cycle/app_lifecycle_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/foundation/lib/provider/life_cycle/app_lifecycle_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/foundation/lib/provider/scroll_controller/scroll_controller_provider.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/foundation/lib/provider/scroll_controller/scroll_controller_provider.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/foundation/lib/provider/text_controller/text_controller_provider.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/foundation/lib/provider/text_controller/text_controller_provider.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/foundation/lib/utility/app_logger.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/foundation/lib/utility/app_logger.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/foundation/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/packages/foundation/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/repository/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/packages/repository/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/repository/lib/repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/repository/lib/repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/repository/lib/theme_color/theme_color_repository.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/repository/lib/theme_color/theme_color_repository.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/repository/lib/theme_text/theme_text_repository.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/repository/lib/theme_text/theme_text_repository.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/repository/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/packages/repository/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/service/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/packages/service/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/service/lib/firebase_analiticcs/firebase_analitics_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/service/lib/firebase_analiticcs/firebase_analitics_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/ui/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/packages/ui/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/ui/lib/dialog/app_error_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/ui/lib/dialog/app_error_dialog.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/ui/lib/widget/appbar_for_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/ui/lib/widget/appbar_for_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +80,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "dev",
+    "git-widget-placeholder": "development",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/rs/Desktop/melos_starter",
     "show.migrate.to.gradle.popup": "false"

@@ -5,7 +5,7 @@ part 'flutter_secure_storage_provider.g.dart';
 
 AndroidOptions _getAndroidOptions() => const AndroidOptions(
       encryptedSharedPreferences: true,
-      sharedPreferencesName: 'org.lichess.mobile.secure',
+      sharedPreferencesName: '',
     );
 
 @Riverpod(keepAlive: true)

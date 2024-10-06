@@ -1,11 +1,7 @@
 name: melos_starter
 environment:
   sdk: ^3.4.3
-
 dependencies:
-  flutter_riverpod: ^2.5.1
-  google_fonts: ^6.2.1
   very_good_analysis: ^6.0.0
-
 dev_dependencies:
   melos: ^6.1.0

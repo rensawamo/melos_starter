@@ -14,14 +14,17 @@ class {{page_name.pascalCase()}}Viewmodel extends _${{page_name.pascalCase()}}Vi
   Future<AppError?> call() async {
     final {{page_name.camelCase()}}Request = {{page_name.pascalCase()}}Request(
     );
-
-    state = state.copyWith(isLoading: true);
-
     try {
       state = state.copyWith(isLoading: false);
     } catch (e) {
       state = state.copyWith(isLoading: false);
-      return e as AppError;
+      if (e is AppError) {
+        return e;
+      } else {
+        return AppError.unknownError(
+          '$e',
+        );
+      }
     }
     return null;
   }

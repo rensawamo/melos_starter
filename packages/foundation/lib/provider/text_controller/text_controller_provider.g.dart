@@ -6,7 +6,7 @@ part of 'text_controller_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$textControllerHash() => r'49261e56003f62bd8b39bfb4c1f0d360537f27b3';
+String _$textControllerHash() => r'e6906f81826f52ffdcc6f105c0cc8d9ff6ea9847';
 
 /// See also [TextController].
 @ProviderFor(TextController)

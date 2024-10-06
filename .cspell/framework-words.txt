@@ -1,5 +1,7 @@
 # Framework Specific Words
+ansicolor
 altool
+autofocus
 appbar
 appbundle
 Checkmark
@@ -52,3 +54,4 @@ xcworkspace
 ngram
 kDebugMode
 hashids2
+timeago

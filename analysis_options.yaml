@@ -12,8 +12,8 @@ analyzer:
     
 linter:
   rules:
-    # dont need all doc
    public_member_api_docs: false
+   lines_longer_than_80_chars: false
     
 
    

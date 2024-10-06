@@ -7,7 +7,7 @@ part of 'scroll_controller_provider.dart';
 // **************************************************************************
 
 String _$scrollBarControllerHash() =>
-    r'afb7096a8881ba1089a0e1677ad6e8e3ab2ddb05';
+    r'23993704840641bb95f7a760e35b760bb949c87e';
 
 /// See also [ScrollBarController].
 @ProviderFor(ScrollBarController)

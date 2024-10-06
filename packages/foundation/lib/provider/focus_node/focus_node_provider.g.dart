@@ -7,7 +7,7 @@ part of 'focus_node_provider.dart';
 // **************************************************************************
 
 String _$focusNodeControllerHash() =>
-    r'85177790a763a73a4e5a0d8dd0ab1e19b5585240';
+    r'39b99c151c17c8ec301ee1725f9998e10813e2ea';
 
 /// See also [FocusNodeController].
 @ProviderFor(FocusNodeController)

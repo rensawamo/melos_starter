@@ -35,12 +35,8 @@ class WeatureViewmodel extends _$WeatureViewmodel {
       final response = await dioClient.get(
         Urls.currentWeatherByName('Tokyo'),
       );
-      logger.d('Response: $response');
-
-      final weatherData = WeatherData.fromJson(response as Map<String, dynamic>);
-
-      logger.i('Weather data: $weatherData');
-
+      final weatherData =
+          WeatherData.fromJson(response as Map<String, dynamic>);
       state = state.copyWith(
         isLoading: false,
         weatherData: weatherData,

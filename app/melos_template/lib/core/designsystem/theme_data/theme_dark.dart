@@ -4,8 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 ThemeData themeDark() {
   const primary = Color.fromARGB(255, 56, 106, 31);
 
-  // テーマの基本設定
-  // https://zenn.dev/gen_kk/articles/cc538ffa392922
   final base = ThemeData(
     /// アプリのフォントを指定
     fontFamily: GoogleFonts.kiwiMaru().fontFamily,
