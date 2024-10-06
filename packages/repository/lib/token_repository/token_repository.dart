@@ -22,12 +22,13 @@ class TokenRepositoryImpl implements TokenRepository {
   String cachedToken = '';
 
   @override
-  Future<Error?> saveTokenFromCookies(
+  Future<AppError?> saveTokenFromCookies(
     List<Cookie> cookies,
   ) async {
     for (final cookie in cookies) {
       if (cookie.name == key) {
         await _secureStorage.write(key: key, value: cookie.value);
+        cachedToken = cookie.value;
         logger.i('Token saved to secure storage: ${cookie.value}');
         return null;
       }
@@ -39,40 +40,21 @@ class TokenRepositoryImpl implements TokenRepository {
   @override
   Future<void> saveToken(String value) async {
     await _secureStorage.write(key: key, value: value);
+    cachedToken = value;
     logger.i('Token saved to secure storage: $value');
   }
 
   @override
   Future<String> loadToken() async {
-    try {
-      final token = await _secureStorage.read(key: key);
-      if (token == '' || token == null) {
-        logger.w('Token not found for key: $key');
-        return '';
-      }
-      logger.i('Token successfully loaded for key: $key');
-      return token;
-    } catch (e) {
-      logger.e('Error loading token: $e');
-      throw AppError.authenticationError();
-    }
-  }
-
-  @override
-  Future<String> loadTokenNoException() async {
-    try {
-      final token = await _secureStorage.read(key: key);
-      if (token == '' || token == null) {
-        logger.w('Token not found for key: $key');
-        return '';
-      }
-      logger.i('Token successfully loaded for key: $key');
-      return token;
-    } catch (e) {
-      logger.e('Error loading token: $e');
+    final token = await _secureStorage.read(key: key);
+    if (token == '' || token == null) {
+      logger.w('Token not found for key: $key');
       return '';
     }
+    logger.i('Token successfully loaded for key: $key');
+    return token;
   }
+
 
   @override
   Future<Error?> deleteToken() async {
@@ -107,13 +89,11 @@ abstract class TokenRepository {
   String cachedToken = '';
 
   // Save the token from the list of cookies
-  Future<Error?> saveTokenFromCookies(List<Cookie> cookies);
+  Future<AppError?> saveTokenFromCookies(List<Cookie> cookies);
   // Save the token in secure storage
   Future<void> saveToken(String value);
   // Retrieve the token
   Future<String> loadToken();
-  // Retrieve the token without throwing an exception
-  Future<String> loadTokenNoException();
   // Delete the token
   Future<Error?> deleteToken();
   // Retrieve the cached token

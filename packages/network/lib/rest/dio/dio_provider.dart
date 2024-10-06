@@ -1,8 +1,9 @@
 import 'package:core_repository/repository.dart';
 import 'package:dio/dio.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:talker_dio_logger/talker_dio_logger.dart';
 import 'package:talker_flutter/talker_flutter.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:talker_dio_logger/talker_dio_logger_interceptor.dart';
 
 part 'dio_provider.g.dart';
 
