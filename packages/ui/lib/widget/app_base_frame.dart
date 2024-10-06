@@ -83,8 +83,9 @@ class _AppBaseFrameState extends ConsumerState<AppBarFrame> {
   }
 
   Widget _prevButton(BuildContext context) {
-    if (!Navigator.canPop(context)) return const SizedBox();
-
+    if (!context.canPop()) {
+      return const SizedBox();
+    }
     return IconButton(
       key: widget.backButtonKey,
       icon: const Icon(Icons.arrow_back),

@@ -5,7 +5,6 @@ analyzer:
     invalid_annotation_target: ignore
     sort_pub_dependencies: ignore
   exclude:
-    - "**/gen/*.dart"
     - "**/firebase_options_*.dart"
     - "**/*.freezed.dart"  
     - "**/*.g.dart" 
