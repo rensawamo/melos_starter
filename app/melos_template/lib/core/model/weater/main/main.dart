@@ -8,9 +8,9 @@ part 'main.g.dart';
 class Main with _$Main {
   const factory Main({
     required double temp,
-    required double feels_like,
-    required double temp_min,
-    required double temp_max,
+    required double feelsLike,
+    required double tempMin,
+    required double tempMax,
     required int pressure,
     required int humidity,
   }) = _Main;

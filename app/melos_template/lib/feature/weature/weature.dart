@@ -1,4 +1,3 @@
-import 'package:core_foundation/extension/context_extension.dart';
 import 'package:core_foundation/foundation.dart';
 import 'package:core_ui/ui.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +20,9 @@ class WeaturePage extends ConsumerWidget {
       init: () async {
         await vm.fetchWeather().then((AppError? error) {
           if (error != null) {
-            AppErrorDialog.showErrorDialog(context, error);
+            if (context.mounted) {
+              AppErrorDialog.showErrorDialog(context, error);
+            }
           }
         });
       },
@@ -42,7 +43,7 @@ class WeaturePage extends ConsumerWidget {
                         iconCode: state.weatherData!.weather[0].icon,
                         description: state.weatherData!.weather[0].description,
                         temperature: state.weatherData!.main.temp,
-                        feelsLike: state.weatherData!.main.feels_like,
+                        feelsLike: state.weatherData!.main.feelsLike,
                         windSpeed: state.weatherData!.wind.speed,
                       ),
                       const SizedBox(height: 20),

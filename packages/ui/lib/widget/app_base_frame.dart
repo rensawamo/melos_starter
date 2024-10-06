@@ -32,7 +32,7 @@ class AppBarFrame extends ConsumerStatefulWidget {
   final Widget? drawer;
   final void Function()? init;
   final GlobalKey? scaffoldKey;
-  final void Function(bool)? onDrawerChanged;
+  final void Function({required bool isOpen})? onDrawerChanged;
   final GlobalKey? backButtonKey;
   final void Function()? didPopEvent;
   final bool canPop;
@@ -63,7 +63,9 @@ class _AppBaseFrameState extends ConsumerState<AppBarFrame> {
       child: Scaffold(
         key: widget.scaffoldKey,
         drawer: widget.drawer,
-        onDrawerChanged: widget.onDrawerChanged,
+        onDrawerChanged: widget.onDrawerChanged != null
+            ? (isOpen) => widget.onDrawerChanged!(isOpen: isOpen)
+            : null,
         drawerEnableOpenDragGesture: false,
         appBar: widget.appBar ??
             AppBarForScreen(

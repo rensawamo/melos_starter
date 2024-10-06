@@ -23,6 +23,7 @@ class AppErrorDialog {
     }
   }
 
+
   // unknown error
   static Future<void> _unknownErrorDialog(BuildContext context) async {
     if (!context.mounted) {

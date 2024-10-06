@@ -11,10 +11,10 @@ class SettingsSwitchTile extends ConsumerStatefulWidget {
   final String title;
   final IconData icon;
   @override
-  _SettingsSwitchTileState createState() => _SettingsSwitchTileState();
+  SettingsSwitchTileState createState() => SettingsSwitchTileState();
 }
 
-class _SettingsSwitchTileState extends ConsumerState<SettingsSwitchTile> {
+class SettingsSwitchTileState extends ConsumerState<SettingsSwitchTile> {
   @override
   Widget build(BuildContext context) {
     final themeNotifier = ref.read(themeColorRepositoryProvider.notifier);

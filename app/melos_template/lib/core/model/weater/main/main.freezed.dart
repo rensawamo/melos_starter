@@ -21,9 +21,9 @@ Main _$MainFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Main {
   double get temp => throw _privateConstructorUsedError;
-  double get feels_like => throw _privateConstructorUsedError;
-  double get temp_min => throw _privateConstructorUsedError;
-  double get temp_max => throw _privateConstructorUsedError;
+  double get feelsLike => throw _privateConstructorUsedError;
+  double get tempMin => throw _privateConstructorUsedError;
+  double get tempMax => throw _privateConstructorUsedError;
   int get pressure => throw _privateConstructorUsedError;
   int get humidity => throw _privateConstructorUsedError;
 
@@ -39,9 +39,9 @@ abstract class $MainCopyWith<$Res> {
   @useResult
   $Res call(
       {double temp,
-      double feels_like,
-      double temp_min,
-      double temp_max,
+      double feelsLike,
+      double tempMin,
+      double tempMax,
       int pressure,
       int humidity});
 }
@@ -60,9 +60,9 @@ class _$MainCopyWithImpl<$Res, $Val extends Main>
   @override
   $Res call({
     Object? temp = null,
-    Object? feels_like = null,
-    Object? temp_min = null,
-    Object? temp_max = null,
+    Object? feelsLike = null,
+    Object? tempMin = null,
+    Object? tempMax = null,
     Object? pressure = null,
     Object? humidity = null,
   }) {
@@ -71,17 +71,17 @@ class _$MainCopyWithImpl<$Res, $Val extends Main>
           ? _value.temp
           : temp // ignore: cast_nullable_to_non_nullable
               as double,
-      feels_like: null == feels_like
-          ? _value.feels_like
-          : feels_like // ignore: cast_nullable_to_non_nullable
+      feelsLike: null == feelsLike
+          ? _value.feelsLike
+          : feelsLike // ignore: cast_nullable_to_non_nullable
               as double,
-      temp_min: null == temp_min
-          ? _value.temp_min
-          : temp_min // ignore: cast_nullable_to_non_nullable
+      tempMin: null == tempMin
+          ? _value.tempMin
+          : tempMin // ignore: cast_nullable_to_non_nullable
               as double,
-      temp_max: null == temp_max
-          ? _value.temp_max
-          : temp_max // ignore: cast_nullable_to_non_nullable
+      tempMax: null == tempMax
+          ? _value.tempMax
+          : tempMax // ignore: cast_nullable_to_non_nullable
               as double,
       pressure: null == pressure
           ? _value.pressure
@@ -104,9 +104,9 @@ abstract class _$$MainImplCopyWith<$Res> implements $MainCopyWith<$Res> {
   @useResult
   $Res call(
       {double temp,
-      double feels_like,
-      double temp_min,
-      double temp_max,
+      double feelsLike,
+      double tempMin,
+      double tempMax,
       int pressure,
       int humidity});
 }
@@ -122,9 +122,9 @@ class __$$MainImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? temp = null,
-    Object? feels_like = null,
-    Object? temp_min = null,
-    Object? temp_max = null,
+    Object? feelsLike = null,
+    Object? tempMin = null,
+    Object? tempMax = null,
     Object? pressure = null,
     Object? humidity = null,
   }) {
@@ -133,17 +133,17 @@ class __$$MainImplCopyWithImpl<$Res>
           ? _value.temp
           : temp // ignore: cast_nullable_to_non_nullable
               as double,
-      feels_like: null == feels_like
-          ? _value.feels_like
-          : feels_like // ignore: cast_nullable_to_non_nullable
+      feelsLike: null == feelsLike
+          ? _value.feelsLike
+          : feelsLike // ignore: cast_nullable_to_non_nullable
               as double,
-      temp_min: null == temp_min
-          ? _value.temp_min
-          : temp_min // ignore: cast_nullable_to_non_nullable
+      tempMin: null == tempMin
+          ? _value.tempMin
+          : tempMin // ignore: cast_nullable_to_non_nullable
               as double,
-      temp_max: null == temp_max
-          ? _value.temp_max
-          : temp_max // ignore: cast_nullable_to_non_nullable
+      tempMax: null == tempMax
+          ? _value.tempMax
+          : tempMax // ignore: cast_nullable_to_non_nullable
               as double,
       pressure: null == pressure
           ? _value.pressure
@@ -162,9 +162,9 @@ class __$$MainImplCopyWithImpl<$Res>
 class _$MainImpl implements _Main {
   const _$MainImpl(
       {required this.temp,
-      required this.feels_like,
-      required this.temp_min,
-      required this.temp_max,
+      required this.feelsLike,
+      required this.tempMin,
+      required this.tempMax,
       required this.pressure,
       required this.humidity});
 
@@ -174,11 +174,11 @@ class _$MainImpl implements _Main {
   @override
   final double temp;
   @override
-  final double feels_like;
+  final double feelsLike;
   @override
-  final double temp_min;
+  final double tempMin;
   @override
-  final double temp_max;
+  final double tempMax;
   @override
   final int pressure;
   @override
@@ -186,7 +186,7 @@ class _$MainImpl implements _Main {
 
   @override
   String toString() {
-    return 'Main(temp: $temp, feels_like: $feels_like, temp_min: $temp_min, temp_max: $temp_max, pressure: $pressure, humidity: $humidity)';
+    return 'Main(temp: $temp, feelsLike: $feelsLike, tempMin: $tempMin, tempMax: $tempMax, pressure: $pressure, humidity: $humidity)';
   }
 
   @override
@@ -195,12 +195,10 @@ class _$MainImpl implements _Main {
         (other.runtimeType == runtimeType &&
             other is _$MainImpl &&
             (identical(other.temp, temp) || other.temp == temp) &&
-            (identical(other.feels_like, feels_like) ||
-                other.feels_like == feels_like) &&
-            (identical(other.temp_min, temp_min) ||
-                other.temp_min == temp_min) &&
-            (identical(other.temp_max, temp_max) ||
-                other.temp_max == temp_max) &&
+            (identical(other.feelsLike, feelsLike) ||
+                other.feelsLike == feelsLike) &&
+            (identical(other.tempMin, tempMin) || other.tempMin == tempMin) &&
+            (identical(other.tempMax, tempMax) || other.tempMax == tempMax) &&
             (identical(other.pressure, pressure) ||
                 other.pressure == pressure) &&
             (identical(other.humidity, humidity) ||
@@ -210,7 +208,7 @@ class _$MainImpl implements _Main {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, temp, feels_like, temp_min, temp_max, pressure, humidity);
+      runtimeType, temp, feelsLike, tempMin, tempMax, pressure, humidity);
 
   @JsonKey(ignore: true)
   @override
@@ -229,9 +227,9 @@ class _$MainImpl implements _Main {
 abstract class _Main implements Main {
   const factory _Main(
       {required final double temp,
-      required final double feels_like,
-      required final double temp_min,
-      required final double temp_max,
+      required final double feelsLike,
+      required final double tempMin,
+      required final double tempMax,
       required final int pressure,
       required final int humidity}) = _$MainImpl;
 
@@ -240,11 +238,11 @@ abstract class _Main implements Main {
   @override
   double get temp;
   @override
-  double get feels_like;
+  double get feelsLike;
   @override
-  double get temp_min;
+  double get tempMin;
   @override
-  double get temp_max;
+  double get tempMax;
   @override
   int get pressure;
   @override

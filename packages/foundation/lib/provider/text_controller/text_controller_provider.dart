@@ -8,10 +8,8 @@ part 'text_controller_provider.g.dart';
 class TextController extends _$TextController {
   @override
   TextEditingController build() {
-    var controller = TextEditingController();
-    ref.onDispose(() {
-      controller.dispose();
-    });
+    final controller = TextEditingController();
+    ref.onDispose(controller.dispose);
     return controller;
   }
 }

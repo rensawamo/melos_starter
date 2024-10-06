@@ -7,7 +7,7 @@ packages:
 command:
   bootstrap:
     environment:
-      sdk: ^3.4.3
+      sdk: '>=3.5.0 <4.0.0'
       
   clean:
     hooks:
@@ -35,22 +35,7 @@ scripts:
     description: Run DCM static analysis checks.
     packageFilters:
       dependsOn: "dart_code_metrics_presets"
-  
-  lint:fix:all:
-    run: melos run lint:dart:fix && melos run lint:dcm:fix
-    description: Run all static analysis checks and apply fixes.
-
-  lint:dart:fix:
-    run: melos exec -- dart fix --apply .
-    description: Run Dart static analysis checks.
-
-  lint:dcm:fix:
-    run: melos exec -- dcm fix .
-    description: Run DCM static analysis checks.
-    packageFilters:
-      dependsOn: "dart_code_metrics_presets"
-
-  
+    
   fix:
     exec: dart fix --apply lib
     description: Run dart fix.
