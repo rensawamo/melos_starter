@@ -14,13 +14,41 @@ class AppErrorDialog {
         await _showNetworkErrorDialog(
           context,
         );
+      case AppErrorType.unknownError:
+        await _unknownErrorDialog(context);
+
       default:
         await _showGenericErrorDialog(context);
         break;
     }
   }
 
-  /// ネットワークエラーダイアログ表示
+  // unknown error
+  static Future<void> _unknownErrorDialog(BuildContext context) async {
+    if (!context.mounted) {
+      logger.d('context is not mounted');
+      return;
+    }
+    await showDialog<void>(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('Error'),
+          content: const Text('Unknown error occurred.'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('閉じる'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+
   static Future<void> _showNetworkErrorDialog(BuildContext context) async {
     if (!context.mounted) {
       logger.d('context is not mounted');
@@ -45,7 +73,6 @@ class AppErrorDialog {
     );
   }
 
-  //// 以下は 必要なエラーdialogを増やしていく
   static Future<void> _showGenericErrorDialog(BuildContext context) async {
     if (!context.mounted) {
       logger.d('context is not mounted');

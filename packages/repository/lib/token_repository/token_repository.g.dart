@@ -1,27 +1,25 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'theme_text_repository.dart';
+part of 'token_repository.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$themeTextRepositoryHash() =>
-    r'90fe390e6c056c63aa7d94bff5af06108227394e';
+String _$tokenRepositoryHash() => r'6d11cbdf48470d525a25856728976883a9ab16bd';
 
-/// See also [ThemeTextRepository].
-@ProviderFor(ThemeTextRepository)
-final themeTextRepositoryProvider =
-    AutoDisposeNotifierProvider<ThemeTextRepository, AppTextScale>.internal(
-  ThemeTextRepository.new,
-  name: r'themeTextRepositoryProvider',
+/// See also [tokenRepository].
+@ProviderFor(tokenRepository)
+final tokenRepositoryProvider = Provider<TokenRepository>.internal(
+  tokenRepository,
+  name: r'tokenRepositoryProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$themeTextRepositoryHash,
+      : _$tokenRepositoryHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$ThemeTextRepository = AutoDisposeNotifier<AppTextScale>;
+typedef TokenRepositoryRef = ProviderRef<TokenRepository>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

@@ -8,7 +8,6 @@ Flavor flavor(FlavorRef ref) {
 }
 
 enum Flavor {
-  mock,
   dev,
   stg,
   prod,

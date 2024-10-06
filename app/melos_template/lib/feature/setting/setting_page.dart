@@ -14,22 +14,18 @@ class SettingPage extends ConsumerWidget {
 
     return AppBarFrame(
       hasPrevButton: false,
-      title: '設定',
+      title: 'setting',
       body: ListView(
         children: [
           Container(
             padding: const EdgeInsets.all(10),
             height: context.mediaQueryHeight * .25,
             decoration: const BoxDecoration(),
-            // child: Image.asset(isDarkMode
-            //     ? 'assets/images/national_dark.png'
-            //     : 'assets/images/national_flag.png'),
             child: Column(
               children: <Widget>[
                 Center(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    // アプリアイコン情報
                     children: <Widget>[
                       SizedBox(
                         height: context.mediaQueryHeight * .015,

@@ -1,3 +1,4 @@
+import 'package:core_foundation/extension/context_extension.dart';
 import 'package:core_foundation/foundation.dart';
 import 'package:core_ui/ui.dart';
 import 'package:flutter/material.dart';
@@ -83,8 +84,8 @@ class WeatherInfoCard extends StatelessWidget {
       children: [
         Image.network(
           'http://openweathermap.org/img/wn/$iconCode@2x.png',
-          height: 50,
-          width: 50,
+          height: context.mediaQueryHeight * .1,
+          width: context.mediaQueryWidth * .1,
         ),
         const SizedBox(width: 16),
         Column(
