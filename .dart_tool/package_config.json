@@ -266,10 +266,10 @@
       "languageVersion": "3.5"
     }
   ],
-  "generated": "2024-10-07T01:36:58.577293Z",
+  "generated": "2024-10-07T02:22:01.296134Z",
   "generator": "pub",
   "generatorVersion": "3.5.3",
-  "flutterRoot": "file:///Users/rs/fvm/versions/3.22.3",
+  "flutterRoot": "file:///Users/rs/fvm/versions/3.24.3",
   "flutterVersion": "3.24.3",
   "pubCache": "file:///Users/rs/.pub-cache"
 }
