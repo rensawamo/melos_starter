@@ -8,8 +8,6 @@ Flavor flavor(FlavorRef ref) {
 }
 
 enum Flavor {
-
-
   dev,
   stg,
   prod,

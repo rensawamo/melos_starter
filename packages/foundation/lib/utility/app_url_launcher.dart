@@ -2,7 +2,6 @@ import 'package:flutter/foundation.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class URLLauncherUtility {
-
   static Future<void> openBrowser(
     String url, {
     dynamic Function()? onResume,
@@ -23,7 +22,7 @@ class URLLauncherUtility {
       await launchUrlString(uriString);
     }
   }
-  
+
   static Future<void> openMap({
     required TargetPlatform targetPlatform,
     double? latitude,

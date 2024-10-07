@@ -38,7 +38,7 @@ class WeaturePage extends ConsumerWidget {
                         'Weather in ${state.weatherData!.name}',
                         style: Theme.of(context).textTheme.titleLarge,
                       ),
-                       const SizedBox(height: 16),
+                      const SizedBox(height: 16),
                       WeatherInfoCard(
                         iconCode: state.weatherData!.weather[0].icon,
                         description: state.weatherData!.weather[0].description,

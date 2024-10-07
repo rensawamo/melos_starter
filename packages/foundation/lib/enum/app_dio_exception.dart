@@ -5,7 +5,7 @@ class AppDioException extends AppError {
   AppDioException(super.type, {super.code, super.details});
 
   @override
-   AppError fromDioException(DioException error) {
+  AppError fromDioException(DioException error) {
     switch (error.type) {
       case DioExceptionType.cancel:
         return AppError.requestCancelled();

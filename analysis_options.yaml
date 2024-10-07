@@ -6,15 +6,14 @@ analyzer:
     sort_pub_dependencies: ignore
   exclude:
     - "**/firebase_options_*.dart"
-    - "**/*.freezed.dart"  
-    - "**/*.g.dart" 
-    
+    - "**/*.freezed.dart"
+    - "**/*.g.dart"
+
 linter:
   rules:
    public_member_api_docs: false
    lines_longer_than_80_chars: false
    no_default_cases: false
-    
 
-   
-   
+
+

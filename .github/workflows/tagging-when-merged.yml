@@ -1,4 +1,4 @@
-name: tagging 
+name: tagging
 
 on:
   pull_request:
