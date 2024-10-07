@@ -1,9 +1,9 @@
-import 'dart:io';
 
+import 'package:core_foundation/foundation.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 
 enum AppErrorType {
+  dioException,
   networkError,
   socketException,
   grpcError,
@@ -38,7 +38,7 @@ class AppError implements Exception {
     this.code,
     this.details,
   }) {
-    debugPrint(toString());
+    logger.e('AppError: $type, Details: $details, Code: $code');
   }
 
   // Factory constructors for different error types
@@ -74,6 +74,8 @@ class AppError implements Exception {
   factory AppError.forbidden() => AppError(AppErrorType.forbidden);
 
   factory AppError.notFound() => AppError(AppErrorType.notFound);
+
+
 
   factory AppError.unknownError(String? message) =>
       AppError(AppErrorType.unknownError, details: message);
@@ -116,7 +118,7 @@ class AppError implements Exception {
     return 'AppErrorType: $type, Details: $details, Code: $code';
   }
 
-  static AppError fromDioException(DioException error) {
+  AppError fromDioException(DioException error) {
     switch (error.type) {
       case DioExceptionType.cancel:
         return AppError.requestCancelled();
@@ -126,10 +128,12 @@ class AppError implements Exception {
         return AppError.sendTimeout();
       case DioExceptionType.badResponse:
         final statusCode = error.response?.statusCode;
+        final data = error.response?.data as Map<String, dynamic>?;
+        final message = data?['message'] as String?;
         switch (statusCode) {
           case 400:
             return AppError.badRequest(
-              error.response!.data['message'] as String,
+              message ?? 'Bad request error occurred',
             );
           case 401:
             return AppError.authenticationError();
@@ -154,16 +158,6 @@ class AppError implements Exception {
         return AppError.unknownError('An unknown error occurred');
       default:
         return AppError.unknownError('An unknown error occurred');
-    }
-  }
-
-  static AppError fromException(Exception error) {
-    if (error is DioException) {
-      return fromDioException(error);
-    } else if (error is SocketException) {
-      return AppError.noInternetConnection();
-    } else {
-      return AppError.unknownError('An unknown error occurred');
     }
   }
 }

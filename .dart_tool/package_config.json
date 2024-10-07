@@ -263,13 +263,13 @@
       "name": "melos_starter",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "3.4"
+      "languageVersion": "3.5"
     }
   ],
-  "generated": "2024-10-06T03:14:27.630997Z",
+  "generated": "2024-10-06T22:02:23.800031Z",
   "generator": "pub",
-  "generatorVersion": "3.4.4",
+  "generatorVersion": "3.5.3",
   "flutterRoot": "file:///Users/rs/fvm/versions/3.22.3",
-  "flutterVersion": "3.22.3",
+  "flutterVersion": "3.24.3",
   "pubCache": "file:///Users/rs/.pub-cache"
 }

@@ -1,6 +1,6 @@
 name: melos_starter
 environment:
-  sdk: ^3.4.3
+  sdk: '>=3.5.0 <4.0.0'
 dependencies:
   very_good_analysis: ^6.0.0
 dev_dependencies:

@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:core_foundation/enum/app_dio_exception.dart';
+import 'package:core_foundation/foundation.dart';
 import 'package:core_network/rest/dio/dio_provider.dart';
 import 'package:dio/dio.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -45,11 +47,21 @@ class DioClientImpl implements DioClient {
       );
       return response.data;
     } on SocketException catch (error) {
-      throw SocketException(error.message);
+      logger.e('SocketException: $error');
+      throw AppError.socketException();
     } on FormatException catch (error) {
-      throw FormatException(error.message);
+      logger.e('FormatException: $error');
+      throw AppError.formatException();
+    } on DioException catch (error) {
+      logger.e('DioErrorLog: $error');
+      throw AppDioException(
+        AppErrorType.dioException,
+      ).fromDioException(error);
     } catch (error) {
-      rethrow;
+      logger.e('Error: $error');
+      throw AppError.unknownError(
+        'Failed to fetch data: $error',
+      );
     }
   }
 

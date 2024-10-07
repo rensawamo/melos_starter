@@ -48,6 +48,7 @@ class WeatureViewmodel extends _$WeatureViewmodel {
         errorMessage: 'Failed to fetch weather data: $e',
       );
       if (e is AppError) {
+        logger.e('AppError: $e');
         return e;
       } else {
         return AppError.unknownError(
