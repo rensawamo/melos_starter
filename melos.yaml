@@ -7,7 +7,7 @@ packages:
 command:
   bootstrap:
     environment:
-      sdk: '>=3.5.0 <4.0.0'
+      sdk: ">=3.5.0 <4.0.0"
 
   clean:
     hooks:
@@ -20,7 +20,6 @@ command:
     releaseUrl: true
 
 scripts:
-
   analyze:
     run: melos run analyze:dart && melos run analyze:dcm
     description: Run all static analysis checks.
