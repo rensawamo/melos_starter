@@ -37,6 +37,8 @@ dependencies:
   freezed_annotation: ^2.4.4
   json_annotation: ^4.9.0
   
+  flutter_localizations: any
+  intl: any
 dev_dependencies:
   build_runner: ^2.4.9
   freezed: ^2.4.5

@@ -1,10 +1,22 @@
-# version: 2
-# enable-beta-ecosystems: true
-# updates:
-#   - package-ecosystem: "pub"
-#     directories:
-#       - /
-#       - /app
-#       - /packages/*
-#     schedule:
-#       interval: "weekly"
+# This is part of the preview program of dependabot for dart
+version: 2
+enable-beta-ecosystems: true
+updates:
+  - package-ecosystem: "pub"
+    directories:
+      - /
+      - /app
+      - /packages/*
+    schedule:
+      interval: "weekly"
+
+  - package-ecosystem: "bundler"
+    directory: "/app/android"
+    schedule:
+      interval: "weekly"
+
+  - package-ecosystem: "bundler"
+    directory: "/app/ios"
+    schedule:
+      interval: "weekly"
+

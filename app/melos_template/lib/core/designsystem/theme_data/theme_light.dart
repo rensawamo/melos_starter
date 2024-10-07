@@ -15,7 +15,6 @@ ThemeData themeLight() {
       surfaceContainerLow: Colors.orange,
     ),
     textTheme: const TextTheme(
-  
       bodyMedium: TextStyle(fontSize: 18),
       headlineMedium: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
     ),
@@ -32,9 +31,7 @@ ThemeData themeLight() {
       backgroundColor: Colors.black,
       foregroundColor: Colors.white,
     ),
-
     scaffoldBackgroundColor: Colors.white,
-
     pageTransitionsTheme: const PageTransitionsTheme(
       builders: {
         TargetPlatform.android: CupertinoPageTransitionsBuilder(),
