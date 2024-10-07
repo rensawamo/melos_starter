@@ -42,7 +42,6 @@ jobs:
 
   analyze:
     needs: check
-    if:  needs.check.outputs.flutter == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -68,7 +67,6 @@ jobs:
 
   test:
     needs: check
-    if: needs.check.outputs.flutter == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
