@@ -37,10 +37,8 @@ scripts:
       dependsOn: "dart_code_metrics_presets"
 
   fix:
-    exec: dart fix --apply lib
-    description: Run dart fix.
-    packageFilters:
-      dirExists: lib
+    exec: dart fix --apply
+    description: Run `dart fix --apply` in all packages.
 
   unit_test:
     run: melos exec --dir-exists="test" --fail-fast -- flutter test --no-pub --coverage
