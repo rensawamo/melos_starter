@@ -55,7 +55,6 @@ class TokenRepositoryImpl implements TokenRepository {
     return token;
   }
 
-
   @override
   Future<Error?> deleteToken() async {
     try {

@@ -1,4 +1,3 @@
-
 import 'package:core_foundation/foundation.dart';
 import 'package:dio/dio.dart';
 
@@ -74,8 +73,6 @@ class AppError implements Exception {
   factory AppError.forbidden() => AppError(AppErrorType.forbidden);
 
   factory AppError.notFound() => AppError(AppErrorType.notFound);
-
-
 
   factory AppError.unknownError(String? message) =>
       AppError(AppErrorType.unknownError, details: message);

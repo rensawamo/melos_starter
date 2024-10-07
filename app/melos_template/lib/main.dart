@@ -8,18 +8,17 @@ import 'package:flutter_app_template/app.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp();
-  
 
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
   PlatformDispatcher.instance.onError = (error, stack) {
     FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
     return true;
   };
+
   /// for di_provider
   final sharedPreferences = await SharedPreferences.getInstance();
   final flavor = Flavor.values.byName(const String.fromEnvironment('flavor'));
