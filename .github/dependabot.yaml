@@ -1,5 +1,4 @@
 version: 2
-# Pub がベータサポートなので必要
 enable-beta-ecosystems: true
 updates:
   - package-ecosystem: "pub"

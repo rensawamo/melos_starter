@@ -8,10 +8,7 @@ part of 'app_lifecycle_state.dart';
 
 String _$appLifecycleStateHash() => r'974a53ea7166aaa18ea48de54b1900c68667c39b';
 
-/// [https://zenn.dev/riscait/books/flutter-riverpod-practical-introduction/viewer/v2-app-lifecycle]
-///
-///
-/// Copied from [appLifecycleState].
+/// See also [appLifecycleState].
 @ProviderFor(appLifecycleState)
 final appLifecycleStateProvider = Provider<AppLifecycleState>.internal(
   appLifecycleState,

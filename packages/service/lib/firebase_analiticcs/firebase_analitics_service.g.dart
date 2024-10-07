@@ -9,9 +9,7 @@ part of 'firebase_analitics_service.dart';
 String _$firebaseAnalyticsServiceHash() =>
     r'e15b0184733a56152f6033d9d082dcac1bf78919';
 
-/// 3rd party 腐敗防止
-///
-/// Copied from [firebaseAnalyticsService].
+/// See also [firebaseAnalyticsService].
 @ProviderFor(firebaseAnalyticsService)
 final firebaseAnalyticsServiceProvider =
     Provider<FirebaseAnalyticsService>.internal(

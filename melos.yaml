@@ -8,7 +8,7 @@ command:
   bootstrap:
     environment:
       sdk: '>=3.5.0 <4.0.0'
-      
+
   clean:
     hooks:
       post: |
@@ -20,7 +20,7 @@ command:
     releaseUrl: true
 
 scripts:
-   
+
   analyze:
     run: melos run analyze:dart && melos run analyze:dcm
     description: Run all static analysis checks.
@@ -35,7 +35,7 @@ scripts:
     description: Run DCM static analysis checks.
     packageFilters:
       dependsOn: "dart_code_metrics_presets"
-    
+
   fix:
     exec: dart fix --apply lib
     description: Run dart fix.
@@ -59,15 +59,6 @@ scripts:
     packageFilters:
       dirExists: lib
       dependsOn: "build_runner"
-
-  slang:
-    run: dart run slang
-    exec:
-      concurrency: 1
-    description: Run generate translation code.
-    packageFilters:
-      dirExists: lib
-      dependsOn: slang
 
   gen:watch:
     run: dart run build_runner watch --delete-conflicting-outputs
