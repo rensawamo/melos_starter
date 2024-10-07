@@ -27,7 +27,6 @@ class _HomePageState extends State<HomePage> {
             children: [
               InkWell(
                 onTap: () {
-                  // Navigate to another route or perform another action
                   const WeatureRouteData().go(context);
                 },
                 child: const Text(
