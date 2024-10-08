@@ -47,14 +47,14 @@ jobs:
       - name: bump up version
         run: |
           echo choice: ${{ github.event.inputs.bump }}
-          cd package/app
+          cd app/melos_template
           flutter pub run cider bump ${{ github.event.inputs.bump }} --bump-build
           echo "BUMP_VERSION=$(flutter pub run cider version)" >> $GITHUB_ENV
 
       - name: commit pubspec.yaml
         run: |
           git checkout develop
-          git add -u package/app/pubspec.yaml
+          git add -u app/melos_template/pubspec.yaml
           echo "Bumped version number to $BUMP_VERSION" | git commit --file=-
 
       - name: create release branch
