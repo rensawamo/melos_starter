@@ -7,9 +7,13 @@ on:
         type: choice
         description: Please Choice Bump Target
         options:
+          # バージョン番号のビルド部分をバンプ（増加）するオプション
           - build
+          # バージョン番号のパッチ部分をバンプするオプション（バグ修正など）
           - patch
+          # バージョン番号のマイナー部分をバンプするオプション（後方互換性のある新機能追加など）
           - minor
+          # バージョン番号のメジャー部分をバンプするオプション（後方互換性がない変更など）
           - major
 
 env:

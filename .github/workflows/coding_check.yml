@@ -57,6 +57,9 @@ jobs:
       - name: Install Melos
         uses: bluefireteam/melos-action@v3    
       
+      - name: Run melos bs
+        run: melos bs
+
       - name: Install matcher
         run: echo "::add-matcher::.github/analyzer-problem-matcher.json"
 
@@ -89,6 +92,10 @@ jobs:
         env:
           DANGER_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
+
+      # - name: Check for the existence of unformatted files
+      #   run: melos format:ci 
+
   test:
     needs: check
     runs-on: ubuntu-latest
