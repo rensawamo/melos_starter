@@ -87,7 +87,7 @@ class AppErrorDialog {
               onPressed: () {
                 context.pop();
               },
-              child: const Text('閉じる'),
+              child:  Text('閉じる'),
             ),
           ],
         );
