@@ -160,6 +160,5 @@ GoogleService-Info.plist
 
 **/ios/Flutter/Dart-Defines.xcconfig
 
-# gitea
-gitea_private/gitea
-gitea_private/postgres
+# ruby
+/vendor/

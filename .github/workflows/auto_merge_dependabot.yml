@@ -1,4 +1,4 @@
-name: Automate Dependabot
+name: Auto merge Dependabot when patch update
 on: pull_request
 
 permissions:

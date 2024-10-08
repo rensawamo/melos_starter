@@ -8,6 +8,10 @@ analyzer:
     - "**/firebase_options_*.dart"
     - "**/*.freezed.dart"
     - "**/*.g.dart"
+    - "**/*.mocks.dart"
+    - "**/color/**"
+    - "**/gen/**"
+    - "**/cmd/**"
 
 linter:
   rules:
