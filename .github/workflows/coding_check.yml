@@ -59,7 +59,7 @@ jobs:
       
       - name: Run analyze
         shell: bash
-        run: melos analyze | tee ./flutter_analyze_report.txt
+        run: flutter analyze | tee ./flutter_analyze_report.txt
 
       - name: Setup ruby
         uses: ruby/setup-ruby@v1
