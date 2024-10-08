@@ -57,24 +57,22 @@ jobs:
       - name: Install Melos
         uses: bluefireteam/melos-action@v3    
       
-      - name: Run flutter analyze
+      - name: Run analyze
         shell: bash
-        run: |
-          melos analyze > flutter_analyze_report.txt
+        run: melos analyze | tee ./flutter_analyze_report.txt
 
-      - name: Setup Ruby
+      - name: Setup ruby
         uses: ruby/setup-ruby@v1
         if: always()
         with:
-          ruby-version: '2.7'
+          ruby-version: '3.3'
           bundler-cache: true
-
-      - name: Danger
-        uses: MeilCli/danger-action@1996610a4c089e3a79bf3131a70c3c1b311e32f9
+      
+      - name: Setup danger
+        uses: MeilCli/danger-action@v5
         if: always()
         with:
           plugins_file: 'Gemfile'
-          install_path: 'vendor/bundle'
           danger_file: 'Dangerfile'
           danger_id: 'danger-pr'
         env:
