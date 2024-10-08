@@ -117,7 +117,7 @@
     },
     {
       "name": "melos",
-      "rootUri": "file:///Users/rs/.pub-cache/hosted/pub.dev/melos-6.1.0",
+      "rootUri": "file:///Users/rs/.pub-cache/hosted/pub.dev/melos-6.2.0",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
@@ -266,7 +266,7 @@
       "languageVersion": "3.5"
     }
   ],
-  "generated": "2024-10-07T06:36:13.659568Z",
+  "generated": "2024-10-08T22:00:19.505576Z",
   "generator": "pub",
   "generatorVersion": "3.5.3",
   "flutterRoot": "file:///Users/rs/fvm/versions/3.24.3",

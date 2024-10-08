@@ -4,4 +4,4 @@ environment:
 dependencies:
   very_good_analysis: ^6.0.0
 dev_dependencies:
-  melos: ^6.1.0
+  melos: ^6.2.0
