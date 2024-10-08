@@ -56,7 +56,7 @@ jobs:
 
       - name: commit and push pubspec.yaml
         run: |
-          git add -u app/melos_template/pubspec.yaml
+          git add .
           echo "Bumped version number to $BUMP_VERSION" | git commit --file=-
           git push
 
