@@ -63,14 +63,16 @@ jobs:
       - name: Install matcher
         run: echo "::add-matcher::.github/analyzer-problem-matcher.json"
 
-      - name: Run melos analyze
-        shell: bash
-        run: |
-          melos analyze | tee ./flutter_analyze_report.txt
+      - name: Run linter
+        run: flutter analyze > flutter_analyze_report.txt
+        continue-on-error: true
 
       - name: Remove matcher
         if: always()
         run: echo "::remove-matcher owner=dart-analyzer::"
+      
+      - name: flutter_analyze_report.txt
+        run: cat flutter_analyze_report.txt
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
