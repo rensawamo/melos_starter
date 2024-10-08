@@ -69,6 +69,7 @@ jobs:
       
       - name: flutter_analyze_report.txt
         run: cat flutter_analyze_report.txt
+        continue-on-error: true
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
