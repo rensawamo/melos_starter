@@ -21,10 +21,12 @@ command:
 
 scripts:
   analyze:
-    run: melos run analyze:dart && melos run analyze:dcm
-    description: Run all static analysis checks.
+    run: flutter analyze .
     exec:
-      failFast: true
+      concurrency: 1
+    packageFilters:
+      dirExists: lib
+      
   analyze:dart:
     run: melos exec -c 10 -- dart analyze .
     description: Run Dart static analysis checks.

@@ -57,22 +57,36 @@ jobs:
       - name: Install Melos
         uses: bluefireteam/melos-action@v3    
       
-      - name: Run analyze
-        shell: bash
-        run: flutter analyze | tee ./flutter_analyze_report.txt
+      - name: Run melos bs
+        run: melos bs
 
-      - name: Setup ruby
+      - name: Install matcher
+        run: echo "::add-matcher::.github/analyzer-problem-matcher.json"
+
+      - name: Run melos analyze
+        shell: bash
+        run: |
+          melos analyze | tee ./flutter_analyze_report.txt
+
+      - name: Remove matcher
+        if: always()
+        run: echo "::remove-matcher owner=dart-analyzer::"
+
+      - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         if: always()
         with:
-          ruby-version: '3.3'
+          ruby-version: '2.7'
           bundler-cache: true
+
       
-      - name: Setup danger
+      - name: Run analyze
+       - name: Danger
         uses: MeilCli/danger-action@v5
         if: always()
         with:
           plugins_file: 'Gemfile'
+          install_path: 'vendor/bundle'
           danger_file: 'Dangerfile'
           danger_id: 'danger-pr'
         env:
