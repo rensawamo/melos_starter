@@ -60,11 +60,6 @@ jobs:
       - name: Install matcher
         run: echo "::add-matcher::.github/analyzer-problem-matcher.json"
       
-      - name: Run melos fix
-        shell: bash
-        run: |
-          melos fix
-      
       - name: Run flutter analyze
         shell: bash
         run: |
