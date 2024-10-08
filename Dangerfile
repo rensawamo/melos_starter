@@ -4,7 +4,7 @@
 warn("⚠️ PR is still a Work In Progress.") if github.pr_title.include? "[WIP]"
 
 # flutter analyze を実行して、解析結果を一時ファイルに保存
-system("flutter analyze > flutter_analyze_report.txt")
+system("melos analyze > flutter_analyze_report.txt")
 
 # 解析結果をファイルから読み込み
 analyze_output = File.read("flutter_analyze_report.txt")
