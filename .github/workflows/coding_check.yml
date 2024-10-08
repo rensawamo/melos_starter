@@ -60,7 +60,7 @@ jobs:
       - name: Run flutter analyze
         shell: bash
         run: |
-          melos analyze | tee ./flutter_analyze_report.txt
+          melos analyze > flutter_analyze_report.txt
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
