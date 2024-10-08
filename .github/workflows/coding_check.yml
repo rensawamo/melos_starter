@@ -56,14 +56,11 @@ jobs:
 
       - name: Install Melos
         uses: bluefireteam/melos-action@v3
-
-      - name: Analyze packages
-        run: melos analyze > flutter_analyze_report.txt
       
       - name: Run flutter analyze
         shell: bash
         run: |
-          flutter analyze | tee ./flutter_analyze_report.txt
+          melos analyze | tee ./flutter_analyze_report.txt
 
       - name: Remove matcher
         if: always()
