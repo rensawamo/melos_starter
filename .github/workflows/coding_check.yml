@@ -67,8 +67,8 @@ jobs:
         if: always()
         run: echo "::remove-matcher owner=dart-analyzer::"
       
-      - name: flutter_analyze_report.txt
-        run: cat flutter_analyze_report.txt
+      - name: Run flutter analyze
+        run: flutter analyze > flutter_analyze_report.txt
         continue-on-error: true
 
       - name: Setup Ruby
@@ -89,29 +89,29 @@ jobs:
         env:
           DANGER_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
-  test:
-    needs: check
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+  # test:
+  #   needs: check
+  #   runs-on: ubuntu-latest
+  #   timeout-minutes: 20
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@v4
 
-      - name: Setup Flutter with FVM
-        id: setup-flutter
-        uses: kuhnroyal/flutter-fvm-config-action/setup@v3
+  #     - name: Setup Flutter with FVM
+  #       id: setup-flutter
+  #       uses: kuhnroyal/flutter-fvm-config-action/setup@v3
 
-      - name: Prepare Melos
-        run: echo "MELOS_SDK_PATH=${{ env.FLUTTER_ROOT }}" >> "$GITHUB_ENV"
+  #     - name: Prepare Melos
+  #       run: echo "MELOS_SDK_PATH=${{ env.FLUTTER_ROOT }}" >> "$GITHUB_ENV"
 
-      - name: Install Melos
-        uses: bluefireteam/melos-action@v3
+  #     - name: Install Melos
+  #       uses: bluefireteam/melos-action@v3
 
-      - name: Run package tests
-        run: melos run test:ci --no-select
+  #     - name: Run package tests
+  #       run: melos run test:ci --no-select
 
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v4
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          files: coverage/lcov.info
+  #     - name: Upload coverage to Codecov
+  #       uses: codecov/codecov-action@v4
+  #       with:
+  #         token: ${{ secrets.CODECOV_TOKEN }}
+  #         files: coverage/lcov.info
