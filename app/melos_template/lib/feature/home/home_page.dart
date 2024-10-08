@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_template/core/router/data/app_route_data.dart';
 import 'package:flutter_app_template/core/router/data/weature/weature_route_data.dart';
 import 'package:flutter_app_template/core/util/l10_extension.dart';
-import 'package:flutter_app_template/feature/weature/weature.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 class HomePage extends StatefulWidget {
@@ -29,10 +28,6 @@ class _HomePageState extends State<HomePage> {
               InkWell(
                 onTap: () {
                   const WeatureRouteData().go(context);
-                   MaterialPageRoute(
-                    builder: (context) => const WeaturePage(),
-                  );
-                      
                 },
                 child: const Text(
                   'Weature',
