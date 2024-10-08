@@ -62,7 +62,6 @@ jobs:
 
       - name: Run linter
         run: flutter analyze > flutter_analyze_report.txt
-        continue-on-error: true
 
       - name: Remove matcher
         if: always()
