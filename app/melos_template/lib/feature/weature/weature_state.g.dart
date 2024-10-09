@@ -12,12 +12,10 @@ _$WeatherStateImpl _$$WeatherStateImplFromJson(Map<String, dynamic> json) =>
       weatherData: json['weatherData'] == null
           ? null
           : WeatherData.fromJson(json['weatherData'] as Map<String, dynamic>),
-      errorMessage: json['errorMessage'] as String?,
     );
 
 Map<String, dynamic> _$$WeatherStateImplToJson(_$WeatherStateImpl instance) =>
     <String, dynamic>{
       'isLoading': instance.isLoading,
       'weatherData': instance.weatherData,
-      'errorMessage': instance.errorMessage,
     };

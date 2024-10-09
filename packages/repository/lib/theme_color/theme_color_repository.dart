@@ -25,6 +25,6 @@ class ThemeColorRepository extends _$ThemeColorRepository {
 
   Future<void> setTheme(ThemeMode themeMode) async {
     state = themeMode;
-     _sharedPreferences.setInt(_themeKey, themeMode.index);
+    await _sharedPreferences.setInt(_themeKey, themeMode.index);
   }
 }

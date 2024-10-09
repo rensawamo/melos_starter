@@ -20,13 +20,18 @@ command:
     releaseUrl: true
 
 scripts:
+  pub_get:
+    run: flutter pub get
+    packageFilters:
+      dirExists: lib
+
   analyze:
     run: flutter analyze .
     exec:
       concurrency: 1
     packageFilters:
       dirExists: lib
-      
+
   analyze:dart:
     run: melos exec -c 10 -- dart analyze .
     description: Run Dart static analysis checks.

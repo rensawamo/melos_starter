@@ -1,8 +1,7 @@
 //// ルート名を定義するクラス
 mixin Routes {
-  /// sign in
-  static const auth = '/auth';
-
+  // introduction
+  static const introduction = '/introduction';
   /// home
   static const home = '/home';
   static const weature = 'weature';

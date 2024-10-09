@@ -11,8 +11,8 @@ class WeaturePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final vm = ref.watch(weatureViewmodelProvider.notifier);
-    final state = ref.watch(weatureViewmodelProvider);
+    final vm = ref.watch(weatherViewmodelProvider.notifier);
+    final state = ref.watch(weatherViewmodelProvider);
 
     return AppBarFrame(
       shouldRemoveFocus: true,
@@ -43,7 +43,7 @@ class WeaturePage extends ConsumerWidget {
                         iconCode: state.weatherData!.weather[0].icon,
                         description: state.weatherData!.weather[0].description,
                         temperature: state.weatherData!.main.temp,
-                        feelsLike: state.weatherData!.main.feelsLike,
+                        feelsLike: state.weatherData!.main.feels_like,
                         windSpeed: state.weatherData!.wind.speed,
                       ),
                       const SizedBox(height: 20),

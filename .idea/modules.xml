@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/packages/network/melos_core_network.iml" filepath="$PROJECT_DIR$/packages/network/melos_core_network.iml" />
       <module fileurl="file://$PROJECT_DIR$/packages/repository/melos_core_repository.iml" filepath="$PROJECT_DIR$/packages/repository/melos_core_repository.iml" />
       <module fileurl="file://$PROJECT_DIR$/packages/service/melos_core_service.iml" filepath="$PROJECT_DIR$/packages/service/melos_core_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/packages/test_util/melos_core_test_util.iml" filepath="$PROJECT_DIR$/packages/test_util/melos_core_test_util.iml" />
       <module fileurl="file://$PROJECT_DIR$/packages/ui/melos_core_ui.iml" filepath="$PROJECT_DIR$/packages/ui/melos_core_ui.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/melos_template/melos_flutter_app_template.iml" filepath="$PROJECT_DIR$/app/melos_template/melos_flutter_app_template.iml" />
       <module fileurl="file://$PROJECT_DIR$/melos_melos_starter.iml" filepath="$PROJECT_DIR$/melos_melos_starter.iml" />

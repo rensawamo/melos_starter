@@ -1,4 +1,4 @@
-# melos_managed_dependency_overrides: core_di_provider,core_foundation,core_network,core_repository,core_ui
+# melos_managed_dependency_overrides: core_di_provider,core_foundation,core_network,core_repository,core_service,core_test_util,core_ui
 dependency_overrides:
   core_di_provider:
     path: ../../packages/di_provider
@@ -8,5 +8,9 @@ dependency_overrides:
     path: ../../packages/network
   core_repository:
     path: ../../packages/repository
+  core_service:
+    path: ../../packages/service
+  core_test_util:
+    path: ../../packages/test_util
   core_ui:
     path: ../../packages/ui

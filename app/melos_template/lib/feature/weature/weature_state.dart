@@ -9,7 +9,6 @@ class WeatherState with _$WeatherState {
   const factory WeatherState({
     required bool isLoading,
     required WeatherData? weatherData,
-    String? errorMessage,
   }) = _WeatherState;
 
   factory WeatherState.fromJson(Map<String, dynamic> json) =>

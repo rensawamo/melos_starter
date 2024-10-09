@@ -20,14 +20,13 @@ WeatherData _$WeatherDataFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$WeatherData {
-  Coord get coord => throw _privateConstructorUsedError;
+// Coord? coord, // nullableに変更
   List<Weather> get weather => throw _privateConstructorUsedError;
   Main get main => throw _privateConstructorUsedError;
-  Wind get wind => throw _privateConstructorUsedError;
-  Cloud get clouds => throw _privateConstructorUsedError;
-  Sys get sys => throw _privateConstructorUsedError;
+  Wind get wind =>
+      throw _privateConstructorUsedError; // Cloud? clouds, // nullableに変更
+// required Sys sys,
   String get name => throw _privateConstructorUsedError;
-  int get cod => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,21 +40,10 @@ abstract class $WeatherDataCopyWith<$Res> {
           WeatherData value, $Res Function(WeatherData) then) =
       _$WeatherDataCopyWithImpl<$Res, WeatherData>;
   @useResult
-  $Res call(
-      {Coord coord,
-      List<Weather> weather,
-      Main main,
-      Wind wind,
-      Cloud clouds,
-      Sys sys,
-      String name,
-      int cod});
+  $Res call({List<Weather> weather, Main main, Wind wind, String name});
 
-  $CoordCopyWith<$Res> get coord;
   $MainCopyWith<$Res> get main;
   $WindCopyWith<$Res> get wind;
-  $CloudCopyWith<$Res> get clouds;
-  $SysCopyWith<$Res> get sys;
 }
 
 /// @nodoc
@@ -71,20 +59,12 @@ class _$WeatherDataCopyWithImpl<$Res, $Val extends WeatherData>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? coord = null,
     Object? weather = null,
     Object? main = null,
     Object? wind = null,
-    Object? clouds = null,
-    Object? sys = null,
     Object? name = null,
-    Object? cod = null,
   }) {
     return _then(_value.copyWith(
-      coord: null == coord
-          ? _value.coord
-          : coord // ignore: cast_nullable_to_non_nullable
-              as Coord,
       weather: null == weather
           ? _value.weather
           : weather // ignore: cast_nullable_to_non_nullable
@@ -97,31 +77,11 @@ class _$WeatherDataCopyWithImpl<$Res, $Val extends WeatherData>
           ? _value.wind
           : wind // ignore: cast_nullable_to_non_nullable
               as Wind,
-      clouds: null == clouds
-          ? _value.clouds
-          : clouds // ignore: cast_nullable_to_non_nullable
-              as Cloud,
-      sys: null == sys
-          ? _value.sys
-          : sys // ignore: cast_nullable_to_non_nullable
-              as Sys,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      cod: null == cod
-          ? _value.cod
-          : cod // ignore: cast_nullable_to_non_nullable
-              as int,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $CoordCopyWith<$Res> get coord {
-    return $CoordCopyWith<$Res>(_value.coord, (value) {
-      return _then(_value.copyWith(coord: value) as $Val);
-    });
   }
 
   @override
@@ -139,22 +99,6 @@ class _$WeatherDataCopyWithImpl<$Res, $Val extends WeatherData>
       return _then(_value.copyWith(wind: value) as $Val);
     });
   }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $CloudCopyWith<$Res> get clouds {
-    return $CloudCopyWith<$Res>(_value.clouds, (value) {
-      return _then(_value.copyWith(clouds: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $SysCopyWith<$Res> get sys {
-    return $SysCopyWith<$Res>(_value.sys, (value) {
-      return _then(_value.copyWith(sys: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
@@ -165,26 +109,12 @@ abstract class _$$WeatherDataImplCopyWith<$Res>
       __$$WeatherDataImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {Coord coord,
-      List<Weather> weather,
-      Main main,
-      Wind wind,
-      Cloud clouds,
-      Sys sys,
-      String name,
-      int cod});
+  $Res call({List<Weather> weather, Main main, Wind wind, String name});
 
-  @override
-  $CoordCopyWith<$Res> get coord;
   @override
   $MainCopyWith<$Res> get main;
   @override
   $WindCopyWith<$Res> get wind;
-  @override
-  $CloudCopyWith<$Res> get clouds;
-  @override
-  $SysCopyWith<$Res> get sys;
 }
 
 /// @nodoc
@@ -198,20 +128,12 @@ class __$$WeatherDataImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? coord = null,
     Object? weather = null,
     Object? main = null,
     Object? wind = null,
-    Object? clouds = null,
-    Object? sys = null,
     Object? name = null,
-    Object? cod = null,
   }) {
     return _then(_$WeatherDataImpl(
-      coord: null == coord
-          ? _value.coord
-          : coord // ignore: cast_nullable_to_non_nullable
-              as Coord,
       weather: null == weather
           ? _value._weather
           : weather // ignore: cast_nullable_to_non_nullable
@@ -224,22 +146,10 @@ class __$$WeatherDataImplCopyWithImpl<$Res>
           ? _value.wind
           : wind // ignore: cast_nullable_to_non_nullable
               as Wind,
-      clouds: null == clouds
-          ? _value.clouds
-          : clouds // ignore: cast_nullable_to_non_nullable
-              as Cloud,
-      sys: null == sys
-          ? _value.sys
-          : sys // ignore: cast_nullable_to_non_nullable
-              as Sys,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      cod: null == cod
-          ? _value.cod
-          : cod // ignore: cast_nullable_to_non_nullable
-              as int,
     ));
   }
 }
@@ -248,22 +158,18 @@ class __$$WeatherDataImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$WeatherDataImpl implements _WeatherData {
   const _$WeatherDataImpl(
-      {required this.coord,
-      required final List<Weather> weather,
+      {required final List<Weather> weather,
       required this.main,
       required this.wind,
-      required this.clouds,
-      required this.sys,
-      required this.name,
-      required this.cod})
+      required this.name})
       : _weather = weather;
 
   factory _$WeatherDataImpl.fromJson(Map<String, dynamic> json) =>
       _$$WeatherDataImplFromJson(json);
 
-  @override
-  final Coord coord;
+// Coord? coord, // nullableに変更
   final List<Weather> _weather;
+// Coord? coord, // nullableに変更
   @override
   List<Weather> get weather {
     if (_weather is EqualUnmodifiableListView) return _weather;
@@ -275,18 +181,14 @@ class _$WeatherDataImpl implements _WeatherData {
   final Main main;
   @override
   final Wind wind;
-  @override
-  final Cloud clouds;
-  @override
-  final Sys sys;
+// Cloud? clouds, // nullableに変更
+// required Sys sys,
   @override
   final String name;
-  @override
-  final int cod;
 
   @override
   String toString() {
-    return 'WeatherData(coord: $coord, weather: $weather, main: $main, wind: $wind, clouds: $clouds, sys: $sys, name: $name, cod: $cod)';
+    return 'WeatherData(weather: $weather, main: $main, wind: $wind, name: $name)';
   }
 
   @override
@@ -294,28 +196,16 @@ class _$WeatherDataImpl implements _WeatherData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$WeatherDataImpl &&
-            (identical(other.coord, coord) || other.coord == coord) &&
             const DeepCollectionEquality().equals(other._weather, _weather) &&
             (identical(other.main, main) || other.main == main) &&
             (identical(other.wind, wind) || other.wind == wind) &&
-            (identical(other.clouds, clouds) || other.clouds == clouds) &&
-            (identical(other.sys, sys) || other.sys == sys) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.cod, cod) || other.cod == cod));
+            (identical(other.name, name) || other.name == name));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      coord,
-      const DeepCollectionEquality().hash(_weather),
-      main,
-      wind,
-      clouds,
-      sys,
-      name,
-      cod);
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_weather), main, wind, name);
 
   @JsonKey(ignore: true)
   @override
@@ -333,34 +223,23 @@ class _$WeatherDataImpl implements _WeatherData {
 
 abstract class _WeatherData implements WeatherData {
   const factory _WeatherData(
-      {required final Coord coord,
-      required final List<Weather> weather,
+      {required final List<Weather> weather,
       required final Main main,
       required final Wind wind,
-      required final Cloud clouds,
-      required final Sys sys,
-      required final String name,
-      required final int cod}) = _$WeatherDataImpl;
+      required final String name}) = _$WeatherDataImpl;
 
   factory _WeatherData.fromJson(Map<String, dynamic> json) =
       _$WeatherDataImpl.fromJson;
 
-  @override
-  Coord get coord;
-  @override
+  @override // Coord? coord, // nullableに変更
   List<Weather> get weather;
   @override
   Main get main;
   @override
   Wind get wind;
-  @override
-  Cloud get clouds;
-  @override
-  Sys get sys;
-  @override
+  @override // Cloud? clouds, // nullableに変更
+// required Sys sys,
   String get name;
-  @override
-  int get cod;
   @override
   @JsonKey(ignore: true)
   _$$WeatherDataImplCopyWith<_$WeatherDataImpl> get copyWith =>

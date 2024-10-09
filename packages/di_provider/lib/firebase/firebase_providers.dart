@@ -6,6 +6,7 @@ part 'firebase_providers.g.dart';
 @Riverpod(keepAlive: true)
 FirebaseAuth firebaseAuth(FirebaseAuthRef ref) {
   return FirebaseAuth.instance;
+  
 }
 
 // if you want to use other firebase services, you can add them here

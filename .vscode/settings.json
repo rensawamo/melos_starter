@@ -72,10 +72,7 @@
   "explorer.fileNesting.patterns": {
     "pubspec.yaml": ".flutter-plugins, .packages, .dart_tool, .flutter-plugins-dependencies, .metadata, template.iml, pubspec.lock, lefthook.yaml, pubspec_overrides.yaml",
     "firebase.json": ".firebaserc, firestore.rules, firestore.indexes.json,storage.rules, remoteconfig.template.json",
-    ".env.sample": ".env*",
-    ".gitignore": ".gitattributes, .gitmodules, .gitmessage, .mailmap, .git-blame*",
-    "readme.*": "authors, backers.md, changelog*, citation*, code_of_conduct.md, codeowners, contributing.md, contributors, copying, credits, governance.md, history.md, license*, maintainers, readme*, security.md, sponsors.md",
-    "*.dart": "$(capture).g.dart, $(capture).freezed.dart, $(capture).mocks.dart"
+    "*.dart": "$(capture).g.dart, $(capture).freezed.dart, ${capture}.state.dart, ${capture}.viewmodel.dart",
   },
   "files.associations": {
     "*.apns": "json"
@@ -84,10 +81,10 @@
     "**/.fvm": true,
     ".idea": true
   },
-  "git.autofetch": true,
-  "git.enableSmartCommit": true,
+  
   "search.exclude": {
     "**/*.dart_tool": true,
+    "**/.bundle": true,
     "**/*.freezed.dart": true,
     "**/*.g.dart": true,
     "**/*.log": true,
@@ -95,6 +92,8 @@
     "**/.fvm": true,
     "**/.idea": true,
     "**/build": true,
+    "**/coverage": true,
+    "**/vender": true,
     "**/node_modules": true,
     "**/Pods": true
   },

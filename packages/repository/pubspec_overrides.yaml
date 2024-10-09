@@ -1,6 +1,8 @@
-# melos_managed_dependency_overrides: core_di_provider,core_foundation
+# melos_managed_dependency_overrides: core_di_provider,core_foundation,core_test_util
 dependency_overrides:
   core_di_provider:
     path: ../di_provider
   core_foundation:
     path: ../foundation
+  core_test_util:
+    path: ../test_util

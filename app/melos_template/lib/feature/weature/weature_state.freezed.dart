@@ -22,7 +22,6 @@ WeatherState _$WeatherStateFromJson(Map<String, dynamic> json) {
 mixin _$WeatherState {
   bool get isLoading => throw _privateConstructorUsedError;
   WeatherData? get weatherData => throw _privateConstructorUsedError;
-  String? get errorMessage => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +35,7 @@ abstract class $WeatherStateCopyWith<$Res> {
           WeatherState value, $Res Function(WeatherState) then) =
       _$WeatherStateCopyWithImpl<$Res, WeatherState>;
   @useResult
-  $Res call({bool isLoading, WeatherData? weatherData, String? errorMessage});
+  $Res call({bool isLoading, WeatherData? weatherData});
 
   $WeatherDataCopyWith<$Res>? get weatherData;
 }
@@ -56,7 +55,6 @@ class _$WeatherStateCopyWithImpl<$Res, $Val extends WeatherState>
   $Res call({
     Object? isLoading = null,
     Object? weatherData = freezed,
-    Object? errorMessage = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -67,10 +65,6 @@ class _$WeatherStateCopyWithImpl<$Res, $Val extends WeatherState>
           ? _value.weatherData
           : weatherData // ignore: cast_nullable_to_non_nullable
               as WeatherData?,
-      errorMessage: freezed == errorMessage
-          ? _value.errorMessage
-          : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String?,
     ) as $Val);
   }
 
@@ -95,7 +89,7 @@ abstract class _$$WeatherStateImplCopyWith<$Res>
       __$$WeatherStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isLoading, WeatherData? weatherData, String? errorMessage});
+  $Res call({bool isLoading, WeatherData? weatherData});
 
   @override
   $WeatherDataCopyWith<$Res>? get weatherData;
@@ -114,7 +108,6 @@ class __$$WeatherStateImplCopyWithImpl<$Res>
   $Res call({
     Object? isLoading = null,
     Object? weatherData = freezed,
-    Object? errorMessage = freezed,
   }) {
     return _then(_$WeatherStateImpl(
       isLoading: null == isLoading
@@ -125,10 +118,6 @@ class __$$WeatherStateImplCopyWithImpl<$Res>
           ? _value.weatherData
           : weatherData // ignore: cast_nullable_to_non_nullable
               as WeatherData?,
-      errorMessage: freezed == errorMessage
-          ? _value.errorMessage
-          : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -137,7 +126,7 @@ class __$$WeatherStateImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$WeatherStateImpl implements _WeatherState {
   const _$WeatherStateImpl(
-      {required this.isLoading, required this.weatherData, this.errorMessage});
+      {required this.isLoading, required this.weatherData});
 
   factory _$WeatherStateImpl.fromJson(Map<String, dynamic> json) =>
       _$$WeatherStateImplFromJson(json);
@@ -146,12 +135,10 @@ class _$WeatherStateImpl implements _WeatherState {
   final bool isLoading;
   @override
   final WeatherData? weatherData;
-  @override
-  final String? errorMessage;
 
   @override
   String toString() {
-    return 'WeatherState(isLoading: $isLoading, weatherData: $weatherData, errorMessage: $errorMessage)';
+    return 'WeatherState(isLoading: $isLoading, weatherData: $weatherData)';
   }
 
   @override
@@ -162,15 +149,12 @@ class _$WeatherStateImpl implements _WeatherState {
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.weatherData, weatherData) ||
-                other.weatherData == weatherData) &&
-            (identical(other.errorMessage, errorMessage) ||
-                other.errorMessage == errorMessage));
+                other.weatherData == weatherData));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, isLoading, weatherData, errorMessage);
+  int get hashCode => Object.hash(runtimeType, isLoading, weatherData);
 
   @JsonKey(ignore: true)
   @override
@@ -189,8 +173,7 @@ class _$WeatherStateImpl implements _WeatherState {
 abstract class _WeatherState implements WeatherState {
   const factory _WeatherState(
       {required final bool isLoading,
-      required final WeatherData? weatherData,
-      final String? errorMessage}) = _$WeatherStateImpl;
+      required final WeatherData? weatherData}) = _$WeatherStateImpl;
 
   factory _WeatherState.fromJson(Map<String, dynamic> json) =
       _$WeatherStateImpl.fromJson;
@@ -199,8 +182,6 @@ abstract class _WeatherState implements WeatherState {
   bool get isLoading;
   @override
   WeatherData? get weatherData;
-  @override
-  String? get errorMessage;
   @override
   @JsonKey(ignore: true)
   _$$WeatherStateImplCopyWith<_$WeatherStateImpl> get copyWith =>
