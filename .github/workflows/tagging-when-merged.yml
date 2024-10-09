@@ -1,4 +1,4 @@
-name: tagging
+name: tagging when merged
 
 on:
   pull_request:
@@ -24,12 +24,12 @@ jobs:
           echo "Head ref: ${{ github.head_ref }}"
 
       - name: get version from pubspec.yaml
-        if: github.event.pull_request.merged == true && startsWith(github.head_ref, 'releases/')
+        if: ${{ github.event.pull_request.merged == true && github.head_ref && startsWith(github.head_ref, 'releases/') }}
         run: |
-          echo "BUMP_VERSION=$(sed -n 's/^version: *\([^ ]*\) *$/\1/p' pubspec.yaml)" >> $GITHUB_ENV
+          echo "BUMP_VERSION=$(sed -n 's/^version: *\([^ ]*\) *$/\1/p' app/melos_template/pubspec.yaml)" >> $GITHUB_ENV
 
       - name: create tag and release note
-        if: github.event.pull_request.merged == true && startsWith(github.head_ref, 'releases/')
+        if: ${{ github.event.pull_request.merged == true && github.head_ref && startsWith(github.head_ref, 'releases/') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
