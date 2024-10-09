@@ -51,7 +51,7 @@ jobs:
       - name: bump up version
         run: |
           echo choice: ${{ github.event.inputs.bump }}
-          cd app/melos_templat && flutter pub run cider bump ${{ github.event.inputs.bump }} --bump-build
+          cd app/melos_template && flutter pub run cider bump ${{ github.event.inputs.bump }} --bump-build
           echo "BUMP_VERSION=$(flutter pub run cider version)" >> $GITHUB_ENV
 
       - name: commit and push pubspec.yaml
