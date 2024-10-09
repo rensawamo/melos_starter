@@ -7,8 +7,32 @@ part of 'app_route_data.dart';
 // **************************************************************************
 
 List<RouteBase> get $appRoutes => [
+      $introductionRouteData,
       $appShellRouteData,
     ];
+
+RouteBase get $introductionRouteData => GoRouteData.$route(
+      path: '/introduction',
+      factory: $IntroductionRouteDataExtension._fromState,
+    );
+
+extension $IntroductionRouteDataExtension on IntroductionRouteData {
+  static IntroductionRouteData _fromState(GoRouterState state) =>
+      const IntroductionRouteData();
+
+  String get location => GoRouteData.$location(
+        '/introduction',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
 
 RouteBase get $appShellRouteData => StatefulShellRouteData.$route(
       factory: $AppShellRouteDataExtension._fromState,

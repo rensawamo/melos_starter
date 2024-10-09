@@ -7,11 +7,13 @@ part 'main.g.dart';
 class Main with _$Main {
   const factory Main({
     required double temp,
-    required double feelsLike,
-    required double tempMin,
-    required double tempMax,
+    required double feels_like,
+    required double temp_min,
+    required double temp_max,
     required int pressure,
     required int humidity,
+    int? sea_level,
+    int? grnd_level,
   }) = _Main;
 
   factory Main.fromJson(Map<String, dynamic> json) => _$MainFromJson(json);

@@ -46,19 +46,15 @@ class DioClientImpl implements DioClient {
         onReceiveProgress: onReceiveProgress,
       );
       return response.data;
-    } on SocketException catch (error) {
-      logger.e('SocketException: $error');
+    } on SocketException {
       throw AppError.socketException();
-    } on FormatException catch (error) {
-      logger.e('FormatException: $error');
+    } on FormatException {
       throw AppError.formatException();
     } on DioException catch (error) {
-      logger.e('DioErrorLog: $error');
       throw AppDioException(
         AppErrorType.dioException,
       ).fromDioException(error);
     } catch (error) {
-      logger.e('Error: $error');
       throw AppError.unknownError(
         'Failed to fetch data: $error',
       );

@@ -6,6 +6,7 @@ import 'package:flutter_app_template/core/router/data/setting/setting_route_data
 import 'package:flutter_app_template/core/router/data/weature/weature_route_data.dart';
 import 'package:flutter_app_template/core/router/observer/transition_observer.dart';
 import 'package:flutter_app_template/core/router/routes.dart';
+import 'package:flutter_app_template/feature/introduction/introduction_page.dart';
 import 'package:go_router/go_router.dart';
 
 part 'app_route_data.g.dart';
@@ -13,6 +14,19 @@ part 'app_route_data.g.dart';
 final GlobalKey<NavigatorState> rootNavigatorKey = GlobalKey<NavigatorState>();
 final firstNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'first');
 final secoundNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'secound');
+
+@TypedGoRoute<IntroductionRouteData>(
+  path: Routes.introduction,
+  routes: <TypedGoRoute<GoRouteData>>[],
+)
+class IntroductionRouteData extends GoRouteData {
+  const IntroductionRouteData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const IntroductionPage();
+  }
+}
 
 @TypedStatefulShellRoute<AppShellRouteData>(
   branches: <TypedStatefulShellBranch<StatefulShellBranchData>>[

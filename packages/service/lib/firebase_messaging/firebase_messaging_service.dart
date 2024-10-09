@@ -11,53 +11,82 @@ part 'firebase_messaging_service.g.dart';
 FirebaseMessagingService firebaseMessagingService(
   FirebaseMessagingServiceRef ref,
 ) {
-  return FirebaseMessagingService(FirebaseMessaging.instance);
+  final service = FirebaseMessagingService(FirebaseMessaging.instance);
+  ref.onDispose(service.dispose);
+  return service;
 }
 
 class FirebaseMessagingService {
-  FirebaseMessagingService(this._firebaseMessaging);
+  FirebaseMessagingService(this._firebaseMessaging) {
+    _configureListeners();
+  }
+
   final FirebaseMessaging _firebaseMessaging;
 
-  final _message = PublishSubject<RemoteMessage>();
-  final _openedApp = PublishSubject<RemoteMessage>();
-  final _token = PublishSubject<String>();
-  bool _isFetch = false;
+  // Subjects to handle streams of messages and token updates
+  final _messageController = BehaviorSubject<RemoteMessage>();
+  final _openedAppController = BehaviorSubject<RemoteMessage>();
+  final _tokenController = BehaviorSubject<String>();
 
-  Stream<RemoteMessage> get message => _message;
+  bool _isConfigured = false;
 
-  Stream<RemoteMessage> get openedApp => _openedApp;
-
-  Stream<String> get fetchToken => _token;
+  // Public streams to expose data
+  Stream<RemoteMessage> get messageStream => _messageController.stream;
+  Stream<RemoteMessage> get openedAppStream => _openedAppController.stream;
+  Stream<String> get tokenStream => _tokenController.stream;
 
   Future<String?> get token => _firebaseMessaging.getToken();
 
-  void configureListener() {
-    if (_isFetch) {
+  void _configureListeners() {
+    if (_isConfigured) {
       return;
     }
-    _isFetch = true;
-    FirebaseMessaging.onMessage.listen(_message.add);
-    FirebaseMessaging.onMessageOpenedApp.listen(_openedApp.add);
-    _firebaseMessaging.onTokenRefresh.listen(_token.add);
+    _isConfigured = true;
+
+    // Listen to Firebase Messaging events
+    FirebaseMessaging.onMessage.listen(_messageController.add);
+    FirebaseMessaging.onMessageOpenedApp.listen(_openedAppController.add);
+    _firebaseMessaging.onTokenRefresh.listen(_tokenController.add);
   }
 
   Future<void> requestPermission() async {
     if (Platform.isIOS) {
-      await _firebaseMessaging.requestPermission();
+      final settings = await _firebaseMessaging.requestPermission();
+      if (settings.authorizationStatus != AuthorizationStatus.authorized) {
+        throw Exception('User has declined or has not granted permission');
+      }
     }
   }
 
-  Future<void> subscribeToTopic(String topic) =>
-      _firebaseMessaging.subscribeToTopic(topic);
+  Future<void> subscribeToTopic(String topic) async {
+    try {
+      await _firebaseMessaging.subscribeToTopic(topic);
+    } catch (e) {
+      throw Exception('Failed to subscribe to topic: $topic');
+    }
+  }
 
-  Future<void> unsubscribeFromTopic(String topic) =>
-      _firebaseMessaging.unsubscribeFromTopic(topic);
+  Future<void> unsubscribeFromTopic(String topic) async {
+    try {
+      await _firebaseMessaging.unsubscribeFromTopic(topic);
+    } catch (e) {
+      throw Exception('Failed to unsubscribe from topic: $topic');
+    }
+  }
 
-  Future<void> deleteToken() => _firebaseMessaging.deleteToken();
+  Future<void> deleteToken() async {
+    try {
+      await _firebaseMessaging.deleteToken();
+      _tokenController.add('');
+    } catch (e) {
+      throw Exception('Failed to delete token');
+    }
+  }
 
   Future<void> dispose() async {
-    await _message.close();
-    await _openedApp.close();
-    await _token.close();
+    // Close all the subjects
+    await _messageController.close();
+    await _openedAppController.close();
+    await _tokenController.close();
   }
 }

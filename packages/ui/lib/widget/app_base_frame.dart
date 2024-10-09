@@ -9,6 +9,7 @@ class AppBarFrame extends ConsumerStatefulWidget {
     super.key,
     this.init,
     this.title = '',
+    this.hasAppbar = true,
     this.appBar,
     this.bottomBar,
     this.backOnTap,
@@ -25,6 +26,7 @@ class AppBarFrame extends ConsumerStatefulWidget {
   final String title;
   final PreferredSizeWidget? appBar;
   final Widget body;
+  final bool hasAppbar;
   final Widget? bottomBar;
   final void Function()? backOnTap;
   final bool hasPrevButton;
@@ -67,13 +69,15 @@ class _AppBaseFrameState extends ConsumerState<AppBarFrame> {
             ? (isOpen) => widget.onDrawerChanged!(isOpen: isOpen)
             : null,
         drawerEnableOpenDragGesture: false,
-        appBar: widget.appBar ??
-            AppBarForScreen(
-              titleText: widget.title,
-              leftWidget: widget.hasPrevButton
-                  ? _prevButton(context)
-                  : const SizedBox(),
-            ),
+        appBar: widget.hasAppbar == false
+            ? null
+            : widget.appBar ??
+                AppBarForScreen(
+                  titleText: widget.title,
+                  leftWidget: widget.hasPrevButton
+                      ? _prevButton(context)
+                      : const SizedBox(),
+                ),
         body: SafeArea(child: _buildBody(context)),
         bottomNavigationBar: widget.bottomBar != null
             ? SafeArea(child: widget.bottomBar!)

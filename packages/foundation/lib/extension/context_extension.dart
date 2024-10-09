@@ -11,8 +11,6 @@ extension ContextExtension on BuildContext {
   double get mediaQueryHeight => MediaQuery.sizeOf(this).height;
   double get mediaQueryWidth => MediaQuery.sizeOf(this).width;
 
-  Locale get locale => Localizations.localeOf(this);
-
   Color get scaffoldBackgroundColor => Theme.of(this).scaffoldBackgroundColor;
   Color get backgroundColor => isDark ? Colors.black : Colors.white;
   Color? get iconColor => Theme.of(this).iconTheme.color;

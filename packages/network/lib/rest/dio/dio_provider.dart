@@ -8,11 +8,6 @@ part 'dio_provider.g.dart';
 
 @Riverpod(keepAlive: true)
 Dio dio(DioRef ref) {
-  // const baseUrl = String.fromEnvironment(
-  //   'base_url',
-  //   // you can change the default value to your own base url
-  //   defaultValue: 'https://default-api.com',
-  // );
   final token = ref.read(tokenRepositoryProvider).cachedToken;
 
   final dio = Dio(
