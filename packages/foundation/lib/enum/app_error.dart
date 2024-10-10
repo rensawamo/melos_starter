@@ -1,33 +1,38 @@
+import 'package:core_foundation/enum/app_dio_exception.dart';
 import 'package:core_foundation/foundation.dart';
+import 'package:dio/dio.dart';
 
 enum AppErrorType {
-  dioException,
-  networkError,
-  socketException,
-  grpcError,
-  tokenSaveError,
-  conflictError,
-  jsonParsingError,
-  jsonEncodingError,
-  argumentError,
-  authenticationError,
-  validationError,
-  internalServerError,
-  forbidden,
-  notFound,
-  unknownError,
-  serverError,
-  dataParsingError,
-  userError,
-  notificationNotAvailableYet,
-  requestCancelled,
-  badRequest,
-  notAcceptable,
-  requestTimeout,
-  sendTimeout,
-  serviceUnavailable,
-  formatException,
-  noInternetConnection,
+  dioException('dioException'),
+  networkError('networkError'),
+  socketException('socketException'),
+  grpcError('grpcError'),
+  tokenSaveError('tokenSaveError'),
+  conflictError('conflictError'),
+  jsonParsingError('jsonParsingError'),
+  jsonEncodingError('jsonEncodingError'),
+  argumentError('argumentError'),
+  authenticationError('authentication Error'),
+  validationError('validationError'),
+  internalServerError('internalServerError'),
+  forbidden('forbidden'),
+  notFound('notFound'),
+  unknownError('unknownError'),
+  serverError('serverError'),
+  dataParsingError('dataParsingError'),
+  userError('userError'),
+  notificationNotAvailableYet('notificationNotAvailableYet'),
+  requestCancelled('requestCancelled'),
+  badRequest('badRequest'),
+  notAcceptable('notAcceptable'),
+  requestTimeout('requestTimeout'),
+  sendTimeout('sendTimeout'),
+  serviceUnavailable('serviceUnavailable'),
+  formatException('formatException'),
+  noInternetConnection('no Internet Connection'),;
+
+  const AppErrorType(this.value);
+  final String value;
 }
 
 class AppError implements Exception {
@@ -38,7 +43,12 @@ class AppError implements Exception {
   }) {
     logger.e('AppError: $type, Details: $details, Code: $code');
   }
-
+  factory AppError.dioException(DioException error) {
+    final appDioException = AppDioException(
+      AppErrorType.dioException,
+    );
+    return appDioException.fromDioException(error);
+  }
   // Factory constructors for different error types
   factory AppError.networkError() => AppError(AppErrorType.networkError);
 

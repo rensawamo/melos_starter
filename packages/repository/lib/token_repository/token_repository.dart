@@ -17,7 +17,7 @@ class TokenRepositoryImpl implements TokenRepository {
   TokenRepositoryImpl(this._secureStorage);
 
   final FlutterSecureStorage _secureStorage;
-  final String key = 'APP_TOKEN_REPOSITORY';
+  final _key = AppSecureStorageKey.appTokenRepositoryKey;
   @override
   String cachedToken = '';
 
@@ -26,8 +26,8 @@ class TokenRepositoryImpl implements TokenRepository {
     List<Cookie> cookies,
   ) async {
     for (final cookie in cookies) {
-      if (cookie.name == key) {
-        await _secureStorage.write(key: key, value: cookie.value);
+      if (cookie.name == _key.name) {
+        await _secureStorage.write(key: _key.name, value: cookie.value);
         cachedToken = cookie.value;
         logger.i('Token saved to secure storage: ${cookie.value}');
         return null;
@@ -39,28 +39,28 @@ class TokenRepositoryImpl implements TokenRepository {
 
   @override
   Future<void> saveToken(String value) async {
-    await _secureStorage.write(key: key, value: value);
+    await _secureStorage.write(key: _key.name, value: value);
     cachedToken = value;
     logger.i('Token saved to secure storage: $value');
   }
 
   @override
   Future<String> loadToken() async {
-    final token = await _secureStorage.read(key: key);
+    final token = await _secureStorage.read(key: _key.name);
     if (token == '' || token == null) {
-      logger.w('Token not found for key: $key');
+      logger.w('Token not found for key: ${_key.name}');
       return '';
     }
-    logger.i('Token successfully loaded for key: $key');
+    logger.i('Token successfully loaded for key: ${_key.name}');
     return token;
   }
 
   @override
   Future<Error?> deleteToken() async {
     try {
-      await _secureStorage.delete(key: key);
+      await _secureStorage.delete(key: _key.name);
       await _invalidateToken();
-      logger.i('Token successfully deleted for key: $key');
+      logger.i('Token successfully deleted for key: ${_key.name}');
       return null;
     } catch (e) {
       logger.e('Error deleting token: $e');

@@ -9,5 +9,4 @@ analyzer:
 linter:
   rules:
     public_member_api_docs: false
-    no_default_cases: false
     depend_on_referenced_packages: false

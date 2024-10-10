@@ -10,9 +10,6 @@ ThemeData themeDark() {
       brightness: Brightness.dark,
       seedColor: primary,
       primary: primary,
-      surface: primary,
-      error: Colors.blue,
-      surfaceContainerLow: Colors.grey,
     ),
     textTheme: const TextTheme(
       bodyMedium: TextStyle(fontSize: 18),
@@ -21,16 +18,7 @@ ThemeData themeDark() {
   );
 
   return base.copyWith(
-    elevatedButtonTheme: ElevatedButtonThemeData(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.purple,
-        foregroundColor: Colors.white,
-      ),
-    ),
-    floatingActionButtonTheme: base.floatingActionButtonTheme.copyWith(
-      backgroundColor: Colors.white,
-      foregroundColor: Colors.black,
-    ),
+    scaffoldBackgroundColor: Colors.black,
     pageTransitionsTheme: const PageTransitionsTheme(
       builders: {
         TargetPlatform.android: CupertinoPageTransitionsBuilder(),

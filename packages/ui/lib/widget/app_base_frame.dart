@@ -92,12 +92,15 @@ class _AppBaseFrameState extends ConsumerState<AppBarFrame> {
     }
     return IconButton(
       key: widget.backButtonKey,
-      icon: const Icon(Icons.arrow_back),
+      icon: const Icon(Icons.arrow_back_ios),
       onPressed: () {
         if (widget.backOnTap != null) {
           widget.backOnTap!();
         } else {
-          context.pop();
+          if (context.canPop()) {
+            context.pop();
+          }
+
         }
       },
     );

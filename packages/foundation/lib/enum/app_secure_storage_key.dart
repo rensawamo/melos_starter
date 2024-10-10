@@ -1,5 +1,5 @@
 enum AppSecureStorageKey {
-  localCounter('localCounter'),
+  appTokenRepositoryKey('appTokenRepositoryKey'),
   ;
 
   const AppSecureStorageKey(this.value);

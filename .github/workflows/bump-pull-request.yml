@@ -13,7 +13,6 @@ on:
           - major
 
 env:
-    # 「 github-actions[bot] 」 というユーザーが commit するよう設定。
   GIT_USER_EMAIL: '41898282+github-actions[bot]@users.noreply.github.com'
   GIT_USER_NAME: 'github-actions[bot]'
 
