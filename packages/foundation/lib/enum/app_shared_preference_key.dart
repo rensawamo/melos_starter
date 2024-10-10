@@ -1,6 +1,5 @@
-
 enum AppSharedPreferenceKey {
-  localCounter('localCounter'),
+  appThemeColorKey('appThemeColorKey'),
   ;
 
   const AppSharedPreferenceKey(this.value);

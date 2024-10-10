@@ -12,11 +12,14 @@ dependencies:
   dio: ^5.7.0
   flutter: 
     sdk: flutter
+  core_di_provider:
+    path: ../di_provider
   core_repository:  
     path: ../repository
   core_foundation:  
     path: ../foundation
   ansicolor: ^2.0.3
+  connectivity_plus: ^6.0.5
   talker_dio_logger: ^4.4.1
   flutter_riverpod: ^2.5.1
   flutter_secure_storage: ^9.2.2

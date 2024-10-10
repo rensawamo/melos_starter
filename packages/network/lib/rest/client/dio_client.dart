@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:core_di_provider/connectivity/connectivity_provider.dart';
 import 'package:core_foundation/enum/app_dio_exception.dart';
 import 'package:core_foundation/foundation.dart';
 import 'package:core_network/rest/dio/dio_provider.dart';
@@ -11,14 +13,18 @@ part 'dio_client.g.dart';
 @Riverpod(keepAlive: true)
 DioClient dioClient(DioClientRef ref) {
   final dio = ref.watch(dioProvider);
-  return DioClientImpl(dio);
+  final connectivity = ref.watch(connectivityProvider);
+
+  return DioClientImpl(dio, connectivity);
 }
 
 class DioClientImpl implements DioClient {
   DioClientImpl(
     this.dio,
+    this._connectivity,
   );
-  Dio dio;
+  final Dio dio;
+  final Connectivity _connectivity;
 
   @override
   Future<dynamic> get(
@@ -30,10 +36,12 @@ class DioClientImpl implements DioClient {
     CancelToken? cancelToken,
     ProgressCallback? onReceiveProgress,
   }) async {
+
     try {
       if (dio.interceptors.isNotEmpty) {
         dio.interceptors.clear();
       }
+
       if (interceptors != null) {
         dio.interceptors.addAll(interceptors);
       }
@@ -76,6 +84,10 @@ class DioClientImpl implements DioClient {
       if (dio.interceptors.isNotEmpty) {
         dio.interceptors.clear();
       }
+      final connectivityResult = await _connectivity.checkConnectivity();
+      if (connectivityResult.contains(ConnectivityResult.none)) {
+        throw AppError.noInternetConnection();
+      }
       if (interceptors != null) {
         dio.interceptors.addAll(interceptors);
       }
@@ -113,6 +125,10 @@ class DioClientImpl implements DioClient {
       if (dio.interceptors.isNotEmpty) {
         dio.interceptors.clear();
       }
+      final connectivityResult = await _connectivity.checkConnectivity();
+      if (connectivityResult.contains(ConnectivityResult.none)) {
+        throw AppError.noInternetConnection();
+      }
       if (interceptors != null) {
         dio.interceptors.addAll(interceptors);
       }
@@ -145,6 +161,10 @@ class DioClientImpl implements DioClient {
       if (dio.interceptors.isNotEmpty) {
         dio.interceptors.clear();
       }
+      final connectivityResult = await _connectivity.checkConnectivity();
+      if (connectivityResult.contains(ConnectivityResult.none)) {
+        throw AppError.noInternetConnection();
+      }
       if (interceptors != null) {
         dio.interceptors.addAll(interceptors);
       }
@@ -176,6 +196,10 @@ class DioClientImpl implements DioClient {
     try {
       if (dio.interceptors.isNotEmpty) {
         dio.interceptors.clear();
+      }
+      final connectivityResult = await _connectivity.checkConnectivity();
+      if (connectivityResult.contains(ConnectivityResult.none)) {
+        throw AppError.noInternetConnection();
       }
       if (interceptors != null) {
         dio.interceptors.addAll(interceptors);

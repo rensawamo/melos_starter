@@ -10,6 +10,8 @@ class AppDioException extends AppError {
         return AppError.requestCancelled();
       case DioExceptionType.connectionTimeout:
         return AppError.requestTimeout();
+      case DioExceptionType.connectionError:
+        return AppError.noInternetConnection();
       case DioExceptionType.receiveTimeout:
         return AppError.sendTimeout();
       case DioExceptionType.badResponse:
@@ -38,8 +40,6 @@ class AppDioException extends AppError {
         }
       case DioExceptionType.sendTimeout:
         return AppError.sendTimeout();
-      case DioExceptionType.unknown:
-        return AppError.unknownError('An unknown error occurred');
       default:
         return AppError.unknownError('An unknown error occurred');
     }

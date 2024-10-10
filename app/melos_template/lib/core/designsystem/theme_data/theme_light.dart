@@ -10,9 +10,6 @@ ThemeData themeLight() {
     colorScheme: ColorScheme.fromSeed(
       seedColor: primary,
       primary: primary,
-      surface: primary,
-      error: Colors.blue,
-      surfaceContainerLow: Colors.orange,
     ),
     textTheme: const TextTheme(
       bodyMedium: TextStyle(fontSize: 18),
@@ -21,16 +18,6 @@ ThemeData themeLight() {
   );
 
   return base.copyWith(
-    elevatedButtonTheme: ElevatedButtonThemeData(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.purple,
-        foregroundColor: Colors.white,
-      ),
-    ),
-    floatingActionButtonTheme: base.floatingActionButtonTheme.copyWith(
-      backgroundColor: Colors.black,
-      foregroundColor: Colors.white,
-    ),
     scaffoldBackgroundColor: Colors.white,
     pageTransitionsTheme: const PageTransitionsTheme(
       builders: {

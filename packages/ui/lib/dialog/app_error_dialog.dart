@@ -18,7 +18,7 @@ class AppErrorDialog {
         await _unknownErrorDialog(context);
 
       default:
-        await _showGenericErrorDialog(context);
+        await _showGenericErrorDialog(context, error);
         break;
     }
   }
@@ -26,7 +26,7 @@ class AppErrorDialog {
   // unknown error
   static Future<void> _unknownErrorDialog(BuildContext context) async {
     if (!context.mounted) {
-      logger.d('context is not mounted');
+      logger.e('context is not mounted');
       return;
     }
     await showDialog<void>(
@@ -50,7 +50,7 @@ class AppErrorDialog {
 
   static Future<void> _showNetworkErrorDialog(BuildContext context) async {
     if (!context.mounted) {
-      logger.d('context is not mounted');
+      logger.e('context is not mounted');
       return;
     }
     await showDialog<void>(
@@ -72,16 +72,19 @@ class AppErrorDialog {
     );
   }
 
-  static Future<void> _showGenericErrorDialog(BuildContext context) async {
+  static Future<void> _showGenericErrorDialog(
+    BuildContext context,
+    AppError error,
+  ) async {
     if (!context.mounted) {
-      logger.d('context is not mounted');
+      logger.e('context is not mounted');
       return;
     }
     await showDialog<void>(
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: const Text('Error'),
+          title: Text(error.type.value),
           actions: [
             TextButton(
               onPressed: () {

@@ -19,10 +19,8 @@ class WeaturePage extends ConsumerWidget {
       title: 'RestApi Sample',
       init: () async {
         await vm.fetchWeather().then((AppError? error) {
-          if (error != null) {
-            if (context.mounted) {
-              AppErrorDialog.showErrorDialog(context, error);
-            }
+          if (error != null && context.mounted) {
+            AppErrorDialog.showErrorDialog(context, error);
           }
         });
       },

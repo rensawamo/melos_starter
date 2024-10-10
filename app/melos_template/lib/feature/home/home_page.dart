@@ -17,7 +17,6 @@ class HomePage extends ConsumerWidget {
         ref.watch(firebaseMessagingServiceProvider);
 
     return AppBarFrame(
-      shouldRemoveFocus: true,
       title: context.l10n.setting,
       init: () {
         firebaseMessagingService.messageStream.listen((message) {
@@ -52,7 +51,7 @@ class HomePage extends ConsumerWidget {
               const SizedBox(height: 24),
               InkWell(
                 onTap: () {
-                  const WeatureRouteData().go(context);
+                  const WeatureRouteData().push<void>(context);
                 },
                 child: Container(
                   padding:

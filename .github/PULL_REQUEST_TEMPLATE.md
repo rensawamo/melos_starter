@@ -8,7 +8,6 @@ Please describe the changes made in this PR. Include any background context and 
 - [ ] Documentation update
 
 ## Checklist
-- [ ] I have read the CONTRIBUTING guidelines
 - [ ] Tests have been added/updated (if applicable)
 - [ ] Documentation has been updated (if applicable)
 
