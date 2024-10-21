@@ -24,8 +24,12 @@ mixin _$Sys {
   int get sunrise => throw _privateConstructorUsedError;
   int get sunset => throw _privateConstructorUsedError;
 
+  /// Serializes this Sys to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Sys
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SysCopyWith<Sys> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -46,6 +50,8 @@ class _$SysCopyWithImpl<$Res, $Val extends Sys> implements $SysCopyWith<$Res> {
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Sys
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -85,6 +91,8 @@ class __$$SysImplCopyWithImpl<$Res> extends _$SysCopyWithImpl<$Res, _$SysImpl>
   __$$SysImplCopyWithImpl(_$SysImpl _value, $Res Function(_$SysImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Sys
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -140,11 +148,13 @@ class _$SysImpl implements _Sys {
             (identical(other.sunset, sunset) || other.sunset == sunset));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, country, sunrise, sunset);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Sys
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SysImplCopyWith<_$SysImpl> get copyWith =>
@@ -172,8 +182,11 @@ abstract class _Sys implements Sys {
   int get sunrise;
   @override
   int get sunset;
+
+  /// Create a copy of Sys
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SysImplCopyWith<_$SysImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

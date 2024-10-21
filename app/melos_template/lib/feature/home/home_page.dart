@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:melos_template/core/foundation/extension/l10_extension.dart';
 import 'package:melos_template/core/router/data/app_route_data.dart';
+import 'package:melos_template/core/router/data/setting/setting_route_data.dart';
 import 'package:melos_template/core/router/data/weature/weature_route_data.dart';
 import 'package:melos_template/feature/home/home_viewmodel.dart';
-import 'package:timeago/timeago.dart' as timeago;
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
@@ -19,12 +19,14 @@ class HomePage extends ConsumerWidget {
     return AppBarFrame(
       hasPrevButton: false,
       title: context.l10n.home,
+      rightWidget: IconButton(
+        icon: const Icon(Icons.settings),
+        onPressed: () {
+          const SettingPageData().push<void>(context);
+        },
+      ),
       init: () async {
         await vm.checkInternetConnection().then((bool isConnected) {
-          if (context.mounted) {
-            logger.d(context.locale);
-            timeago.setDefaultLocale('en');
-          }
           if (!isConnected && context.mounted) {
             AppErrorDialog.showErrorDialog(
               context,

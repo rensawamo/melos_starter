@@ -14,7 +14,6 @@ class SettingPage extends ConsumerWidget {
     final flavor = ref.read(flavorProvider);
 
     return AppBarFrame(
-      hasPrevButton: false,
       title: context.l10n.setting,
       body: ListView(
         children: [

@@ -98,13 +98,13 @@ flutter_icons:
     - ./assets/images/icons/stg.png
 
 flutter_native_splash:
-  color: "#262626"
+  color: "#000000"
   image: "assets/images/splash.png"
-  color_dark: "#262626"
+  color_dark: "#000000"
   image_dark: "assets/images/splash.png"
   fullscreen: false
   android_12:
-    icon_background_color: "#262626"
+    icon_background_color: "#000000"
     image: "assets/images/splash.png"
-    icon_background_color_dark: "#262626"
+    icon_background_color_dark: "#000000"
     image_dark: "assets/images/splash.png"

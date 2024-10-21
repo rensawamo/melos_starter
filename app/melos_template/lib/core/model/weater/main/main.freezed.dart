@@ -29,8 +29,12 @@ mixin _$Main {
   int? get sea_level => throw _privateConstructorUsedError;
   int? get grnd_level => throw _privateConstructorUsedError;
 
+  /// Serializes this Main to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Main
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MainCopyWith<Main> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -60,6 +64,8 @@ class _$MainCopyWithImpl<$Res, $Val extends Main>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Main
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -134,6 +140,8 @@ class __$$MainImplCopyWithImpl<$Res>
   __$$MainImplCopyWithImpl(_$MainImpl _value, $Res Function(_$MainImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Main
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -243,12 +251,14 @@ class _$MainImpl implements _Main {
                 other.grnd_level == grnd_level));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, temp, feels_like, temp_min,
       temp_max, pressure, humidity, sea_level, grnd_level);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Main
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MainImplCopyWith<_$MainImpl> get copyWith =>
@@ -291,8 +301,11 @@ abstract class _Main implements Main {
   int? get sea_level;
   @override
   int? get grnd_level;
+
+  /// Create a copy of Main
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MainImplCopyWith<_$MainImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

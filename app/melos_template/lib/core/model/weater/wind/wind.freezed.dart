@@ -23,8 +23,12 @@ mixin _$Wind {
   double get speed => throw _privateConstructorUsedError;
   int get deg => throw _privateConstructorUsedError;
 
+  /// Serializes this Wind to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Wind
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $WindCopyWith<Wind> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -46,6 +50,8 @@ class _$WindCopyWithImpl<$Res, $Val extends Wind>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Wind
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -82,6 +88,8 @@ class __$$WindImplCopyWithImpl<$Res>
   __$$WindImplCopyWithImpl(_$WindImpl _value, $Res Function(_$WindImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Wind
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -128,11 +136,13 @@ class _$WindImpl implements _Wind {
             (identical(other.deg, deg) || other.deg == deg));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, speed, deg);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Wind
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$WindImplCopyWith<_$WindImpl> get copyWith =>
@@ -156,8 +166,11 @@ abstract class _Wind implements Wind {
   double get speed;
   @override
   int get deg;
+
+  /// Create a copy of Wind
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$WindImplCopyWith<_$WindImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

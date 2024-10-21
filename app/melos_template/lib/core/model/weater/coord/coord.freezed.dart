@@ -23,8 +23,12 @@ mixin _$Coord {
   double get lon => throw _privateConstructorUsedError;
   double get lat => throw _privateConstructorUsedError;
 
+  /// Serializes this Coord to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Coord
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CoordCopyWith<Coord> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -46,6 +50,8 @@ class _$CoordCopyWithImpl<$Res, $Val extends Coord>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Coord
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -83,6 +89,8 @@ class __$$CoordImplCopyWithImpl<$Res>
       _$CoordImpl _value, $Res Function(_$CoordImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Coord
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -129,11 +137,13 @@ class _$CoordImpl implements _Coord {
             (identical(other.lat, lat) || other.lat == lat));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, lon, lat);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Coord
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CoordImplCopyWith<_$CoordImpl> get copyWith =>
@@ -157,8 +167,11 @@ abstract class _Coord implements Coord {
   double get lon;
   @override
   double get lat;
+
+  /// Create a copy of Coord
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CoordImplCopyWith<_$CoordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

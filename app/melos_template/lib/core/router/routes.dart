@@ -8,5 +8,5 @@ mixin Routes {
   static const weature = 'weature';
 
   /// setting
-  static const setting = '/setting';
+  static const setting = 'setting';
 }

@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:melos_template/core/router/app_navigation_bar.dart';
-import 'package:melos_template/core/router/data/home/home_route_data.dart';
 import 'package:melos_template/core/router/data/setting/setting_route_data.dart';
 import 'package:melos_template/core/router/data/weature/weature_route_data.dart';
-import 'package:melos_template/core/router/observer/transition_observer.dart';
 import 'package:melos_template/core/router/routes.dart';
+import 'package:melos_template/feature/home/home_page.dart';
 import 'package:melos_template/feature/introduction/introduction_page.dart';
 
 part 'app_route_data.g.dart';
@@ -28,28 +27,22 @@ class IntroductionRouteData extends GoRouteData {
   }
 }
 
-@TypedStatefulShellRoute<AppShellRouteData>(
-  branches: <TypedStatefulShellBranch<StatefulShellBranchData>>[
-    /// bottom tab1
-    TypedStatefulShellBranch<FirstBranch>(
-      routes: [
-        TypedGoRoute<HomePageData>(
-          path: Routes.home,
-          routes: [
-            TypedGoRoute<WeatureRouteData>(path: Routes.weature),
-          ],
-        ),
-      ],
-    ),
-
-    /// bottom tab2
-    TypedStatefulShellBranch<SecoundBranch>(
-      routes: [
-        TypedGoRoute<SettingPageData>(path: Routes.setting),
-      ],
-    ),
+@TypedGoRoute<HomePageData>(
+  path: Routes.home,
+  routes: <TypedGoRoute<GoRouteData>>[
+    TypedGoRoute<SettingPageData>(path: Routes.setting),
+    TypedGoRoute<WeatureRouteData>(path: Routes.weature),
   ],
 )
+class HomePageData extends GoRouteData {
+  const HomePageData();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const HomePage();
+  }
+}
+
 class AppShellRouteData extends StatefulShellRouteData {
   const AppShellRouteData();
   static final GlobalKey<NavigatorState> $navigatorKey = firstNavigatorKey;
@@ -66,22 +59,22 @@ class AppShellRouteData extends StatefulShellRouteData {
   }
 }
 
-/// bottom tab1 branch
-class FirstBranch extends StatefulShellBranchData {
-  const FirstBranch();
+// /// bottom tab1 branch
+// class FirstBranch extends StatefulShellBranchData {
+//   const FirstBranch();
 
-  static final List<NavigatorObserver> $observers = [
-    TransitionObserver(),
-  ];
-  static final GlobalKey<NavigatorState> $navigatorKey = firstNavigatorKey;
-}
+//   static final List<NavigatorObserver> $observers = [
+//     TransitionObserver(),
+//   ];
+//   static final GlobalKey<NavigatorState> $navigatorKey = firstNavigatorKey;
+// }
 
-/// bottom tab2 branch
-class SecoundBranch extends StatefulShellBranchData {
-  const SecoundBranch();
+// /// bottom tab2 branch
+// class SecoundBranch extends StatefulShellBranchData {
+//   const SecoundBranch();
 
-  static final List<NavigatorObserver> $observers = [
-    TransitionObserver(),
-  ];
-  static final GlobalKey<NavigatorState> $navigatorKey = secoundNavigatorKey;
-}
+//   static final List<NavigatorObserver> $observers = [
+//     TransitionObserver(),
+//   ];
+//   static final GlobalKey<NavigatorState> $navigatorKey = secoundNavigatorKey;
+// }

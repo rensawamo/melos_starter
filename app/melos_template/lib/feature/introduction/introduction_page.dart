@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:melos_template/core/router/data/app_route_data.dart';
-import 'package:melos_template/core/router/data/home/home_route_data.dart';
 
 class IntroductionPage extends ConsumerWidget {
   const IntroductionPage({super.key});

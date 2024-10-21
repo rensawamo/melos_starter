@@ -27,8 +27,12 @@ mixin _$WeatherData {
 // required Sys sys,
   String get name => throw _privateConstructorUsedError;
 
+  /// Serializes this WeatherData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of WeatherData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $WeatherDataCopyWith<WeatherData> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -55,6 +59,8 @@ class _$WeatherDataCopyWithImpl<$Res, $Val extends WeatherData>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of WeatherData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -83,6 +89,8 @@ class _$WeatherDataCopyWithImpl<$Res, $Val extends WeatherData>
     ) as $Val);
   }
 
+  /// Create a copy of WeatherData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MainCopyWith<$Res> get main {
@@ -91,6 +99,8 @@ class _$WeatherDataCopyWithImpl<$Res, $Val extends WeatherData>
     });
   }
 
+  /// Create a copy of WeatherData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $WindCopyWith<$Res> get wind {
@@ -124,6 +134,8 @@ class __$$WeatherDataImplCopyWithImpl<$Res>
       _$WeatherDataImpl _value, $Res Function(_$WeatherDataImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of WeatherData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -201,12 +213,14 @@ class _$WeatherDataImpl implements _WeatherData {
             (identical(other.name, name) || other.name == name));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType,
       const DeepCollectionEquality().hash(_weather), main, wind, name);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of WeatherData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$WeatherDataImplCopyWith<_$WeatherDataImpl> get copyWith =>
@@ -230,17 +244,21 @@ abstract class _WeatherData implements WeatherData {
   factory _WeatherData.fromJson(Map<String, dynamic> json) =
       _$WeatherDataImpl.fromJson;
 
-  @override // Coord? coord,
+// Coord? coord,
+  @override
   List<Weather> get weather;
   @override
   Main get main;
   @override
-  Wind get wind;
-  @override // Cloud? clouds,
+  Wind get wind; // Cloud? clouds,
 // required Sys sys,
-  String get name;
   @override
-  @JsonKey(ignore: true)
+  String get name;
+
+  /// Create a copy of WeatherData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$WeatherDataImplCopyWith<_$WeatherDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
