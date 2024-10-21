@@ -3,9 +3,9 @@
 ### Flavor
 Please set up firebase setting
 
-Example:
-
 Android: melos_template/android/app/src/YOURFLAVOR/google-services.json
+
+
 iOS: melos_template/ios/YOURFLAVOR/GoogleService-Info.plist
 
 | environment | package        | app           |
