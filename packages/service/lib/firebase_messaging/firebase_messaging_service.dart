@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:rxdart/rxdart.dart';
@@ -50,10 +51,7 @@ class FirebaseMessagingService {
 
   Future<void> requestPermission() async {
     if (Platform.isIOS) {
-      final settings = await _firebaseMessaging.requestPermission();
-      if (settings.authorizationStatus != AuthorizationStatus.authorized) {
-        throw Exception('User has declined or has not granted permission');
-      }
+      await _firebaseMessaging.requestPermission();
     }
   }
 

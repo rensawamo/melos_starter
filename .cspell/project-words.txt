@@ -3,6 +3,7 @@ dartdocs
 designsystem
 lichess
 constants
+schedueled
 prefs
 weature
 viewmodel
