@@ -13,7 +13,7 @@ class AppBarForScreen extends StatelessWidget implements PreferredSizeWidget {
   final String titleText;
 
   final Widget leftWidget;
-  final List<Widget>? rightWidget;
+  final Widget? rightWidget;
 
   final PreferredSizeWidget? appbar;
 
@@ -44,9 +44,9 @@ class AppBarForScreen extends StatelessWidget implements PreferredSizeWidget {
                   child: _titleContents(context),
                 ),
                 if (rightWidget != null)
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: rightWidget!,
+                  Positioned(
+                    right: 0,
+                    child: rightWidget!,
                   ),
               ],
             ),

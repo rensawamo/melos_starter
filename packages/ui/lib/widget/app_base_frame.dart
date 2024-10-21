@@ -12,6 +12,7 @@ class AppBarFrame extends ConsumerStatefulWidget {
     this.hasAppbar = true,
     this.appBar,
     this.bottomBar,
+    this.rightWidget,
     this.backOnTap,
     this.hasPrevButton = true,
     this.shouldRemoveFocus = false,
@@ -20,7 +21,6 @@ class AppBarFrame extends ConsumerStatefulWidget {
     this.onDrawerChanged,
     this.backButtonKey,
     this.didPopEvent,
-    this.canPop = true,
   });
 
   final String title;
@@ -28,6 +28,7 @@ class AppBarFrame extends ConsumerStatefulWidget {
   final Widget body;
   final bool hasAppbar;
   final Widget? bottomBar;
+  final Widget? rightWidget;
   final void Function()? backOnTap;
   final bool hasPrevButton;
   final bool shouldRemoveFocus;
@@ -37,7 +38,6 @@ class AppBarFrame extends ConsumerStatefulWidget {
   final void Function({required bool isOpen})? onDrawerChanged;
   final GlobalKey? backButtonKey;
   final void Function()? didPopEvent;
-  final bool canPop;
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _AppBaseFrameState();
@@ -61,7 +61,7 @@ class _AppBaseFrameState extends ConsumerState<AppBarFrame> {
 
   Widget _baseScaffold(BuildContext context) {
     return PopScope(
-      canPop: widget.canPop,
+      canPop: context.canPop(),
       child: Scaffold(
         key: widget.scaffoldKey,
         drawer: widget.drawer,
@@ -77,6 +77,7 @@ class _AppBaseFrameState extends ConsumerState<AppBarFrame> {
                   leftWidget: widget.hasPrevButton
                       ? _prevButton(context)
                       : const SizedBox(),
+                  rightWidget: widget.rightWidget,
                 ),
         body: SafeArea(child: _buildBody(context)),
         bottomNavigationBar: widget.bottomBar != null

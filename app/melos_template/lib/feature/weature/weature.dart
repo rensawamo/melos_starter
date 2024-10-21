@@ -45,8 +45,8 @@ class WeaturePage extends ConsumerWidget {
                       WeatherInfoCard(
                         iconCode: state.weatherData!.weather[0].icon,
                         description: state.weatherData!.weather[0].description,
-                        temperature: state.weatherData!.main.temp,
-                        feelsLike: state.weatherData!.main.feels_like,
+                        temperature: state.weatherData!.main.temp - 273.15,
+                        feelsLike: state.weatherData!.main.feels_like - 273.15,
                         windSpeed: state.weatherData!.wind.speed,
                       ),
                       const SizedBox(height: 20),
