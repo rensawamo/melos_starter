@@ -1,0 +1,130 @@
+plugins {
+    id "com.android.application"
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
+if (flutterVersionCode == null) {
+    flutterVersionCode = '1'
+}
+
+def flutterVersionName = localProperties.getProperty('flutter.versionName')
+if (flutterVersionName == null) {
+    flutterVersionName = '1.0'
+}
+
+// Dart-Defines.
+def dartEnvironmentVariables = [:]
+if (project.hasProperty('dart-defines')) {
+    // カンマ区切りかつBase64でエンコードされている dart-defines をデコードして変数に格納します。
+    dartEnvironmentVariables = dartEnvironmentVariables + project.property('dart-defines')
+            .split(',')
+            .collectEntries { entry ->
+                def pair = new String(entry.decodeBase64(), 'UTF-8').split('=')
+                [(pair.first()): pair.last()]
+            }
+}
+println "Dart Environment Variables: ${dartEnvironmentVariables}"  
+println "Using flavor: ${dartEnvironmentVariables.flavor}"  
+task selectGoogleServicesJson(type: Copy) {
+    from "src/${dartEnvironmentVariables.flavor}/google-services.json"
+    into './'
+}
+
+tasks.whenTaskAdded { task ->
+    if (task.name == 'processDebugGoogleServices' || task.name == 'processReleaseGoogleServices') {
+        task.dependsOn selectGoogleServicesJson
+    }
+}
+
+
+// START: FlutterFire Configuration
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
+// END: FlutterFire Configuration
+
+android {
+    namespace "com.example.com"
+    compileSdkVersion flutter.compileSdkVersion
+    ndkVersion flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    defaultConfig {
+        applicationId "com.example.com"
+        // flavor設定
+        if (dartEnvironmentVariables.flavor != 'prod') {
+            applicationIdSuffix ".${dartEnvironmentVariables.flavor}"
+        }
+        minSdkVersion 24
+        targetSdkVersion flutter.targetSdkVersion
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+        resValue "string", "app_name", (dartEnvironmentVariables.flavor == 'prod' ? '' : "${dartEnvironmentVariables.flavor}.") +
+                "template"
+    }
+
+    signingConfigs {
+        release {
+            
+            def keystorePropertiesFile = rootProject.file('keystore.properties')
+            if (keystorePropertiesFile.exists()) {
+                def keystoreProperties = new Properties()
+                keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+                keyAlias keystoreProperties['keyAlias']
+                keyPassword keystoreProperties['keyPassword']
+                storeFile file(keystoreProperties['storeFile'])
+                storePassword keystoreProperties['storePassword']
+            }
+        }
+        debug {
+            def debugStoreFile = rootProject.file('debug.jks')
+            if (debugStoreFile.exists()) {
+                keyAlias 'androiddebugkey'
+                keyPassword 'password'
+                storeFile debugStoreFile
+                storePassword 'password'
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            signingConfig signingConfigs.debug
+        }
+    }
+}
+
+flutter {
+    source '../..'
+}
+
+dependencies {
+    implementation 'com.android.support:multidex:1.0.3'
+}

@@ -1,0 +1,19 @@
+# Project Specific Words
+dartdocs
+designsystem
+lichess
+constants
+prefs
+weature
+viewmodel
+vm
+secound
+weater
+maru
+grnd
+darkmode
+aisome
+openweathermap
+errno
+yourflavor
+murecho
