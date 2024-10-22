@@ -44,7 +44,6 @@ melos.yaml
 |---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `di_provider/`       | Defines providers for **Dependency Injection** (DI) using `riverpod_annotation`. It includes configurations for singleton or short-lived objects for DI across the app.   |
 | `foundation/`        | Contains **common utilities**, **extensions**, **enumerations**, and **provider logic** that form the core reusable building blocks of the application. This includes helper functions, shared logic, and design patterns that can be applied across different layers of the app. |
-| `network/`          | Contains the **Dio client configuration** and defines common **HTTP response types**. It is responsible for handling network requests and responses in a consistent way.    |
 | `repository/`       | Contains **data access logic**. Repositories interact with external data sources (APIs, databases) and transform data for other layers to use.                              |
 | `service/`          | Defines **common business logic** used throughout the app. Acts as an **anti-corruption layer** to prevent third-party services from affecting internal app logic.          |
 | `test_util/`        | Contains **utilities for testing**, including Fake implementations of `shared_preferences` and `flutter_secure_storage` for unit and integration tests. These fakes are used to simulate data storage behavior in tests. |
@@ -95,6 +94,8 @@ melos.yaml
 
 #### Push Notifications
 - [firebase_messaging](https://pub.dev/packages/firebase_messaging): A Firebase service that provides push notifications to devices. It is used to manage notifications within the app, ensuring smooth and reliable messaging between server and mobile users.
+- [flutter_local_notifications](https://pub.dev/packages/flutter_local_notifications): A plugin to show local notifications on Android, iOS. It allows the app to display notifications without requiring an internet connection, and is often used in combination with Firebase Messaging to handle notifications when the app is in the foreground.
+
 
 ## GitHub Actions
 
