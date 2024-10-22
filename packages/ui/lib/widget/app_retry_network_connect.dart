@@ -29,7 +29,7 @@ class AppRetryNetworkConnectWidget extends StatelessWidget {
                 AppError.networkError(),
               );
             } else {
-              logger.d('Internet connection is available & innit');
+              logger.d('Internet connection is available & initialized');
             }
           },
           child: Padding(

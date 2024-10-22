@@ -1,5 +1,6 @@
 # Framework Specific Words
 argb
+analiticcs
 ansicolor
 analitics
 altool

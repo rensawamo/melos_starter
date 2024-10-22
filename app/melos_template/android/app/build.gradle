@@ -24,10 +24,8 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
-// Dart-Defines.
 def dartEnvironmentVariables = [:]
 if (project.hasProperty('dart-defines')) {
-    // カンマ区切りかつBase64でエンコードされている dart-defines をデコードして変数に格納します。
     dartEnvironmentVariables = dartEnvironmentVariables + project.property('dart-defines')
             .split(',')
             .collectEntries { entry ->
@@ -35,8 +33,6 @@ if (project.hasProperty('dart-defines')) {
                 [(pair.first()): pair.last()]
             }
 }
-println "Dart Environment Variables: ${dartEnvironmentVariables}"  
-println "Using flavor: ${dartEnvironmentVariables.flavor}"  
 task selectGoogleServicesJson(type: Copy) {
     from "src/${dartEnvironmentVariables.flavor}/google-services.json"
     into './'
@@ -56,12 +52,13 @@ apply plugin: 'com.google.firebase.crashlytics'
 
 android {
     namespace "com.example.com"
-    compileSdkVersion flutter.compileSdkVersion
+    compileSdkVersion 34
     ndkVersion flutter.ndkVersion
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+        coreLibraryDesugaringEnabled true
     }
 
     kotlinOptions {
@@ -74,10 +71,10 @@ android {
 
     defaultConfig {
         applicationId "com.example.com"
-        // flavor設定
         if (dartEnvironmentVariables.flavor != 'prod') {
             applicationIdSuffix ".${dartEnvironmentVariables.flavor}"
         }
+        multiDexEnabled true
         minSdkVersion 24
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
@@ -127,4 +124,7 @@ flutter {
 
 dependencies {
     implementation 'com.android.support:multidex:1.0.3'
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.2.2'
+    implementation 'androidx.window:window:1.0.0'
+    implementation 'androidx.window:window-java:1.0.0'
 }

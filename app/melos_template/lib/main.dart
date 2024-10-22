@@ -15,6 +15,7 @@ Future<void> main() async {
   await Firebase.initializeApp();
 
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
+
   PlatformDispatcher.instance.onError = (error, stack) {
     FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
     return true;
@@ -24,6 +25,7 @@ Future<void> main() async {
   final sharedPreferences = await SharedPreferences.getInstance();
   final packageInfo = await PackageInfo.fromPlatform();
   final flavor = Flavor.values.byName(const String.fromEnvironment('flavor'));
+  logger.d('flavor: ${flavor.name}');
 
   runApp(
     ProviderScope(
