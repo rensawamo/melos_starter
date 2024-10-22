@@ -17,8 +17,9 @@ dependencies:
   rxdart: ^0.28.0
   pretty_dio_logger: ^1.4.0
   flutter_local_notifications: ^17.2.3
-  flutter_native_timezone: ^2.0.0
+
   timezone: ^0.9.4
+  flutter_timezone: ^3.0.1
 
 
 dev_dependencies:

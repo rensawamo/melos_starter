@@ -1,5 +1,5 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:flutter_native_timezone/flutter_native_timezone.dart';
+import 'package:flutter_timezone/flutter_timezone.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:rxdart/subjects.dart';
 import 'package:timezone/data/latest.dart' as tz;
@@ -71,13 +71,14 @@ class NotificationService {
   }
 
   Future<void> _initializeNotificationSettings() async {
-    const androidSettings = AndroidInitializationSettings('ic_notification');
+    const initializationSettingsAndroid =
+        AndroidInitializationSettings('@mipmap/ic_launcher');
     const darwinSettings = DarwinInitializationSettings(
       requestCriticalPermission: true,
     );
 
     const initializationSettings = InitializationSettings(
-      android: androidSettings,
+      android: initializationSettingsAndroid,
       iOS: darwinSettings,
     );
 
@@ -100,7 +101,8 @@ class NotificationService {
 
   Future<void> _initTimeZone() async {
     tz.initializeTimeZones();
-    final locationName = await FlutterNativeTimezone.getLocalTimezone();
+    // final locationName = await FlutterNativeTimezone.getLocalTimezone();
+    final locationName = await FlutterTimezone.getLocalTimezone();
     tz.setLocalLocation(tz.getLocation(locationName));
   }
 
