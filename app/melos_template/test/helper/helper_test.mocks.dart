@@ -3,19 +3,22 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i4;
+import 'dart:async' as _i5;
 
-import 'package:connectivity_plus/connectivity_plus.dart' as _i5;
+import 'package:connectivity_plus/connectivity_plus.dart' as _i6;
 import 'package:connectivity_plus_platform_interface/connectivity_plus_platform_interface.dart'
-    as _i6;
-import 'package:core_service/firebase_messaging/firebase_messaging_service.dart'
     as _i7;
-import 'package:firebase_messaging/firebase_messaging.dart' as _i8;
+import 'package:core_service/firebase_messaging/firebase_messaging_service.dart'
+    as _i8;
+import 'package:core_service/notification_service/notification_service_provider.dart'
+    as _i10;
+import 'package:firebase_messaging/firebase_messaging.dart' as _i9;
 import 'package:melos_template/core/model/weater/weater_data/weather_data.dart'
     as _i2;
 import 'package:melos_template/core/network/api_client/weather_api_client.dart'
-    as _i3;
+    as _i4;
 import 'package:mockito/mockito.dart' as _i1;
+import 'package:rxdart/rxdart.dart' as _i3;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -40,12 +43,23 @@ class _FakeWeatherData_0 extends _i1.SmartFake implements _i2.WeatherData {
         );
 }
 
+class _FakeBehaviorSubject_1<T> extends _i1.SmartFake
+    implements _i3.BehaviorSubject<T> {
+  _FakeBehaviorSubject_1(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
 /// A class which mocks [WeatherApiClient].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockWeatherApiClient extends _i1.Mock implements _i3.WeatherApiClient {
+class MockWeatherApiClient extends _i1.Mock implements _i4.WeatherApiClient {
   @override
-  _i4.Future<_i2.WeatherData> getCurrentWeather(
+  _i5.Future<_i2.WeatherData> getCurrentWeather(
     String? city,
     String? apiKey,
   ) =>
@@ -57,7 +71,7 @@ class MockWeatherApiClient extends _i1.Mock implements _i3.WeatherApiClient {
             apiKey,
           ],
         ),
-        returnValue: _i4.Future<_i2.WeatherData>.value(_FakeWeatherData_0(
+        returnValue: _i5.Future<_i2.WeatherData>.value(_FakeWeatherData_0(
           this,
           Invocation.method(
             #getCurrentWeather,
@@ -68,7 +82,7 @@ class MockWeatherApiClient extends _i1.Mock implements _i3.WeatherApiClient {
           ),
         )),
         returnValueForMissingStub:
-            _i4.Future<_i2.WeatherData>.value(_FakeWeatherData_0(
+            _i5.Future<_i2.WeatherData>.value(_FakeWeatherData_0(
           this,
           Invocation.method(
             #getCurrentWeather,
@@ -78,117 +92,192 @@ class MockWeatherApiClient extends _i1.Mock implements _i3.WeatherApiClient {
             ],
           ),
         )),
-      ) as _i4.Future<_i2.WeatherData>);
+      ) as _i5.Future<_i2.WeatherData>);
 }
 
 /// A class which mocks [Connectivity].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockConnectivity extends _i1.Mock implements _i5.Connectivity {
+class MockConnectivity extends _i1.Mock implements _i6.Connectivity {
   @override
-  _i4.Stream<List<_i6.ConnectivityResult>> get onConnectivityChanged =>
+  _i5.Stream<List<_i7.ConnectivityResult>> get onConnectivityChanged =>
       (super.noSuchMethod(
         Invocation.getter(#onConnectivityChanged),
-        returnValue: _i4.Stream<List<_i6.ConnectivityResult>>.empty(),
+        returnValue: _i5.Stream<List<_i7.ConnectivityResult>>.empty(),
         returnValueForMissingStub:
-            _i4.Stream<List<_i6.ConnectivityResult>>.empty(),
-      ) as _i4.Stream<List<_i6.ConnectivityResult>>);
+            _i5.Stream<List<_i7.ConnectivityResult>>.empty(),
+      ) as _i5.Stream<List<_i7.ConnectivityResult>>);
 
   @override
-  _i4.Future<List<_i6.ConnectivityResult>> checkConnectivity() =>
+  _i5.Future<List<_i7.ConnectivityResult>> checkConnectivity() =>
       (super.noSuchMethod(
         Invocation.method(
           #checkConnectivity,
           [],
         ),
-        returnValue: _i4.Future<List<_i6.ConnectivityResult>>.value(
-            <_i6.ConnectivityResult>[]),
+        returnValue: _i5.Future<List<_i7.ConnectivityResult>>.value(
+            <_i7.ConnectivityResult>[]),
         returnValueForMissingStub:
-            _i4.Future<List<_i6.ConnectivityResult>>.value(
-                <_i6.ConnectivityResult>[]),
-      ) as _i4.Future<List<_i6.ConnectivityResult>>);
+            _i5.Future<List<_i7.ConnectivityResult>>.value(
+                <_i7.ConnectivityResult>[]),
+      ) as _i5.Future<List<_i7.ConnectivityResult>>);
 }
 
 /// A class which mocks [FirebaseMessagingService].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockFirebaseMessagingService extends _i1.Mock
-    implements _i7.FirebaseMessagingService {
+    implements _i8.FirebaseMessagingService {
   @override
-  _i4.Stream<_i8.RemoteMessage> get messageStream => (super.noSuchMethod(
+  _i5.Stream<_i9.RemoteMessage> get messageStream => (super.noSuchMethod(
         Invocation.getter(#messageStream),
-        returnValue: _i4.Stream<_i8.RemoteMessage>.empty(),
-        returnValueForMissingStub: _i4.Stream<_i8.RemoteMessage>.empty(),
-      ) as _i4.Stream<_i8.RemoteMessage>);
+        returnValue: _i5.Stream<_i9.RemoteMessage>.empty(),
+        returnValueForMissingStub: _i5.Stream<_i9.RemoteMessage>.empty(),
+      ) as _i5.Stream<_i9.RemoteMessage>);
 
   @override
-  _i4.Stream<_i8.RemoteMessage> get openedAppStream => (super.noSuchMethod(
+  _i5.Stream<_i9.RemoteMessage> get openedAppStream => (super.noSuchMethod(
         Invocation.getter(#openedAppStream),
-        returnValue: _i4.Stream<_i8.RemoteMessage>.empty(),
-        returnValueForMissingStub: _i4.Stream<_i8.RemoteMessage>.empty(),
-      ) as _i4.Stream<_i8.RemoteMessage>);
+        returnValue: _i5.Stream<_i9.RemoteMessage>.empty(),
+        returnValueForMissingStub: _i5.Stream<_i9.RemoteMessage>.empty(),
+      ) as _i5.Stream<_i9.RemoteMessage>);
 
   @override
-  _i4.Stream<String> get tokenStream => (super.noSuchMethod(
+  _i5.Stream<String> get tokenStream => (super.noSuchMethod(
         Invocation.getter(#tokenStream),
-        returnValue: _i4.Stream<String>.empty(),
-        returnValueForMissingStub: _i4.Stream<String>.empty(),
-      ) as _i4.Stream<String>);
+        returnValue: _i5.Stream<String>.empty(),
+        returnValueForMissingStub: _i5.Stream<String>.empty(),
+      ) as _i5.Stream<String>);
 
   @override
-  _i4.Future<String?> get token => (super.noSuchMethod(
+  _i5.Future<String?> get token => (super.noSuchMethod(
         Invocation.getter(#token),
-        returnValue: _i4.Future<String?>.value(),
-        returnValueForMissingStub: _i4.Future<String?>.value(),
-      ) as _i4.Future<String?>);
+        returnValue: _i5.Future<String?>.value(),
+        returnValueForMissingStub: _i5.Future<String?>.value(),
+      ) as _i5.Future<String?>);
 
   @override
-  _i4.Future<void> requestPermission() => (super.noSuchMethod(
+  _i5.Future<void> requestPermission() => (super.noSuchMethod(
         Invocation.method(
           #requestPermission,
           [],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
 
   @override
-  _i4.Future<void> subscribeToTopic(String? topic) => (super.noSuchMethod(
+  _i5.Future<void> subscribeToTopic(String? topic) => (super.noSuchMethod(
         Invocation.method(
           #subscribeToTopic,
           [topic],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
 
   @override
-  _i4.Future<void> unsubscribeFromTopic(String? topic) => (super.noSuchMethod(
+  _i5.Future<void> unsubscribeFromTopic(String? topic) => (super.noSuchMethod(
         Invocation.method(
           #unsubscribeFromTopic,
           [topic],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
 
   @override
-  _i4.Future<void> deleteToken() => (super.noSuchMethod(
+  _i5.Future<void> deleteToken() => (super.noSuchMethod(
         Invocation.method(
           #deleteToken,
           [],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
 
   @override
-  _i4.Future<void> dispose() => (super.noSuchMethod(
+  _i5.Future<void> dispose() => (super.noSuchMethod(
         Invocation.method(
           #dispose,
           [],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
+}
+
+/// A class which mocks [NotificationService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockNotificationService extends _i1.Mock
+    implements _i10.NotificationService {
+  @override
+  _i3.BehaviorSubject<String?> get onNotification => (super.noSuchMethod(
+        Invocation.getter(#onNotification),
+        returnValue: _FakeBehaviorSubject_1<String?>(
+          this,
+          Invocation.getter(#onNotification),
+        ),
+        returnValueForMissingStub: _FakeBehaviorSubject_1<String?>(
+          this,
+          Invocation.getter(#onNotification),
+        ),
+      ) as _i3.BehaviorSubject<String?>);
+
+  @override
+  _i5.Future<void> init() => (super.noSuchMethod(
+        Invocation.method(
+          #init,
+          [],
+        ),
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
+
+  @override
+  _i5.Future<void> showNotification({
+    int? id = 0,
+    String? title,
+    String? body,
+    String? payload,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #showNotification,
+          [],
+          {
+            #id: id,
+            #title: title,
+            #body: body,
+            #payload: payload,
+          },
+        ),
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
+
+  @override
+  _i5.Future<void> showSchedueledNotification({
+    required DateTime? scheduledDate,
+    int? id = 0,
+    String? title,
+    String? body,
+    String? payload,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #showSchedueledNotification,
+          [],
+          {
+            #scheduledDate: scheduledDate,
+            #id: id,
+            #title: title,
+            #body: body,
+            #payload: payload,
+          },
+        ),
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
 }

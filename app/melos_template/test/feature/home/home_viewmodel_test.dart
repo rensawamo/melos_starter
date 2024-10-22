@@ -1,6 +1,7 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:core_di_provider/di_provider.dart';
 import 'package:core_service/firebase_messaging/firebase_messaging_service.dart';
+import 'package:core_service/notification_service/notification_service_provider.dart';
 import 'package:core_test_util/create_container.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:melos_template/feature/home/home_viewmodel.dart';
@@ -10,53 +11,63 @@ import 'package:riverpod/riverpod.dart';
 import '../../helper/helper_test.mocks.dart';
 
 void main() {
-  late MockConnectivity mockConnectivity;
   late ProviderContainer container;
-  late HomeViewmodel vm;
   late MockFirebaseMessagingService mockFirebaseMessagingService;
-  setUp(() {
-    mockConnectivity = MockConnectivity();
-    mockFirebaseMessagingService = MockFirebaseMessagingService();
+  late MockNotificationService mockNotificationService;
+  late MockConnectivity mockConnectivity;
+  late HomeViewmodel vm;
 
+  setUp(() {
+    // Set up mock instances
+    mockFirebaseMessagingService = MockFirebaseMessagingService();
+    mockNotificationService = MockNotificationService();
+    mockConnectivity = MockConnectivity();
+
+    // Initialize Riverpod container
     container = createContainer(
       overrides: [
-        connectivityProvider.overrideWithValue(mockConnectivity),
         firebaseMessagingServiceProvider
             .overrideWithValue(mockFirebaseMessagingService),
+        notificationServiceProvider.overrideWithValue(mockNotificationService),
+        connectivityProvider.overrideWithValue(mockConnectivity),
       ],
     );
+    // vm testing
     vm = container.read(homeViewmodelProvider.notifier);
   });
 
-  group('HomeViewmodel Tests', () {
-    test('checkInternetConnection - No internet connection', () async {
-      // Arrange
-      when(mockConnectivity.checkConnectivity())
-          .thenAnswer((_) async => [ConnectivityResult.none]);
+  test('checkInternetConnection returns true when internet is connected',
+      () async {
+    // Mock the connectivity to return a valid connection
+    when(mockConnectivity.checkConnectivity())
+        .thenAnswer((_) async => [ConnectivityResult.wifi]);
 
-      // Act
-      await vm.checkInternetConnection();
+    // Call checkInternetConnection
+    final result = await vm.checkInternetConnection();
+    final state = container.read(homeViewmodelProvider);
 
-      // Assert
-      final state = container.read(homeViewmodelProvider);
-      expect(state.isInternetConnected, false);
-      // verifyNever is used only when using mock. It is not used basically.
-      verifyNever(mockFirebaseMessagingService.token);
-    });
+    // verifyNever is used only when using mock. It is not used basically.
+    verify(mockNotificationService.init()).called(1);
+    verify(mockFirebaseMessagingService.requestPermission()).called(1);
 
-    test('checkInternetConnection - Internet connection available', () async {
-      // Arrange
-      when(mockConnectivity.checkConnectivity())
-          .thenAnswer((_) async => [ConnectivityResult.wifi]);
+    // Expect result and state to be true for internet connection
+    expect(result, true);
+    expect(state.isInternetConnected, true);
+  });
 
-      // Act
-      await vm.checkInternetConnection();
+  test('checkInternetConnection returns false when no internet', () async {
+    // Mock the connectivity to return no connection
+    when(mockConnectivity.checkConnectivity())
+        .thenAnswer((_) async => [ConnectivityResult.none]);
 
-      // Assert
-      final state = container.read(homeViewmodelProvider);
-      expect(state.isInternetConnected, true);
-      // verifyNever is used only when using mock. It is not used basically.
-      verify(mockFirebaseMessagingService.requestPermission()).called(1);
-    });
+    // Call checkInternetConnection
+    final result = await vm.checkInternetConnection();
+    final state = container.read(homeViewmodelProvider);
+
+    // Expect result and state to be false when there is no internet
+    verifyNever(mockNotificationService.init());
+    verifyNever(mockFirebaseMessagingService.requestPermission());
+    expect(result, false);
+    expect(state.isInternetConnected, false);
   });
 }

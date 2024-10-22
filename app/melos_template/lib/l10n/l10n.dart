@@ -118,6 +118,72 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'weather'**
   String get weather;
+
+  /// No description provided for @welcomeMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome to melos template!'**
+  String get welcomeMessage;
+
+  /// No description provided for @useAsReference.
+  ///
+  /// In en, this message translates to:
+  /// **'Lets use this application as a reference!'**
+  String get useAsReference;
+
+  /// No description provided for @usingRiverpod.
+  ///
+  /// In en, this message translates to:
+  /// **'I will be using Riverpod a lot'**
+  String get usingRiverpod;
+
+  /// No description provided for @welcomeApp.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome to the App!'**
+  String get welcomeApp;
+
+  /// No description provided for @getWeatherInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Get to weather info (REST API)'**
+  String get getWeatherInfo;
+
+  /// No description provided for @temperature.
+  ///
+  /// In en, this message translates to:
+  /// **'Temperature'**
+  String get temperature;
+
+  /// No description provided for @feelsLike.
+  ///
+  /// In en, this message translates to:
+  /// **'Feels like'**
+  String get feelsLike;
+
+  /// No description provided for @windSpeed.
+  ///
+  /// In en, this message translates to:
+  /// **'Wind Speed'**
+  String get windSpeed;
+
+  /// No description provided for @humidity.
+  ///
+  /// In en, this message translates to:
+  /// **'Humidity'**
+  String get humidity;
+
+  /// No description provided for @pressure.
+  ///
+  /// In en, this message translates to:
+  /// **'Pressure'**
+  String get pressure;
+
+  /// No description provided for @visibility.
+  ///
+  /// In en, this message translates to:
+  /// **'Visibility'**
+  String get visibility;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

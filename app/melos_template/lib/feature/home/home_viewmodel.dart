@@ -19,8 +19,8 @@ class HomeViewmodel extends _$HomeViewmodel {
 
   Future<void> init() async {
     try {
-      final localNotificationService = ref.read(notificationServiceProvider);
-      await localNotificationService.init();
+      final notificationService = ref.read(notificationServiceProvider);
+      await notificationService.init();
 
       final firebaseMessagingService =
           ref.read(firebaseMessagingServiceProvider);
