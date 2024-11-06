@@ -20,7 +20,7 @@ class WeaturePage extends ConsumerWidget {
       title: context.l10n.weather,
       init: () async {
         await vm.call().then((AppError? error) {
-          if (error != null && context.mounted) {
+          if (error != null) {
             AppErrorDialog.showErrorDialog(
               context,
               error,

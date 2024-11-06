@@ -64,9 +64,10 @@ void main() {
     final result = await vm.checkInternetConnection();
     final state = container.read(homeViewmodelProvider);
 
-    // Expect result and state to be false when there is no internet
+    // verifyNever is used only when using mock. It is not used basically.
     verifyNever(mockNotificationService.init());
     verifyNever(mockFirebaseMessagingService.requestPermission());
+
     expect(result, false);
     expect(state.isInternetConnected, false);
   });

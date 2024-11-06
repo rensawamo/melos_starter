@@ -8,6 +8,10 @@ class AppErrorDialog {
     BuildContext context,
     AppError error,
   ) async {
+    if (!context.mounted) {
+      logger.e('context is not mounted');
+      return;
+    }
     switch (error.type) {
       case AppErrorType.unknownError:
         await _showUnknownErrorDialog(context);
