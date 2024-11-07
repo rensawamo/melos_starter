@@ -15,7 +15,7 @@
             "name": "Debug-Prod",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "debug",
+            "flutterMode": "release",
             "args": [
                 "--dart-define-from-file=dart_defines/prod.env",
             ]

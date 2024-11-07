@@ -17,9 +17,10 @@ class AppErrorDialog {
         await _showUnknownErrorDialog(context);
       case AppErrorType.networkError:
         await _showNetworkErrorDialog(context);
+      case AppErrorType.notFound:
+        await _showNotFoundErrorDialog(context);
       default:
         await _showCustomErrorDialog(context, error);
-        break;
     }
   }
 
@@ -148,6 +149,76 @@ class AppErrorDialog {
                   ),
                   child: const Text(
                     'close',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  static Future<void> _showNotFoundErrorDialog(
+    BuildContext context,
+  ) async {
+    if (!context.mounted) {
+      logger.e('context is not mounted');
+      return;
+    }
+
+    await showDialog<void>(
+      context: context,
+      builder: (context) {
+        return Dialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Icon(
+                  Icons.error_outline,
+                  size: 60,
+                  color: Colors.orange,
+                ),
+                const SizedBox(height: 16),
+                const Text(
+                  'Page Not Found',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'The page you are looking for does not exist.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.grey[700],
+                  ),
+                ),
+                const SizedBox(height: 24),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.orange,
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                  child: const Text(
+                    'Close',
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.white,

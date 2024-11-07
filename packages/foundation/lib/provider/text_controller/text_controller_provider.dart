@@ -7,7 +7,7 @@ part 'text_controller_provider.g.dart';
 @riverpod
 class TextController extends _$TextController {
   @override
-  TextEditingController build() {
+  TextEditingController build(int num) {
     final controller = TextEditingController();
     ref.onDispose(controller.dispose);
     return controller;

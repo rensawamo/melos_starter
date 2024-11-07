@@ -36,6 +36,7 @@ class IntroductionRouteData extends GoRouteData {
     TypedGoRoute<WeatureRouteData>(path: Routes.weature),
     TypedGoRoute<E2ESamplePageData>(path: Routes.e2eSample),
     TypedGoRoute<DescendantPageData>(path: Routes.descendant),
+    TypedGoRoute<SimulationTextFieldPageData>(path: Routes.simulationTextField),
   ],
 )
 class HomePageData extends GoRouteData {

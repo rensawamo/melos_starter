@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 ThemeData themeLight() {
   const primary = Color.fromARGB(255, 56, 106, 31);
+  const backendColor = Colors.white;
 
   final base = ThemeData(
     fontFamily: 'Murecho',
@@ -14,6 +15,7 @@ ThemeData themeLight() {
       bodyMedium: TextStyle(fontSize: 18),
       headlineMedium: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
     ),
+    scaffoldBackgroundColor: backendColor,
   );
 
   return base.copyWith(

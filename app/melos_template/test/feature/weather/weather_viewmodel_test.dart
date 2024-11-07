@@ -31,7 +31,7 @@ void main() {
         .thenAnswer((_) async => testWeatherData);
 
     // Act
-    final error = await vm.call();
+    final error = await vm.call('Tokyo');
 
     // Assert
     final state = container.read(weatherViewmodelProvider);
@@ -48,7 +48,7 @@ void main() {
     );
 
     // Act
-    final error = await vm.call();
+    final error = await vm.call('Tokyo');
 
     // Assert
     final state = container.read(weatherViewmodelProvider);
@@ -64,7 +64,7 @@ void main() {
     );
 
     // Act
-    final error = await vm.call();
+    final error = await vm.call('Tokyo');
 
     // Assert
     final state = container.read(weatherViewmodelProvider);

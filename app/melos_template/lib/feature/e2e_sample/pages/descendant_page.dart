@@ -1,14 +1,15 @@
 import 'package:core_ui/widget/app_base_frame.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class DescendantPage extends StatefulWidget {
+class DescendantPage extends ConsumerStatefulWidget {
   const DescendantPage({super.key});
 
   @override
   DescendantPageState createState() => DescendantPageState();
 }
 
-class DescendantPageState extends State<DescendantPage> {
+class DescendantPageState extends ConsumerState<DescendantPage> {
   int _counter = 0;
 
   void _incrementCounter() {
@@ -25,6 +26,8 @@ class DescendantPageState extends State<DescendantPage> {
 
   @override
   Widget build(BuildContext context) {
+    // WidgetRef から TextEditingController を取得
+
     return AppBarFrame(
       title: 'Descendant Page',
       body: Center(
@@ -53,12 +56,12 @@ class DescendantPageState extends State<DescendantPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ElevatedButton(
-                    onPressed: _decrementCounter,
+                    onPressed: _incrementCounter,
                     child: const Text('+'),
                   ),
                   const SizedBox(width: 16),
                   ElevatedButton(
-                    onPressed: _incrementCounter,
+                    onPressed: _decrementCounter,
                     child: const Text('-'),
                   ),
                 ],

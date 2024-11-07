@@ -26,12 +26,14 @@ void main() {
           matching: find.widgetWithText(ElevatedButton, '+'),
         ),
       );
+      expect($('Counter: 1'), findsOneWidget);
       await $.tap(
         find.descendant(
           of: parentFinder,
           matching: find.widgetWithText(ElevatedButton, '-'),
         ),
       );
+      expect($('Counter: 0'), findsOneWidget);
     },
   );
 }

@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# This script requires following environment variables to be set:
+# * DEVICE_MODEL (for example: "iphone11pro")
+# * DEVICE_VERSION (for example: "16.3")
+
+# patrol build ios must be called before this script
+
+cd build/ios_integ/Build/Products
+
+rm -f ios_tests.zip
+zip -r ios_tests.zip Release-iphoneos/*.app *.xctestrun
+
+cd -
+
+gcloud firebase test ios run \
+	--type xctest \
+	--test "build/ios_integ/Build/Products/ios_tests.zip" \
+	--device model="$IOS_DEVICE_MODEL",version="$IOS_DEVICE_VERSION",locale=en_US,orientation=portrait \
+	--timeout 10m \
+	--results-bucket="patrol_runs"

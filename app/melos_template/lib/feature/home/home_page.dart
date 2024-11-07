@@ -16,7 +16,6 @@ class HomePage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final vm = ref.watch(homeViewmodelProvider.notifier);
     final state = ref.watch(homeViewmodelProvider);
-    final textController = ref.watch(textControllerProvider(0));
 
     return AppBarFrame(
       hasPrevButton: false,
@@ -51,12 +50,6 @@ class HomePage extends ConsumerWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      TextField(
-                        // 文字の色
-                        style: const TextStyle(color: Colors.black),
-                        controller: textController,
-                        onChanged: logger.d,
-                      ),
                       const Text(
                         'Welcome to the App!',
                         style: TextStyle(
