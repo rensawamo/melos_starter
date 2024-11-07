@@ -4,6 +4,7 @@ import 'package:core_ui/ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:melos_template/core/foundation/constant/e2e_key.dart';
 import 'package:melos_template/core/router/data/app_route_data.dart';
 
 class IntroductionPage extends ConsumerWidget {
@@ -46,11 +47,15 @@ class IntroductionPage extends ConsumerWidget {
           const HomePageData().go(context);
         },
         showBackButton: true,
-        next: const Icon(Icons.arrow_forward_ios),
+        next: Icon(
+          Icons.arrow_forward_ios,
+          key: Key(E2eKey.introNextKey.name),
+        ),
         back: const Icon(Icons.arrow_back_ios),
-        done: const Text(
+        done: Text(
           'OK!',
-          style: TextStyle(fontWeight: FontWeight.w600),
+          style: const TextStyle(fontWeight: FontWeight.w600),
+          key: Key(E2eKey.introDoneKey.name),
         ),
         dotsDecorator: DotsDecorator(
           size: const Size.square(10),

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:melos_template/core/router/app_navigation_bar.dart';
+import 'package:melos_template/core/router/data/e2e_sample/e2e_sample_route_data.dart';
+import 'package:melos_template/core/router/data/page/page_route_data.dart';
 import 'package:melos_template/core/router/data/setting/setting_route_data.dart';
 import 'package:melos_template/core/router/data/weature/weature_route_data.dart';
 import 'package:melos_template/core/router/routes.dart';
@@ -32,6 +34,8 @@ class IntroductionRouteData extends GoRouteData {
   routes: <TypedGoRoute<GoRouteData>>[
     TypedGoRoute<SettingPageData>(path: Routes.setting),
     TypedGoRoute<WeatureRouteData>(path: Routes.weature),
+    TypedGoRoute<E2ESamplePageData>(path: Routes.e2eSample),
+    TypedGoRoute<DescendantPageData>(path: Routes.descendant),
   ],
 )
 class HomePageData extends GoRouteData {

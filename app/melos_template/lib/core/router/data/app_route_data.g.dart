@@ -46,6 +46,14 @@ RouteBase get $homePageData => GoRouteData.$route(
           path: 'weature',
           factory: $WeatureRouteDataExtension._fromState,
         ),
+        GoRouteData.$route(
+          path: 'e2eSample',
+          factory: $E2ESamplePageDataExtension._fromState,
+        ),
+        GoRouteData.$route(
+          path: 'descendant',
+          factory: $DescendantPageDataExtension._fromState,
+        ),
       ],
     );
 
@@ -90,6 +98,42 @@ extension $WeatureRouteDataExtension on WeatureRouteData {
 
   String get location => GoRouteData.$location(
         '/home/weature',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $E2ESamplePageDataExtension on E2ESamplePageData {
+  static E2ESamplePageData _fromState(GoRouterState state) =>
+      const E2ESamplePageData();
+
+  String get location => GoRouteData.$location(
+        '/home/e2eSample',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $DescendantPageDataExtension on DescendantPageData {
+  static DescendantPageData _fromState(GoRouterState state) =>
+      const DescendantPageData();
+
+  String get location => GoRouteData.$location(
+        '/home/descendant',
       );
 
   void go(BuildContext context) => context.go(location);
