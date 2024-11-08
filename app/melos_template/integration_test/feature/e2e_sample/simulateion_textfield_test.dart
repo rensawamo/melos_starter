@@ -18,14 +18,11 @@ void main() {
       await $.tapByText('Simulateion TextField Page');
       await $.expectAppBarText('Simulation TextField Page');
 
-      // テキストフィールドに文字を入力
-      await $.inputTextField('Hello, Riverpod!');
+      await $.inputTextField('Hello');
 
-      // Submitボタンをタップ
       await $.tapByText('Submit');
 
-      // 入力したテキストが表示されていることを確認
-      expect(find.text('Submitted Text: Hello, Riverpod!'), findsOneWidget);
+      expect(find.text('Submitted Text: Hello'), findsOneWidget);
     },
   );
 }

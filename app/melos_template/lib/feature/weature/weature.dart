@@ -53,7 +53,7 @@ class WeaturePage extends ConsumerWidget {
                       ElevatedButton.icon(
                         onPressed: () {
                           vm.call(textController.text).then((AppError? error) {
-                            if (error != null) {
+                            if (error != null && context.mounted) {
                               AppErrorDialog.showErrorDialog(
                                 context,
                                 error,

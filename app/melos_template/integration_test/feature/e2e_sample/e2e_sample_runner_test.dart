@@ -1,7 +1,3 @@
-// void main() {
-//   simulation_textfield_test.main();
-//   descendant_test.main();
-// }
 import '../../common.dart';
 import 'desceandant_test.dart' as descendant_test;
 import 'simulateion_textfield_test.dart' as simulation_textfield_test;

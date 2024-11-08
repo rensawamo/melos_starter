@@ -10,4 +10,16 @@ extension CommonOperations on PatrolIntegrationTester {
     );
     await pumpAndSettle();
   }
+
+  Future<void> turnOnNetwork() async {
+    await native.enableCellular();
+    await native.enableWifi();
+    await pumpAndSettle();
+  }
+
+  Future<void> turnOffNetwork() async {
+    await native.disableCellular();
+    await native.disableWifi();
+    await pumpAndSettle();
+  }
 }
