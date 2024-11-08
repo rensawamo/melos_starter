@@ -1,5 +1,6 @@
 import '../../common.dart';
 import '../../shared/base.dart';
+import '../../shared/common_operation.dart';
 
 void main() {
   patrol(
@@ -7,9 +8,16 @@ void main() {
     ($) async {
       await createApp($);
       await $.introSkip();
-      // await $.inputTextAndCloseKeyboard('test', 0);
-      // expect(find.text('test'), findsOneWidget);
+
       await $.expectAppBarText('home');
+
+      await $.tapByText('Get to weather info (REST API)');
+      await $.expectAppBarText('weather');
+
+      await $.inputTextField('New York');
+
+      await $.tapByText('Search');
+      expect($('Details'), findsOneWidget);
     },
   );
 }

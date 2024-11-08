@@ -9,7 +9,6 @@ class AppCircleIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: CircularProgressIndicator(
-        key: const ValueKey('AppCircleIndicator'),
         color: Theme.of(context).primaryColor,
       ),
     );

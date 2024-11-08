@@ -1,4 +1,4 @@
-import '../common.dart';
+import '../../common.dart';
 
 extension CommonOperations on PatrolIntegrationTester {
   Future<void> grantNotificationPermission() async {

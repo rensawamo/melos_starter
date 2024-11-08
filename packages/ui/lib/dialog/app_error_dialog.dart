@@ -14,17 +14,20 @@ class AppErrorDialog {
     }
     switch (error.type) {
       case AppErrorType.unknownError:
-        await _showUnknownErrorDialog(context);
+        await _showUnknownErrorDialog(error.type.value, context);
       case AppErrorType.networkError:
-        await _showNetworkErrorDialog(context);
+        await _showNetworkErrorDialog(error.type.value, context);
       case AppErrorType.notFound:
-        await _showNotFoundErrorDialog(context);
+        await _showNotFoundErrorDialog(error.type.value, context);
       default:
         await _showCustomErrorDialog(context, error);
     }
   }
 
-  static Future<void> _showUnknownErrorDialog(BuildContext context) async {
+  static Future<void> _showUnknownErrorDialog(
+    String title,
+    BuildContext context,
+  ) async {
     if (!context.mounted) {
       logger.e('context is not mounted');
       return;
@@ -49,9 +52,9 @@ class AppErrorDialog {
                   color: Colors.orange,
                 ),
                 const SizedBox(height: 16),
-                const Text(
-                  'unknown Error Occurred',
-                  style: TextStyle(
+                Text(
+                  title,
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
                   ),
@@ -94,6 +97,7 @@ class AppErrorDialog {
   }
 
   static Future<void> _showNetworkErrorDialog(
+    String title,
     BuildContext context,
   ) async {
     if (!context.mounted) {
@@ -119,9 +123,9 @@ class AppErrorDialog {
                   color: Colors.red,
                 ),
                 const SizedBox(height: 16),
-                const Text(
-                  'No Internet Connection',
-                  style: TextStyle(
+                Text(
+                  title,
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
                   ),
@@ -164,6 +168,7 @@ class AppErrorDialog {
   }
 
   static Future<void> _showNotFoundErrorDialog(
+    String title,
     BuildContext context,
   ) async {
     if (!context.mounted) {
@@ -189,9 +194,9 @@ class AppErrorDialog {
                   color: Colors.orange,
                 ),
                 const SizedBox(height: 16),
-                const Text(
-                  'Page Not Found',
-                  style: TextStyle(
+                Text(
+                  title,
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
                   ),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../common.dart';
-import '../../util/base.dart';
-import '../../util/common_operation.dart';
+import '../../shared/base.dart';
+import '../../shared/common_operation.dart';
 
 void main() {
   patrol(
