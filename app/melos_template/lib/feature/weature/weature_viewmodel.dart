@@ -23,15 +23,18 @@ class WeatherViewmodel extends _$WeatherViewmodel {
     return !result.contains(ConnectivityResult.none);
   }
 
-  Future<AppError?> call() async {
+  Future<AppError?> call(String city) async {
     state = state.copyWith(isLoading: true);
 
     final client = ref.read(weatherApiClientProvider);
-    //  Replace this with your own API key from https://openweathermap.org/api and create Environment file
+    // Replace this with your own API key from https://openweathermap.org/api and create Environment file
     const apiKey = 'cc95d932d5a45d33a9527d5019475f2c';
 
     try {
-      final data = await client.getCurrentWeather('Tokyo', apiKey);
+      // cityが空であればデフォルトの'Tokyo'を使用
+      final cityName = city.isEmpty ? 'Tokyo' : city;
+      final data = await client.getCurrentWeather(cityName, apiKey);
+
       state = state.copyWith(
         isLoading: false,
         weatherData: data,

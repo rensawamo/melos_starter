@@ -6,6 +6,10 @@ mixin Routes {
   /// home
   static const home = '/home';
   static const weature = 'weature';
+  // E2E sample
+  static const e2eSample = 'e2eSample';
+  static const descendant = 'descendant';
+  static const simulationTextField = 'simulationTextField';
 
   /// setting
   static const setting = 'setting';

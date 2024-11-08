@@ -14,13 +14,15 @@ class WeaturePage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final vm = ref.watch(weatherViewmodelProvider.notifier);
     final state = ref.watch(weatherViewmodelProvider);
+    final textController = ref.watch(textControllerProvider(0));
 
     return AppBarFrame(
       shouldRemoveFocus: true,
       title: context.l10n.weather,
       init: () async {
-        await vm.call().then((AppError? error) {
-          if (error != null) {
+        textController.text = 'Tokyo';
+        await vm.call(textController.text).then((AppError? error) {
+          if (error != null && context.mounted) {
             AppErrorDialog.showErrorDialog(
               context,
               error,
@@ -37,6 +39,48 @@ class WeaturePage extends ConsumerWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      TextField(
+                        style: const TextStyle(color: Colors.black),
+                        controller: textController,
+                        decoration: InputDecoration(
+                          labelText: 'Enter city',
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      ElevatedButton.icon(
+                        onPressed: () {
+                          vm.call(textController.text).then((AppError? error) {
+                            if (error != null && context.mounted) {
+                              AppErrorDialog.showErrorDialog(
+                                context,
+                                error,
+                              );
+                            }
+                          });
+                        },
+                        icon: const Icon(Icons.search, color: Colors.white),
+                        label: const Text(
+                          'Search',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 12,
+                            horizontal: 24,
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(24),
+                          ),
+                          elevation: 5,
+                        ),
+                      ),
+                      SizedBox(height: context.mediaQueryHeight * .05),
                       Text(
                         'Weather in ${state.weatherData!.name}',
                         style: Theme.of(context).textTheme.titleLarge,
