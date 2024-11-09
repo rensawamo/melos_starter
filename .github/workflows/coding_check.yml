@@ -68,11 +68,11 @@ jobs:
         uses: ruby/setup-ruby@v1
         if: always()
         with:
-          ruby-version: '2.6'
+          ruby-version: '2.7'
           bundler-cache: true
               
       - name: Danger
-        uses: MeilCli/danger-action@v5
+        uses: MeilCli/danger-action@v6
         if: always()
         with:
           plugins_file: 'Gemfile'
@@ -106,7 +106,7 @@ jobs:
       
       - name: Set up Patrol CLI
         working-directory: app/melos_template
-        run: dart pub global activate --source path . && patrol
+        run: dart pub global activate patrol_cli && patrol
 
       - name: Run package tests
         run: melos run test:ci --no-select
