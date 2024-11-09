@@ -9,7 +9,7 @@ splash:
 
 .PHONY: e2e
 e2e:
-	patrol test -t  integration_test/runner_test.dart --dart-define-from-file=dart_defines/prod.env 
+	patrol test -t  integration_test/runner_test.dart --dart-define-from-file=dart_defines/prod.env --coverage
 
 .PHONY: icon
 icon:
