@@ -1,4 +1,5 @@
-import 'common.dart';
+import 'package:flutter_test/flutter_test.dart';
+
 import 'feature/e2e_sample/e2e_sample_runner_test.dart'
     as e2e_sample_runner_test;
 import 'feature/setting/setting_runner_test.dart' as setting_runner_test;

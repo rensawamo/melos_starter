@@ -1,5 +1,6 @@
 import 'package:core_foundation/foundation.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:melos_template/core/foundation/constant/api_endpoint.dart';
 import 'package:melos_template/core/model/weater/weater_data/weather_data.dart';
 import 'package:retrofit/retrofit.dart';
@@ -8,7 +9,8 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'weather_api_client.g.dart';
 
 @riverpod
-WeatherApiClient weatherApiClient(WeatherApiClientRef ref) {
+WeatherApiClient weatherApiClient(Ref ref) {
+  // WeatherApiClientRef -> Refに変更
   final dio = ref.read(dioProvider);
   return WeatherApiClient(dio, baseUrl: ApiEndpoint.openWeather);
 }

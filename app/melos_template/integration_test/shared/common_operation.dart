@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../common.dart';
 
+
 extension CommonOperations on PatrolIntegrationTester {
   Future<void> inputTextField(String text) async {
     final textFieldFinder = find.byType(TextField);

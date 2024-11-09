@@ -68,7 +68,7 @@ jobs:
         uses: ruby/setup-ruby@v1
         if: always()
         with:
-          ruby-version: '2.6'
+          ruby-version: '2.7'
           bundler-cache: true
               
       - name: Danger
@@ -106,6 +106,9 @@ jobs:
 
       - name: Run package tests
         run: melos run test:ci --no-select
+      
+      - name: Run integration tests
+        run: cd app/melos_template && make e2e
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
