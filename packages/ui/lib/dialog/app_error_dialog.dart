@@ -223,7 +223,7 @@ class AppErrorDialog {
                     ),
                   ),
                   child: const Text(
-                    'Close',
+                    'close',
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.white,
