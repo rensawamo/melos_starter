@@ -11,6 +11,11 @@ splash:
 e2e:
 	patrol test -t  integration_test/runner_test.dart --dart-define-from-file=dart_defines/prod.env --coverage
 
+.PHONY: e2e_build
+e2e_build:
+	patrol build android integration_test/runner_test.dart --dart-define-from-file=dart_defines/prod.env
+
+
 .PHONY: icon
 icon:
 	flutter pub run flutter_launcher_icons
