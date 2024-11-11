@@ -111,6 +111,24 @@ jobs:
       - name: Run package tests
         run: melos run test:ci --no-select
       
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: coverage/lcov.info
+      
+      - name: Set up Homebrew
+        run: |
+          brew update
+
+      - name: Tap leancodepl/tools
+        run: |
+          brew tap leancodepl/tools
+
+      - name: Install mobile-tools
+        run: |
+          brew install mobile-tools
+      
       - name: Run integration tests
         working-directory: app/melos_template
         run: sh scripts/bs_android.sh
@@ -119,8 +137,4 @@ jobs:
           BS_PROJECT: ${{ secrets.BS_PROJECT }}
           BS_ANDROID_DEVICES: ${{ secrets.BS_ANDROID_DEVICES }}
 
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v4
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          files: coverage/lcov.info
+      
