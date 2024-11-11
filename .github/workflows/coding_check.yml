@@ -93,7 +93,13 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
+      
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: 17
+          
       - name: Setup Flutter with FVM
         id: setup-flutter
         uses: kuhnroyal/flutter-fvm-config-action/setup@v3
