@@ -5,11 +5,6 @@ import 'package:patrol/patrol.dart';
 export 'package:flutter_test/flutter_test.dart';
 export 'package:patrol/patrol.dart';
 
-const _patrolTesterConfig = PatrolTesterConfig(
-  visibleTimeout: Duration(seconds: 20),
-  settleTimeout: Duration(seconds: 20),
-  existsTimeout: Duration(seconds: 20),
-);
 const _nativeAutomatorConfig = NativeAutomatorConfig(
   findTimeout: Duration(seconds: 20),
 );
@@ -30,7 +25,6 @@ void patrol(
 }) {
   patrolTest(
     description,
-    config: _patrolTesterConfig,
     nativeAutomatorConfig: nativeAutomatorConfig ?? _nativeAutomatorConfig,
     framePolicy: framePolicy,
     skip: skip,

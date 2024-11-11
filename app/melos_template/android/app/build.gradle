@@ -70,7 +70,7 @@ android {
     }
 
     defaultConfig {
-        testInstrumentationRunner "pl.leancode.patrol.PatrolJUnitRunner"
+        testInstrumentationRunner "pl.leancode.patrol.BrowserstackPatrolJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: "true"
         applicationId "com.example.com"
         if (dartEnvironmentVariables.flavor != 'prod') {
