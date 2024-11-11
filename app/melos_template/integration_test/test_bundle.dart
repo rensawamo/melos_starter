@@ -9,7 +9,17 @@ import 'package:patrol/src/native/contracts/contracts.dart';
 import 'package:test_api/src/backend/invoker.dart';
 
 // START: GENERATED TEST IMPORTS
+import 'feature/e2e_sample/desceandant_test.dart' as feature__e2e_sample__desceandant_test;
+import 'feature/e2e_sample/e2e_sample_runner_test.dart' as feature__e2e_sample__e2e_sample_runner_test;
+import 'feature/e2e_sample/simulateion_textfield_test.dart' as feature__e2e_sample__simulateion_textfield_test;
+import 'feature/home/home_test.dart' as feature__home__home_test;
+import 'feature/setting/setting_runner_test.dart' as feature__setting__setting_runner_test;
+import 'feature/setting/setting_theme_test.dart' as feature__setting__setting_theme_test;
 import 'feature/weather/weather_disanable_network_test.dart' as feature__weather__weather_disanable_network_test;
+import 'feature/weather/weather_invalid_city_test.dart' as feature__weather__weather_invalid_city_test;
+import 'feature/weather/weather_runner_test.dart' as feature__weather__weather_runner_test;
+import 'feature/weather/weather_test.dart' as feature__weather__weather_test;
+import 'runner_test.dart' as runner_test;
 // END: GENERATED TEST IMPORTS
 
 Future<void> main() async {
@@ -69,7 +79,17 @@ Future<void> main() async {
   });
 
   // START: GENERATED TEST GROUPS
+  group('feature.e2e_sample.desceandant_test', feature__e2e_sample__desceandant_test.main);
+  group('feature.e2e_sample.e2e_sample_runner_test', feature__e2e_sample__e2e_sample_runner_test.main);
+  group('feature.e2e_sample.simulateion_textfield_test', feature__e2e_sample__simulateion_textfield_test.main);
+  group('feature.home.home_test', feature__home__home_test.main);
+  group('feature.setting.setting_runner_test', feature__setting__setting_runner_test.main);
+  group('feature.setting.setting_theme_test', feature__setting__setting_theme_test.main);
   group('feature.weather.weather_disanable_network_test', feature__weather__weather_disanable_network_test.main);
+  group('feature.weather.weather_invalid_city_test', feature__weather__weather_invalid_city_test.main);
+  group('feature.weather.weather_runner_test', feature__weather__weather_runner_test.main);
+  group('feature.weather.weather_test', feature__weather__weather_test.main);
+  group('runner_test', runner_test.main);
   // END: GENERATED TEST GROUPS
 
   final dartTestGroup = await testExplorationCompleter.future;

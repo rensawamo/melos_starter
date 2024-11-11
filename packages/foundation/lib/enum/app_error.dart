@@ -146,6 +146,7 @@ class AppError implements Exception {
 
   @override
   String toString() {
-    return 'AppErrorType: $type, Details: $details, Code: $code, Timestamp: $timestamp';
+    return 'AppErrorType: $type, Details: $details'
+        ',Code: $code, Timestamp: $timestamp';
   }
 }
