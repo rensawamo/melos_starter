@@ -117,9 +117,8 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: coverage/lcov.info
       
-      - name: Set up Homebrew
-        run: |
-          brew update
+      - name: 🍺 Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
 
       - name: Tap leancodepl/tools
         run: |
