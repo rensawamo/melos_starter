@@ -163,3 +163,7 @@ GoogleService-Info.plist
 
 # ruby
 /vendor/
+
+# env
+**/.env
+**/.envrc

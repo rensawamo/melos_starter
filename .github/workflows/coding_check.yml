@@ -113,7 +113,11 @@ jobs:
       
       - name: Run integration tests
         working-directory: app/melos_template
-        run: make e2e
+        run: sh scripts/bs_android.sh
+        env:
+          BS_CREDENTIALS: ${{ secrets.BS_CREDENTIALS }}
+          BS_PROJECT: ${{ secrets.BS_PROJECT }}
+          BS_ANDROID_DEVICES: ${{ secrets.BS_ANDROID_DEVICES }}
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
