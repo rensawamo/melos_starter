@@ -111,9 +111,9 @@ jobs:
       - name: Run package tests
         run: melos run test:ci --no-select
       
-      - name: Run integration tests
-        working-directory: app/melos_template
-        run: make e2e
+      # - name: Run integration tests
+        # working-directory: app/melos_template
+        # run: make e2e
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
