@@ -88,12 +88,18 @@ jobs:
 
   test:
     needs: check
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     timeout-minutes: 20
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
+      
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: 17
+          
       - name: Setup Flutter with FVM
         id: setup-flutter
         uses: kuhnroyal/flutter-fvm-config-action/setup@v3
@@ -111,12 +117,29 @@ jobs:
       - name: Run package tests
         run: melos run test:ci --no-select
       
-      - name: Run integration tests
-        working-directory: app/melos_template
-        run: make e2e
-
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: coverage/lcov.info
+      
+      - name: 🍺 Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Tap leancodepl/tools
+        run: |
+          brew tap leancodepl/tools
+
+      - name: Install mobile-tools
+        run: |
+          brew install mobile-tools
+      
+      - name: Run integration tests
+        working-directory: app/melos_template
+        run: sh scripts/bs_android.sh
+        env:
+          BS_CREDENTIALS: ${{ secrets.BS_CREDENTIALS }}
+          BS_PROJECT: ${{ secrets.BS_PROJECT }}
+          BS_ANDROID_DEVICES: ${{ secrets.BS_ANDROID_DEVICES }}
+
+      
