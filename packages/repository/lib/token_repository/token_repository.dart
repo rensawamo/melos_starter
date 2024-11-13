@@ -22,6 +22,12 @@ class TokenRepositoryImpl implements TokenRepository {
   String cachedToken = '';
 
   @override
+  Future<String?> refreshToken() async {
+    logger.d('Refreshing token');
+    return '';
+  }
+
+  @override
   Future<AppError?> saveTokenFromCookies(
     List<Cookie> cookies,
   ) async {
@@ -86,7 +92,7 @@ class TokenRepositoryImpl implements TokenRepository {
 
 abstract class TokenRepository {
   String cachedToken = '';
-
+  Future<String?> refreshToken();
   // Save the token from the list of cookies
   Future<AppError?> saveTokenFromCookies(List<Cookie> cookies);
   // Save the token in secure storage

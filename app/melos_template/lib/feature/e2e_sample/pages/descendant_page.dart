@@ -26,8 +26,6 @@ class DescendantPageState extends ConsumerState<DescendantPage> {
 
   @override
   Widget build(BuildContext context) {
-    // WidgetRef から TextEditingController を取得
-
     return AppBarFrame(
       title: 'Descendant Page',
       body: Center(

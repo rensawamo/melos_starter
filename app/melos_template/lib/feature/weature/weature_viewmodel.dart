@@ -41,6 +41,7 @@ class WeatherViewmodel extends _$WeatherViewmodel {
       );
       return null;
     } catch (e) {
+      logger.e('Failed to get weather data: $e');
       state = state.copyWith(isLoading: false);
       if (e is DioException) {
         return AppError.dioException(e);
