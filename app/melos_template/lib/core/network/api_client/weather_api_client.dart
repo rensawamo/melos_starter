@@ -10,8 +10,7 @@ part 'weather_api_client.g.dart';
 
 @riverpod
 WeatherApiClient weatherApiClient(Ref ref) {
-  // WeatherApiClientRef -> Refに変更
-  final dio = ref.read(dioProvider);
+  final dio = ref.read(dioProvider(isRequireAuthenticate: false));
   return WeatherApiClient(dio, baseUrl: ApiEndpoint.openWeather);
 }
 
