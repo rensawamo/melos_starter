@@ -1,26 +1,23 @@
 import 'package:flutter/widgets.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part 'app_lifecycle_state.g.dart';
-
-@Riverpod(keepAlive: true)
-AppLifecycleState appLifecycleState(AppLifecycleStateRef ref) {
-  final observer = _AppLifecycleObserver((value) => ref.state = value);
-
+final lifecycleObserver = StreamProvider<AppLifecycleState>((ref) async* {
+  final observer = AppLifecycleStateObserver(
+    (state) {
+      ref.state = AsyncData(state);
+    },
+  );
   final binding = WidgetsBinding.instance..addObserver(observer);
   ref.onDispose(() => binding.removeObserver(observer));
+});
 
-  return AppLifecycleState.resumed;
-}
+class AppLifecycleStateObserver extends WidgetsBindingObserver {
+  AppLifecycleStateObserver(this._didChange);
 
-class _AppLifecycleObserver extends WidgetsBindingObserver {
-  _AppLifecycleObserver(this._didChangeState);
-
-  final ValueChanged<AppLifecycleState> _didChangeState;
+  final ValueChanged<AppLifecycleState> _didChange;
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    _didChangeState(state);
-    super.didChangeAppLifecycleState(state);
+    _didChange(state);
   }
 }

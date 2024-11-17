@@ -7,7 +7,7 @@ part of 'firebase_analitics_service.dart';
 // **************************************************************************
 
 String _$firebaseAnalyticsServiceHash() =>
-    r'e15b0184733a56152f6033d9d082dcac1bf78919';
+    r'8a19e69165070b1a4dc0e70cd724b218ff4d7170';
 
 /// See also [firebaseAnalyticsService].
 @ProviderFor(firebaseAnalyticsService)

@@ -6,7 +6,7 @@ part of 'connectivity_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$connectivityHash() => r'bc5ac7cbbc66e8357ccb71af393503e9e7ca7874';
+String _$connectivityHash() => r'15246627d0ae599bcd01382c80d3d25b9e9b4e18';
 
 /// See also [connectivity].
 @ProviderFor(connectivity)

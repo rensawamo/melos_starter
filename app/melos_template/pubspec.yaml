@@ -24,6 +24,8 @@ dependencies:
     path: ../../packages/repository
   core_test_util:
     path: ../../packages/test_util
+  core_network:
+    path: ../../packages/network
 
   introduction_screen: ^3.1.14
   timeago: ^3.7.0

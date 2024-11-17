@@ -1,4 +1,4 @@
-import 'package:core_foundation/foundation.dart';
+import 'package:core_network/network.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:melos_template/core/foundation/constant/api_endpoint.dart';

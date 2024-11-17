@@ -7,6 +7,7 @@ const defaultRetryableStatuses = <int>{
   HttpStatus.badGateway, // 502
   HttpStatus.serviceUnavailable, // 503
   HttpStatus.gatewayTimeout, // 504
+
   440, // Login Timeout (IIS-specific)
   499, // Client Closed Request (Nginx-specific)
   460, // Client Closed Request (AWS-specific)

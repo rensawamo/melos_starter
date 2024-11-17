@@ -1,4 +1,5 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_timezone/flutter_timezone.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:rxdart/subjects.dart';
@@ -9,7 +10,7 @@ part 'notification_service_provider.g.dart';
 
 @Riverpod(keepAlive: true)
 NotificationService notificationService(
-  NotificationServiceRef ref,
+  Ref ref,
 ) {
   final service = NotificationService(
     FlutterLocalNotificationsPlugin(),
