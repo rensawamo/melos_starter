@@ -7,7 +7,7 @@ part of 'firebase_messaging_service.dart';
 // **************************************************************************
 
 String _$firebaseMessagingServiceHash() =>
-    r'19321740ca3f753366b239696835a44ad2643d8e';
+    r'702055e468b8534d2dd2f05f03b739e5022276ad';
 
 /// See also [firebaseMessagingService].
 @ProviderFor(firebaseMessagingService)

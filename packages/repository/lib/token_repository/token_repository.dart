@@ -3,12 +3,13 @@ import 'dart:io';
 import 'package:core_di_provider/di_provider.dart';
 import 'package:core_foundation/foundation.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:riverpod/riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'token_repository.g.dart';
 
 @Riverpod(keepAlive: true)
-TokenRepository tokenRepository(TokenRepositoryRef ref) {
+TokenRepository tokenRepository(Ref ref) {
   final secureStorage = ref.read(secureStorageProvider);
   return TokenRepositoryImpl(secureStorage);
 }

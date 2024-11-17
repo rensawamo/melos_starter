@@ -83,7 +83,8 @@ class RetryInterceptor extends Interceptor {
       if (attempt == 1) {
         newToken = await tokenRepository.loadToken();
         logger.i(
-          '[${err.requestOptions.path}] Attempt $attempt: Loading token from storage.',
+          '[${err.requestOptions.path}] Attempt'
+          ' $attempt: Loading token from storage.',
         );
       } else {
         newToken = await tokenRepository.refreshToken();
@@ -99,7 +100,8 @@ class RetryInterceptor extends Interceptor {
       handler.resolve(response);
     } catch (e) {
       logger.e(
-        '[${err.requestOptions.path}] Attempt $attempt: Exception during token operation. Error: $e',
+        '[${err.requestOptions.path}]'
+        ' Attempt $attempt: Exception during token operation. Error: $e',
       );
       super.onError(err, handler);
     }
@@ -118,7 +120,8 @@ class RetryInterceptor extends Interceptor {
       try {
         if (err.response?.statusCode == HttpStatus.unauthorized) {
           logger.w(
-            '[${err.requestOptions.path}] Unauthorized error, attempting token refresh.',
+            '[${err.requestOptions.path}]'
+            ' Unauthorized error, attempting token refresh.',
           );
 
           final attempt = err.requestOptions._attempt + 1;
@@ -126,7 +129,8 @@ class RetryInterceptor extends Interceptor {
 
           if (attempt > retries) {
             logger.e(
-              '[${err.requestOptions.path}] Max retry attempts reached for Unauthorized error.',
+              '[${err.requestOptions.path}]'
+              ' Max retry attempts reached for Unauthorized error.',
             );
             return super.onError(err, handler);
           }
@@ -135,7 +139,8 @@ class RetryInterceptor extends Interceptor {
         }
       } catch (e) {
         logger.e(
-          '[${err.requestOptions.path}] Exception during token operation. Error: $e',
+          '[${err.requestOptions.path}] '
+          'Exception during token operation. Error: $e',
         );
         super.onError(err, handler);
       }

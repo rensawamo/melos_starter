@@ -1,4 +1,3 @@
-
 enum E2eKey {
   introNextKey('introNextKey'),
   introDoneKey('introDoneKey'),

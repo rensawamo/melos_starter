@@ -6,7 +6,7 @@ part of 'flavor_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$flavorHash() => r'35980e94652eeb65673074b7d0a78565bfd6ff95';
+String _$flavorHash() => r'034afac5cb627981977cb9398af6b8329eb70c03';
 
 /// See also [flavor].
 @ProviderFor(flavor)

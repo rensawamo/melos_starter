@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -9,7 +10,7 @@ part 'firebase_messaging_service.g.dart';
 
 @Riverpod(keepAlive: true)
 FirebaseMessagingService firebaseMessagingService(
-  FirebaseMessagingServiceRef ref,
+  Ref ref,
 ) {
   final service = FirebaseMessagingService(FirebaseMessaging.instance);
   ref.onDispose(service.dispose);

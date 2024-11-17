@@ -6,7 +6,7 @@ part of 'firebase_storage_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$firebaseStorageHash() => r'ddec157566e3f96dac39d44de2cd99f9d71f9b54';
+String _$firebaseStorageHash() => r'8e9f5814f2e4871c92e546bca90dbeaf2f43edeb';
 
 /// See also [firebaseStorage].
 @ProviderFor(firebaseStorage)
