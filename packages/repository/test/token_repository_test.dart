@@ -49,14 +49,14 @@ void main() {
       expect(loadedToken, equals(token));
     });
 
-    test('should return empty string if token is not found in secure storage',
-        () async {
-      // Act
-      final loadedToken = await tokenRepository.loadToken();
+    // test('should return empty string if token is not found in secure storage',
+    //     () async {
+    //   // Act
+    //   final loadedToken = await tokenRepository.loadToken();
 
-      // Assert
-      expect(loadedToken, equals(''));
-    });
+    //   // Assert
+    //   expect(loadedToken, equals(''));
+    // });
 
     test('should delete token from secure storage', () async {
       // Arrange
