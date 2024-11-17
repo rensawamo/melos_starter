@@ -1,5 +1,5 @@
-
-import 'package:core_foundation/provider/dio/retry_intercepter.dart';
+import 'package:core_foundation/foundation.dart';
+import 'package:core_network/retry_utility/retry_intercepter.dart';
 import 'package:core_repository/repository.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -18,7 +18,7 @@ Dio dio(
   Duration sendTimeout = const Duration(seconds: 7),
 }) {
   final talker = Talker();
-  final token = ref.read(tokenRepositoryProvider).cachedToken;
+  final token = ref.watch(tokenRepositoryProvider).cachedToken;
 
   final dio = Dio(
     BaseOptions(
@@ -27,7 +27,8 @@ Dio dio(
       sendTimeout: sendTimeout,
       headers: <String, dynamic>{
         'Content-Type': 'application/json',
-        if (isRequireAuthenticate) 'Authorization': 'Bearer $token',
+        if (isRequireAuthenticate)
+          AppEndpoint.headerAuthorization: 'Bearer $token',
       },
     ),
   );
@@ -44,7 +45,7 @@ Dio dio(
 
   final retryInterceptor = RetryInterceptor(
     dio: dio,
-    tokenRepository: ref.read(tokenRepositoryProvider),
+    tokenRepository: ref.watch(tokenRepositoryProvider),
   );
 
   dio.interceptors.add(retryInterceptor);

@@ -2,9 +2,8 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:core_foundation/foundation.dart';
-import 'package:core_foundation/provider/dio/default_retry_evaluator.dart';
-import 'package:core_foundation/provider/dio/retry_status.dart';
-
+import 'package:core_network/retry_utility/default_retry_evaluator.dart';
+import 'package:core_network/retry_utility/retry_status.dart';
 import 'package:core_repository/repository.dart';
 import 'package:dio/dio.dart';
 
@@ -50,7 +49,7 @@ class RetryInterceptor extends Interceptor {
   final Dio dio;
   final TokenRepository tokenRepository;
   final void Function(String message)? logPrint;
-  final int retries;
+  int retries;
   final bool ignoreRetryEvaluatorExceptions;
   final List<Duration> retryDelays;
   final RetryEvaluator _retryEvaluator;
@@ -75,18 +74,33 @@ class RetryInterceptor extends Interceptor {
   Future<void> _refreshTokenAndRetry(
     DioException err,
     ErrorInterceptorHandler handler,
+    int attempt,
   ) async {
     try {
-      final newToken = await tokenRepository.refreshToken();
-      if (newToken != null) {
-        err.requestOptions.headers['Authorization'] = 'Bearer $newToken';
-        final response = await dio.fetch<void>(err.requestOptions);
-        handler.resolve(response);
+      String newToken;
+      retries = 2;
+
+      if (attempt == 1) {
+        newToken = await tokenRepository.loadToken();
+        logger.i(
+          '[${err.requestOptions.path}] Attempt $attempt: Loading token from storage.',
+        );
       } else {
-        super.onError(err, handler);
+        newToken = await tokenRepository.refreshToken();
+        logger.i(
+          '[${err.requestOptions.path}] Attempt $attempt: Refreshing token.',
+        );
       }
+
+      err.requestOptions.headers[AppEndpoint.headerAuthorization] =
+          'Bearer $newToken';
+
+      final response = await dio.fetch<void>(err.requestOptions);
+      handler.resolve(response);
     } catch (e) {
-      logger.e('Token refresh failed: $e');
+      logger.e(
+        '[${err.requestOptions.path}] Attempt $attempt: Exception during token operation. Error: $e',
+      );
       super.onError(err, handler);
     }
   }
@@ -101,7 +115,30 @@ class RetryInterceptor extends Interceptor {
         '[${err.requestOptions.path}] Unauthorized error, attempting'
         ' token refresh.',
       );
-      return _refreshTokenAndRetry(err, handler);
+      try {
+        if (err.response?.statusCode == HttpStatus.unauthorized) {
+          logger.w(
+            '[${err.requestOptions.path}] Unauthorized error, attempting token refresh.',
+          );
+
+          final attempt = err.requestOptions._attempt + 1;
+          err.requestOptions._attempt = attempt;
+
+          if (attempt > retries) {
+            logger.e(
+              '[${err.requestOptions.path}] Max retry attempts reached for Unauthorized error.',
+            );
+            return super.onError(err, handler);
+          }
+
+          return _refreshTokenAndRetry(err, handler, attempt);
+        }
+      } catch (e) {
+        logger.e(
+          '[${err.requestOptions.path}] Exception during token operation. Error: $e',
+        );
+        super.onError(err, handler);
+      }
     }
 
     if (err.requestOptions.disableRetry) {
@@ -125,7 +162,7 @@ class RetryInterceptor extends Interceptor {
       return super.onError(err, handler);
     }
 
-    final delay = _getDelay(attempt);
+    final delay = getDelay(attempt);
     logger.w(
       '[${err.requestOptions.path}] Error during request, retrying... '
       '(Attempt: $attempt/$retries, '
@@ -134,7 +171,7 @@ class RetryInterceptor extends Interceptor {
 
     var requestOptions = err.requestOptions;
     if (requestOptions.data is FormData) {
-      requestOptions = _recreateOptions(err.requestOptions);
+      requestOptions = recreateOptions(err.requestOptions);
     }
 
     if (delay != Duration.zero) {
@@ -156,14 +193,14 @@ class RetryInterceptor extends Interceptor {
     }
   }
 
-  Duration _getDelay(int attempt) {
+  Duration getDelay(int attempt) {
     if (retryDelays.isEmpty) return Duration.zero;
     return attempt - 1 < retryDelays.length
         ? retryDelays[attempt - 1]
         : retryDelays.last;
   }
 
-  RequestOptions _recreateOptions(RequestOptions options) {
+  RequestOptions recreateOptions(RequestOptions options) {
     if (options.data is! FormData) {
       throw ArgumentError(
         'requestOptions.data is not FormData',

@@ -22,9 +22,10 @@ class TokenRepositoryImpl implements TokenRepository {
   String cachedToken = '';
 
   @override
-  Future<String?> refreshToken() async {
+  Future<String> refreshToken() async {
     logger.d('Refreshing token');
-    return '';
+
+    return 'reflesh test';
   }
 
   @override
@@ -55,7 +56,7 @@ class TokenRepositoryImpl implements TokenRepository {
     final token = await _secureStorage.read(key: _key.name);
     if (token == '' || token == null) {
       logger.w('Token not found for key: ${_key.name}');
-      return '';
+      return 'testload';
     }
     logger.i('Token successfully loaded for key: ${_key.name}');
     return token;
@@ -92,7 +93,7 @@ class TokenRepositoryImpl implements TokenRepository {
 
 abstract class TokenRepository {
   String cachedToken = '';
-  Future<String?> refreshToken();
+  Future<String> refreshToken();
   // Save the token from the list of cookies
   Future<AppError?> saveTokenFromCookies(List<Cookie> cookies);
   // Save the token in secure storage
