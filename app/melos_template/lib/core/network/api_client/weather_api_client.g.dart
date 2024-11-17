@@ -97,7 +97,7 @@ class _WeatherApiClient implements WeatherApiClient {
 // RiverpodGenerator
 // **************************************************************************
 
-String _$weatherApiClientHash() => r'ea47f5f7c4ea6464b028f454b5df09d8c892140e';
+String _$weatherApiClientHash() => r'4f1ba17608335e5695a997894da23686b389a13c';
 
 /// See also [weatherApiClient].
 @ProviderFor(weatherApiClient)

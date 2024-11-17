@@ -1,4 +1,5 @@
-import 'package:core_foundation/provider/dio/dio_intercepter.dart';
+
+import 'package:core_foundation/provider/dio/retry_intercepter.dart';
 import 'package:core_repository/repository.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -9,14 +10,25 @@ import 'package:talker_flutter/talker_flutter.dart';
 part 'dio_provider.g.dart';
 
 @riverpod
-Dio dio(Ref ref, {bool isRequireAuthenticate = true}) {
+Dio dio(
+  Ref ref, {
+  bool isRequireAuthenticate = true,
+  Duration connectTimeout = const Duration(seconds: 7),
+  Duration receiveTimeout = const Duration(seconds: 7),
+  Duration sendTimeout = const Duration(seconds: 7),
+}) {
   final talker = Talker();
+  final token = ref.read(tokenRepositoryProvider).cachedToken;
 
   final dio = Dio(
     BaseOptions(
-      connectTimeout: const Duration(seconds: 7),
-      receiveTimeout: const Duration(seconds: 7),
-      sendTimeout: const Duration(seconds: 7),
+      connectTimeout: connectTimeout,
+      receiveTimeout: receiveTimeout,
+      sendTimeout: sendTimeout,
+      headers: <String, dynamic>{
+        'Content-Type': 'application/json',
+        if (isRequireAuthenticate) 'Authorization': 'Bearer $token',
+      },
     ),
   );
 
@@ -32,9 +44,7 @@ Dio dio(Ref ref, {bool isRequireAuthenticate = true}) {
 
   final retryInterceptor = RetryInterceptor(
     dio: dio,
-    talker: talker,
     tokenRepository: ref.read(tokenRepositoryProvider),
-    isRequireAuthenticate: isRequireAuthenticate,
   );
 
   dio.interceptors.add(retryInterceptor);

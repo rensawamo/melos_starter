@@ -6,7 +6,7 @@ part of 'weature_viewmodel.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$weatherViewmodelHash() => r'6e33ee184ce4d0e2e8ba1fca972b677b93baaf4e';
+String _$weatherViewmodelHash() => r'03c0520669812c5618c1d1a3ec0263bb9cc93072';
 
 /// See also [WeatherViewmodel].
 @ProviderFor(WeatherViewmodel)

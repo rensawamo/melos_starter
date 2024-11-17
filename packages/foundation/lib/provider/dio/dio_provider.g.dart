@@ -6,7 +6,7 @@ part of 'dio_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$dioHash() => r'af511a353aa5941e48af09b151273829085e7300';
+String _$dioHash() => r'8d8bda846991a7bf77cab0975d35a005f3d5b9fc';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -41,9 +41,15 @@ class DioFamily extends Family<Dio> {
   /// See also [dio].
   DioProvider call({
     bool isRequireAuthenticate = true,
+    Duration connectTimeout = const Duration(seconds: 7),
+    Duration receiveTimeout = const Duration(seconds: 7),
+    Duration sendTimeout = const Duration(seconds: 7),
   }) {
     return DioProvider(
       isRequireAuthenticate: isRequireAuthenticate,
+      connectTimeout: connectTimeout,
+      receiveTimeout: receiveTimeout,
+      sendTimeout: sendTimeout,
     );
   }
 
@@ -53,6 +59,9 @@ class DioFamily extends Family<Dio> {
   ) {
     return call(
       isRequireAuthenticate: provider.isRequireAuthenticate,
+      connectTimeout: provider.connectTimeout,
+      receiveTimeout: provider.receiveTimeout,
+      sendTimeout: provider.sendTimeout,
     );
   }
 
@@ -76,10 +85,16 @@ class DioProvider extends AutoDisposeProvider<Dio> {
   /// See also [dio].
   DioProvider({
     bool isRequireAuthenticate = true,
+    Duration connectTimeout = const Duration(seconds: 7),
+    Duration receiveTimeout = const Duration(seconds: 7),
+    Duration sendTimeout = const Duration(seconds: 7),
   }) : this._internal(
           (ref) => dio(
             ref as DioRef,
             isRequireAuthenticate: isRequireAuthenticate,
+            connectTimeout: connectTimeout,
+            receiveTimeout: receiveTimeout,
+            sendTimeout: sendTimeout,
           ),
           from: dioProvider,
           name: r'dioProvider',
@@ -88,6 +103,9 @@ class DioProvider extends AutoDisposeProvider<Dio> {
           dependencies: DioFamily._dependencies,
           allTransitiveDependencies: DioFamily._allTransitiveDependencies,
           isRequireAuthenticate: isRequireAuthenticate,
+          connectTimeout: connectTimeout,
+          receiveTimeout: receiveTimeout,
+          sendTimeout: sendTimeout,
         );
 
   DioProvider._internal(
@@ -98,9 +116,15 @@ class DioProvider extends AutoDisposeProvider<Dio> {
     required super.debugGetCreateSourceHash,
     required super.from,
     required this.isRequireAuthenticate,
+    required this.connectTimeout,
+    required this.receiveTimeout,
+    required this.sendTimeout,
   }) : super.internal();
 
   final bool isRequireAuthenticate;
+  final Duration connectTimeout;
+  final Duration receiveTimeout;
+  final Duration sendTimeout;
 
   @override
   Override overrideWith(
@@ -116,6 +140,9 @@ class DioProvider extends AutoDisposeProvider<Dio> {
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
         isRequireAuthenticate: isRequireAuthenticate,
+        connectTimeout: connectTimeout,
+        receiveTimeout: receiveTimeout,
+        sendTimeout: sendTimeout,
       ),
     );
   }
@@ -128,13 +155,19 @@ class DioProvider extends AutoDisposeProvider<Dio> {
   @override
   bool operator ==(Object other) {
     return other is DioProvider &&
-        other.isRequireAuthenticate == isRequireAuthenticate;
+        other.isRequireAuthenticate == isRequireAuthenticate &&
+        other.connectTimeout == connectTimeout &&
+        other.receiveTimeout == receiveTimeout &&
+        other.sendTimeout == sendTimeout;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
     hash = _SystemHash.combine(hash, isRequireAuthenticate.hashCode);
+    hash = _SystemHash.combine(hash, connectTimeout.hashCode);
+    hash = _SystemHash.combine(hash, receiveTimeout.hashCode);
+    hash = _SystemHash.combine(hash, sendTimeout.hashCode);
 
     return _SystemHash.finish(hash);
   }
@@ -145,6 +178,15 @@ class DioProvider extends AutoDisposeProvider<Dio> {
 mixin DioRef on AutoDisposeProviderRef<Dio> {
   /// The parameter `isRequireAuthenticate` of this provider.
   bool get isRequireAuthenticate;
+
+  /// The parameter `connectTimeout` of this provider.
+  Duration get connectTimeout;
+
+  /// The parameter `receiveTimeout` of this provider.
+  Duration get receiveTimeout;
+
+  /// The parameter `sendTimeout` of this provider.
+  Duration get sendTimeout;
 }
 
 class _DioProviderElement extends AutoDisposeProviderElement<Dio> with DioRef {
@@ -153,6 +195,12 @@ class _DioProviderElement extends AutoDisposeProviderElement<Dio> with DioRef {
   @override
   bool get isRequireAuthenticate =>
       (origin as DioProvider).isRequireAuthenticate;
+  @override
+  Duration get connectTimeout => (origin as DioProvider).connectTimeout;
+  @override
+  Duration get receiveTimeout => (origin as DioProvider).receiveTimeout;
+  @override
+  Duration get sendTimeout => (origin as DioProvider).sendTimeout;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
