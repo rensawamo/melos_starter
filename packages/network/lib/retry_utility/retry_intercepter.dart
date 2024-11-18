@@ -89,7 +89,8 @@ class RetryInterceptor extends Interceptor {
       } else {
         newToken = await tokenRepository.refreshToken();
         logger.i(
-          '[${err.requestOptions.path}] tokenAttempt $tokenAttempt: Refreshing token.',
+          '[${err.requestOptions.path}]'
+          ' tokenAttempt $tokenAttempt: Refreshing token.',
         );
       }
       err.requestOptions.headers[AppEndpoint.headerAuthorization] =
@@ -100,7 +101,8 @@ class RetryInterceptor extends Interceptor {
     } catch (e) {
       logger.e(
         '[${err.requestOptions.path}]'
-        ' tokenAttempt $tokenAttempt: Exception during token operation. Error: $e',
+        ' tokenAttempt $tokenAttempt:'
+        ' Exception during token operation. Error: $e',
       );
       super.onError(err, handler);
     }
@@ -218,6 +220,7 @@ const _kDisableRetryKey = 'ro_disable_retry';
 
 extension RequestOptionsX on RequestOptions {
   static const _kAttemptKey = 'ro_attempt';
+  static const _kTokenAttemptKey = 'ro_token_attempt';
 
   int get attempt => _attempt;
 
@@ -231,9 +234,9 @@ extension RequestOptionsX on RequestOptions {
 
   set _attempt(int value) => extra[_kAttemptKey] = value;
 
-  int get _tokenAttempt => (extra[_kAttemptKey] as int?) ?? 0;
+  int get _tokenAttempt => (extra[_kTokenAttemptKey] as int?) ?? 0;
 
-  set _tokenAttempt(int value) => extra[_kAttemptKey] = value;
+  set _tokenAttempt(int value) => extra[_kTokenAttemptKey] = value;
 }
 
 extension OptionsX on Options {
