@@ -10,7 +10,7 @@ import 'package:connectivity_plus_platform_interface/connectivity_plus_platform_
     as _i7;
 import 'package:core_service/firebase_messaging/firebase_messaging_service.dart'
     as _i8;
-import 'package:core_service/notification_service/notification_service_provider.dart'
+import 'package:core_service/notification/notification_service_provider.dart'
     as _i10;
 import 'package:firebase_messaging/firebase_messaging.dart' as _i9;
 import 'package:melos_template/core/model/weater/weater_data/weather_data.dart'

@@ -1,7 +1,6 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:core_di_provider/di_provider.dart';
-import 'package:core_service/firebase_messaging/firebase_messaging_service.dart';
-import 'package:core_service/notification_service/notification_service_provider.dart';
+import 'package:core_service/service.dart';
 import 'package:core_test_util/create_container.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:melos_template/feature/home/home_viewmodel.dart';

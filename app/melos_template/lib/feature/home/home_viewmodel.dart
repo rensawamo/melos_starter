@@ -1,8 +1,7 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:core_di_provider/di_provider.dart';
 import 'package:core_foundation/foundation.dart';
-import 'package:core_service/firebase_messaging/firebase_messaging_service.dart';
-import 'package:core_service/notification_service/notification_service_provider.dart';
+import 'package:core_service/service.dart';
 import 'package:melos_template/feature/home/home_state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
