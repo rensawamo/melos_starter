@@ -31,11 +31,11 @@ void main() {
         .thenAnswer((_) async => testWeatherData);
 
     // Act
-    final error = await vm.call('Tokyo');
+    final result = await vm.call('Tokyo');
 
     // Assert
     final state = container.read(weatherViewmodelProvider);
-    expect(error, isNull);
+    expect(result, isNull);
     expect(state.isLoading, false);
     expect(state.weatherData, testWeatherData);
   });
@@ -48,11 +48,11 @@ void main() {
     );
 
     // Act
-    final error = await vm.call('Tokyo');
+    final result = await vm.call('Tokyo');
 
     // Assert
     final state = container.read(weatherViewmodelProvider);
-    expect(error?.type, AppErrorType.networkError);
+    expect(result?.type, AppErrorType.networkError);
     expect(state.isLoading, false);
     expect(state.weatherData, isNull);
   });
@@ -64,11 +64,11 @@ void main() {
     );
 
     // Act
-    final error = await vm.call('Tokyo');
+    final result = await vm.call('Tokyo');
 
     // Assert
     final state = container.read(weatherViewmodelProvider);
-    expect(error?.type, AppErrorType.unknownError);
+    expect(result?.type, AppErrorType.unknownError);
     expect(state.isLoading, false);
     expect(state.weatherData, isNull);
   });

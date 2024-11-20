@@ -1,28 +1,18 @@
-name: core_repository
+name: core_model
 description: A starting point for Dart libraries or applications.
 version: 1.0.0
 publish_to: "none"
-# repository: https://github.com/my_org/my_repo
 
 environment:
   sdk: ">=3.5.0 <4.0.0"
 
-# Add regular dependencies here.
 dependencies:
-  core_di_provider:
-    path: ../di_provider
-  core_foundation:
-    path: ../foundation
-  core_model:
-    path: ../model
-  core_test_util:
-    path: ../test_util
   flutter:
     sdk: flutter
   flutter_secure_storage: ^9.2.2
   riverpod_annotation: ^2.3.5
   riverpod: ^2.5.1
-  shared_preferences: ^2.3.2
+  freezed_annotation: ^2.4.4
   flutter_riverpod: ^2.5.1
   riverpod_generator: ^2.4.0
   # path: ^1.8.0

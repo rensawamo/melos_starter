@@ -28,7 +28,7 @@ class WeatherViewmodel extends _$WeatherViewmodel {
 
     final client = ref.read(weatherApiClientProvider);
     // Replace this with your own API key from https://openweathermap.org/api and create Environment file
-    const apiKey = 'cc95d932d5a45d33a9527d5019475f2c';
+    const apiKey = 'cc95d932d5a45d33a9527d5019475f2';
 
     try {
       // cityが空であればデフォルトの'Tokyo'を使用
