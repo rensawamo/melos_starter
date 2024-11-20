@@ -117,6 +117,9 @@ class RetryInterceptor extends Interceptor {
     DioException err,
     ErrorInterceptorHandler handler,
   ) async {
+    if (err.requestOptions.disableRetry) {
+      return super.onError(err, handler);
+    }
     if (err.response?.statusCode == HttpStatus.unauthorized) {
       logger.w(
         '[${err.requestOptions.path}] Unauthorized error, attempting'
@@ -152,8 +155,6 @@ class RetryInterceptor extends Interceptor {
       return super.onError(err, handler);
     }
 
-    bool isRequestCancelled() =>
-        err.requestOptions.cancelToken?.isCancelled ?? false;
     final attempt = err.requestOptions._attempt + 1;
     err.requestOptions._attempt = attempt;
     logger.i(
@@ -183,6 +184,9 @@ class RetryInterceptor extends Interceptor {
     if (delay != Duration.zero) {
       await Future<void>.delayed(delay);
     }
+
+    bool isRequestCancelled() =>
+        err.requestOptions.cancelToken?.isCancelled ?? false;
     if (isRequestCancelled()) {
       logger.i(
         '[${err.requestOptions.path}] Request was cancelled, stopping retries.',
