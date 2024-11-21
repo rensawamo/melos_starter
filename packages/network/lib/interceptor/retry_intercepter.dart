@@ -2,8 +2,8 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:core_foundation/foundation.dart';
-import 'package:core_network/retry_utility/default_retry_evaluator.dart';
-import 'package:core_network/retry_utility/retry_status.dart';
+import 'package:core_network/interceptor/default_retry_evaluator.dart';
+import 'package:core_network/interceptor/retry_status.dart';
 import 'package:core_service/auth/auth_service_provider.dart';
 import 'package:dio/dio.dart';
 
@@ -12,7 +12,6 @@ class RetryInterceptor extends Interceptor {
     required this.dio,
     required this.authService,
     required this.retries,
-    this.logPrint,
     this.retryDelays = const [
       // Max 5 retries
       Duration(milliseconds: 100 * 1 * 1),
@@ -49,14 +48,11 @@ class RetryInterceptor extends Interceptor {
 
   final Dio dio;
   final AuthService authService;
-
-  final void Function(String message)? logPrint;
   final bool ignoreRetryEvaluatorExceptions;
   final List<Duration> retryDelays;
   final RetryEvaluator _retryEvaluator;
   final Set<int> retryableExtraStatuses;
   final int retries;
-  final int authRetryCount = 1;
 
   static final FutureOr<bool> Function(DioException error, int attempt)
       defaultRetryEvaluator =
@@ -77,7 +73,6 @@ class RetryInterceptor extends Interceptor {
   Future<void> _authRetry(
     DioException err,
     ErrorInterceptorHandler handler,
-    int authAttempt,
   ) async {
     try {
       final response = await dio.fetch<void>(err.requestOptions);
@@ -85,7 +80,6 @@ class RetryInterceptor extends Interceptor {
     } catch (e) {
       logger.e(
         '[${err.requestOptions.path}]'
-        ' authAttempt $authAttempt:'
         ' Exception during token operation. Error: $e',
       );
       super.onError(err, handler);
@@ -98,10 +92,11 @@ class RetryInterceptor extends Interceptor {
     RequestInterceptorHandler handler,
   ) async {
     final token = await authService.getAccessToken();
+
     try {
       options.headers[AppEndpoint.headerAuthorization] = 'Bearer $token';
     } catch (e) {
-      logPrint?.call('[${options.path}] Error during token refresh: $e');
+      logger.e('[${options.path}] Error during token refresh: $e');
       return handler.reject(
         DioException(
           requestOptions: options,
@@ -122,39 +117,29 @@ class RetryInterceptor extends Interceptor {
     }
     if (err.response?.statusCode == HttpStatus.unauthorized) {
       logger.w(
-        '[${err.requestOptions.path}] Unauthorized error, attempting'
-        ' token refresh.',
+        '[${err.requestOptions.path}] Unauthorized error',
       );
       try {
-        logger.w(
-          '[${err.requestOptions.path}]'
-          ' Unauthorized error, attempting token refresh.',
-        );
-        final authAttempt = err.requestOptions._authAttempt + 1;
-        err.requestOptions._authAttempt = authAttempt;
-
-        if (authAttempt > authRetryCount) {
+        final isTokenRefreshed = err.requestOptions._isTokenRefreshed;
+        if (isTokenRefreshed) {
           logger.e(
             '[${err.requestOptions.path}]'
-            ' Max retry attempts reached for Unauthorized error.',
+            'Already attempted token refresh, stopping retries.',
           );
           return super.onError(err, handler);
+        } else {
+          err.requestOptions._isTokenRefreshed = true;
+          return _authRetry(err, handler);
         }
-        return _authRetry(err, handler, authAttempt);
       } catch (e) {
         logger.e(
           '[${err.requestOptions.path}] '
           'Exception during token operation. Error: $e',
         );
-        super.onError(err, handler);
+        err.requestOptions._isTokenRefreshed = true;
+        return super.onError(err, handler);
       }
     }
-
-    if (err.requestOptions.disableRetry) {
-      logger.w('[${err.requestOptions.path}] Retry disabled for this request.');
-      return super.onError(err, handler);
-    }
-
     final attempt = err.requestOptions._attempt + 1;
     err.requestOptions._attempt = attempt;
     logger.i(
@@ -226,23 +211,20 @@ const _kDisableRetryKey = 'ro_disable_retry';
 
 extension RequestOptionsX on RequestOptions {
   static const _kAttemptKey = 'ro_attempt';
-  static const _kauthAttemptKey = 'ro_token_attempt';
 
-  int get attempt => _attempt;
-
-  int get authAttempt => _authAttempt;
+  static const _kIsTokenRefreshedKey = 'ro_is_token_refreshed';
 
   bool get disableRetry => (extra[_kDisableRetryKey] as bool?) ?? false;
-
   set disableRetry(bool value) => extra[_kDisableRetryKey] = value;
 
+  bool get isTokenRefresh => _isTokenRefreshed;
+  bool get _isTokenRefreshed =>
+      (extra[_kIsTokenRefreshedKey] as bool?) ?? false;
+  set _isTokenRefreshed(bool value) => extra[_kIsTokenRefreshedKey] = value;
+
+  int get attempt => _attempt;
   int get _attempt => (extra[_kAttemptKey] as int?) ?? 0;
-
   set _attempt(int value) => extra[_kAttemptKey] = value;
-
-  int get _authAttempt => (extra[_kauthAttemptKey] as int?) ?? 0;
-
-  set _authAttempt(int value) => extra[_kauthAttemptKey] = value;
 }
 
 extension OptionsX on Options {

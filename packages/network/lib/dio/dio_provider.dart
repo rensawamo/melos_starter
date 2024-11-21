@@ -1,5 +1,5 @@
 import 'package:core_foundation/foundation.dart';
-import 'package:core_network/retry_utility/retry_intercepter.dart';
+import 'package:core_network/interceptor/retry_intercepter.dart';
 import 'package:core_repository/repository.dart';
 import 'package:core_service/auth/auth_service_provider.dart';
 import 'package:dio/dio.dart';
@@ -14,18 +14,22 @@ part 'dio_provider.g.dart';
 Dio dio(
   Ref ref, {
   bool isRequireAuthenticate = true,
+  bool roDisableRetry = false,
   Duration connectTimeout = const Duration(seconds: 7),
   Duration receiveTimeout = const Duration(seconds: 7),
   Duration sendTimeout = const Duration(seconds: 7),
 }) {
   final talker = Talker();
-  final token = ref.read(tokenRepositoryProvider).token;
+  final token = ref.watch(tokenRepositoryProvider).token;
 
   final dio = Dio(
     BaseOptions(
       connectTimeout: connectTimeout,
       receiveTimeout: receiveTimeout,
       sendTimeout: sendTimeout,
+      extra: <String, dynamic>{
+        'ro_disable_retry': roDisableRetry,
+      },
       headers: <String, dynamic>{
         'Content-Type': 'application/json',
         AppEndpoint.headerAuthorization: 'Bearer $token',
