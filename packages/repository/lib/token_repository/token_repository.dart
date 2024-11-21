@@ -23,15 +23,14 @@ class TokenRepository extends _$TokenRepository {
     await _secureStorage.write(key: _key.name, value: token);
 
     state = state.copyWith(token: token);
-    logger.i('Token saved: $token');
   }
 
   Future<String> loadToken() async {
     final token = await _secureStorage.read(key: _key.name);
 
     state = state.copyWith(token: token ?? '');
-    logger.i('Token loaded: ${token ?? 'No token'}');
-    return token ?? 'No token';
+
+    return token ?? '';
   }
 
   Future<void> deleteToken() async {
