@@ -53,7 +53,8 @@ dependencies:
   retrofit: ^4.4.1
   retrofit_generator: ^9.1.2
   connectivity_plus: ^6.1.0
-  patrol: ^3.12.0
+  patrol: ^3.13.0
+  
 
 dev_dependencies:
   cider: ^0.2.8
@@ -91,9 +92,10 @@ flutter:
         - asset: assets/fonts/Murecho/static/Murecho-Black.ttf
           weight: 900
 
-flutter_icons:
+flutter_launcher_icons:
   android: true
   ios: true
+  remove_alpha_ios: true
   assets:
     - ./assets/images/
     - ./assets/images/icons/dev.png
