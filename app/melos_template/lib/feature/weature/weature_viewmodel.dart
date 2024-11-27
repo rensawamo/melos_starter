@@ -1,6 +1,7 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:core_di_provider/di_provider.dart';
 import 'package:core_foundation/foundation.dart';
+import 'package:core_utility/utility.dart';
 import 'package:dio/dio.dart';
 import 'package:melos_template/core/network/api_client/weather_api_client.dart';
 import 'package:melos_template/feature/weature/weature_state.dart';

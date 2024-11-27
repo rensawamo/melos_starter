@@ -1,5 +1,5 @@
 import 'package:core_di_provider/di_provider.dart';
-import 'package:core_foundation/foundation.dart';
+import 'package:core_utility/utility.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';

@@ -14,6 +14,8 @@ dependencies:
     sdk: flutter
   core_ui:
     path: ../../packages/ui
+  core_utility:
+    path: ../../packages/utility
   core_di_provider:
     path: ../../packages/di_provider
   core_service:
@@ -54,7 +56,7 @@ dependencies:
   retrofit_generator: ^9.1.2
   connectivity_plus: ^6.1.0
   patrol: ^3.13.0
-  
+  dotenv: ^4.2.0
 
 dev_dependencies:
   cider: ^0.2.8
