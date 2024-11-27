@@ -21,7 +21,6 @@ WeatherState _$WeatherStateFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$WeatherState {
   WeatherData? get weatherData => throw _privateConstructorUsedError;
-  bool get isLoading => throw _privateConstructorUsedError;
 
   /// Serializes this WeatherState to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,7 +38,7 @@ abstract class $WeatherStateCopyWith<$Res> {
           WeatherState value, $Res Function(WeatherState) then) =
       _$WeatherStateCopyWithImpl<$Res, WeatherState>;
   @useResult
-  $Res call({WeatherData? weatherData, bool isLoading});
+  $Res call({WeatherData? weatherData});
 
   $WeatherDataCopyWith<$Res>? get weatherData;
 }
@@ -60,17 +59,12 @@ class _$WeatherStateCopyWithImpl<$Res, $Val extends WeatherState>
   @override
   $Res call({
     Object? weatherData = freezed,
-    Object? isLoading = null,
   }) {
     return _then(_value.copyWith(
       weatherData: freezed == weatherData
           ? _value.weatherData
           : weatherData // ignore: cast_nullable_to_non_nullable
               as WeatherData?,
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
     ) as $Val);
   }
 
@@ -97,7 +91,7 @@ abstract class _$$WeatherStateImplCopyWith<$Res>
       __$$WeatherStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({WeatherData? weatherData, bool isLoading});
+  $Res call({WeatherData? weatherData});
 
   @override
   $WeatherDataCopyWith<$Res>? get weatherData;
@@ -117,17 +111,12 @@ class __$$WeatherStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? weatherData = freezed,
-    Object? isLoading = null,
   }) {
     return _then(_$WeatherStateImpl(
       weatherData: freezed == weatherData
           ? _value.weatherData
           : weatherData // ignore: cast_nullable_to_non_nullable
               as WeatherData?,
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
     ));
   }
 }
@@ -135,20 +124,17 @@ class __$$WeatherStateImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$WeatherStateImpl implements _WeatherState {
-  const _$WeatherStateImpl({required this.weatherData, this.isLoading = true});
+  const _$WeatherStateImpl({required this.weatherData});
 
   factory _$WeatherStateImpl.fromJson(Map<String, dynamic> json) =>
       _$$WeatherStateImplFromJson(json);
 
   @override
   final WeatherData? weatherData;
-  @override
-  @JsonKey()
-  final bool isLoading;
 
   @override
   String toString() {
-    return 'WeatherState(weatherData: $weatherData, isLoading: $isLoading)';
+    return 'WeatherState(weatherData: $weatherData)';
   }
 
   @override
@@ -157,14 +143,12 @@ class _$WeatherStateImpl implements _WeatherState {
         (other.runtimeType == runtimeType &&
             other is _$WeatherStateImpl &&
             (identical(other.weatherData, weatherData) ||
-                other.weatherData == weatherData) &&
-            (identical(other.isLoading, isLoading) ||
-                other.isLoading == isLoading));
+                other.weatherData == weatherData));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, weatherData, isLoading);
+  int get hashCode => Object.hash(runtimeType, weatherData);
 
   /// Create a copy of WeatherState
   /// with the given fields replaced by the non-null parameter values.
@@ -183,17 +167,14 @@ class _$WeatherStateImpl implements _WeatherState {
 }
 
 abstract class _WeatherState implements WeatherState {
-  const factory _WeatherState(
-      {required final WeatherData? weatherData,
-      final bool isLoading}) = _$WeatherStateImpl;
+  const factory _WeatherState({required final WeatherData? weatherData}) =
+      _$WeatherStateImpl;
 
   factory _WeatherState.fromJson(Map<String, dynamic> json) =
       _$WeatherStateImpl.fromJson;
 
   @override
   WeatherData? get weatherData;
-  @override
-  bool get isLoading;
 
   /// Create a copy of WeatherState
   /// with the given fields replaced by the non-null parameter values.

@@ -44,7 +44,7 @@ RouteBase get $homePageData => GoRouteData.$route(
         ),
         GoRouteData.$route(
           path: 'weature',
-          factory: $WeatureRouteDataExtension._fromState,
+          factory: $WeatherRouteDataExtension._fromState,
         ),
         GoRouteData.$route(
           path: 'e2eSample',
@@ -96,9 +96,9 @@ extension $SettingPageDataExtension on SettingPageData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $WeatureRouteDataExtension on WeatureRouteData {
-  static WeatureRouteData _fromState(GoRouterState state) =>
-      const WeatureRouteData();
+extension $WeatherRouteDataExtension on WeatherRouteData {
+  static WeatherRouteData _fromState(GoRouterState state) =>
+      const WeatherRouteData();
 
   String get location => GoRouteData.$location(
         '/home/weature',

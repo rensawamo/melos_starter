@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:melos_template/feature/weature/weature.dart';
+import 'package:melos_template/feature/weature/ui/page/weather.dart';
 
-class WeatureRouteData extends GoRouteData {
-  const WeatureRouteData();
+class WeatherRouteData extends GoRouteData {
+  const WeatherRouteData();
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const WeaturePage();
+    return const WeatherPage();
   }
 }

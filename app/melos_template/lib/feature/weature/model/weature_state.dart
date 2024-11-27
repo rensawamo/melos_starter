@@ -8,7 +8,6 @@ part 'weature_state.g.dart';
 class WeatherState with _$WeatherState {
   const factory WeatherState({
     required WeatherData? weatherData,
-    @Default(true) bool isLoading,
   }) = _WeatherState;
 
   factory WeatherState.fromJson(Map<String, dynamic> json) =>

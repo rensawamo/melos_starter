@@ -1,26 +1,28 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'weature_viewmodel.dart';
+part of 'weather_repository.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$weatherViewmodelHash() => r'309705684e781f247aeb4628c8ade6b48cb1e222';
+String _$weatherRepositoryHash() => r'3df79d6ec08386d0f0cecaf774d3eea9217cbe79';
 
-/// See also [WeatherViewmodel].
-@ProviderFor(WeatherViewmodel)
-final weatherViewmodelProvider =
-    AutoDisposeNotifierProvider<WeatherViewmodel, WeatherState>.internal(
-  WeatherViewmodel.new,
-  name: r'weatherViewmodelProvider',
+/// See also [weatherRepository].
+@ProviderFor(weatherRepository)
+final weatherRepositoryProvider =
+    AutoDisposeFutureProvider<WeatherRepository>.internal(
+  weatherRepository,
+  name: r'weatherRepositoryProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$weatherViewmodelHash,
+      : _$weatherRepositoryHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$WeatherViewmodel = AutoDisposeNotifier<WeatherState>;
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef WeatherRepositoryRef = AutoDisposeFutureProviderRef<WeatherRepository>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

@@ -25,6 +25,8 @@ class IntroductionPage extends ConsumerWidget {
             title: 'Welcome to melos template!',
             body: 'Page1',
             image: Image.asset(
+              height: 150,
+              width: 150,
               'assets/images/introduction/aisome_company_color.png',
             ),
           ),
