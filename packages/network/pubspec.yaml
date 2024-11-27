@@ -16,6 +16,8 @@ dependencies:
     path: ../foundation
   core_repository:
     path: ../repository
+  core_utility: 
+    path: ../utility
   core_service:
     path: ../service
   core_model:

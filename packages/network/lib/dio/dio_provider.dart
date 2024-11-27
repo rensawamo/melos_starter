@@ -10,17 +10,18 @@ import 'package:talker_flutter/talker_flutter.dart';
 
 part 'dio_provider.g.dart';
 
-@riverpod
-Dio dio(
+@Riverpod(keepAlive: true)
+Future<Dio> dio(
   Ref ref, {
   bool isRequireAuthenticate = true,
   bool roDisableRetry = false,
   Duration connectTimeout = const Duration(seconds: 7),
   Duration receiveTimeout = const Duration(seconds: 7),
   Duration sendTimeout = const Duration(seconds: 7),
-}) {
+}) async {
   final talker = Talker();
-  final token = ref.watch(tokenRepositoryProvider).token;
+
+  final token = await ref.read(tokenRepositoryProvider.future);
 
   final dio = Dio(
     BaseOptions(
@@ -32,7 +33,8 @@ Dio dio(
       },
       headers: <String, dynamic>{
         'Content-Type': 'application/json',
-        AppEndpoint.headerAuthorization: 'Bearer $token',
+        if (isRequireAuthenticate)
+          AppEndpoint.headerAuthorization: 'Bearer ${token.accessToken}',
       },
     ),
   );
@@ -53,5 +55,6 @@ Dio dio(
     authService: ref.read(authServiceProvider),
   );
   dio.interceptors.add(retryInterceptor);
+
   return dio;
 }

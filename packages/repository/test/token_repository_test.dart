@@ -86,7 +86,8 @@
 //       expect(tokenRepository.cachedToken, equals(tokenValue));
 //     });
 
-//     test('should throw authentication error if token is not found in cookies',
+//     test('should throw authentication error if token is not found in cookies'
+// ,
 //         () async {
 //       // Arrange
 //       final cookies = [Cookie('some_other_key', 'value')];

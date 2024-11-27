@@ -1,4 +1,4 @@
-import 'package:core_foundation/foundation.dart';
+import 'package:core_utility/utility.dart';
 import 'package:dio/dio.dart';
 
 enum AppErrorType {
@@ -73,7 +73,7 @@ class AppError implements Exception {
     }
   }
 
-  // その他のエラータイプに対応するファクトリメソッド
+  // Factory methods
   factory AppError.networkError() => AppError(AppErrorType.networkError);
   factory AppError.socketException() => AppError(AppErrorType.socketException);
   factory AppError.grpcError(int code, String details) =>

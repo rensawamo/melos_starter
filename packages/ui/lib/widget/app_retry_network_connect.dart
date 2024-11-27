@@ -1,5 +1,6 @@
 import 'package:core_foundation/foundation.dart';
 import 'package:core_ui/dialog/app_error_dialog.dart';
+import 'package:core_utility/utility.dart';
 import 'package:flutter/material.dart';
 
 class AppRetryNetworkConnectWidget extends StatelessWidget {

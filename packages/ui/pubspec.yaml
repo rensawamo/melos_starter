@@ -13,11 +13,14 @@ dependencies:
     path: ../foundation
   core_di_provider:
     path: ../di_provider
+  core_utility: 
+    path: ../utility
   flutter:
     sdk: flutter
   flutter_riverpod: ^2.5.1
   connectivity_plus: ^6.0.5
   go_router: ^14.2.8
+  riverpod_annotation: ^2.6.1
   # path: ^1.8.0
 
 dev_dependencies:
