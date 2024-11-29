@@ -6,7 +6,7 @@ part of 'weather_notifier.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$weatherNotifierHash() => r'3d3047eb4917494aa729fe227a58b8bd83d9eb11';
+String _$weatherNotifierHash() => r'130ba383021f5cbc9024ec888abdf18efeec9961';
 
 /// Copied from Dart SDK
 class _SystemHash {

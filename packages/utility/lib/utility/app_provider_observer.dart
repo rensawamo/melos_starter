@@ -1,4 +1,4 @@
-import 'app_logger.dart';
+import 'package:core_utility/utility/app_logger.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class ProviderLogger implements ProviderObserver {
@@ -18,7 +18,7 @@ class ProviderLogger implements ProviderObserver {
     ProviderBase<dynamic> provider,
     ProviderContainer container,
   ) {
-    logger.d('[DISPOSE]: ${provider.describe}');
+    logger.w('[DISPOSE]: ${provider.describe}');
   }
 
   @override
@@ -38,7 +38,7 @@ class ProviderLogger implements ProviderObserver {
     StackTrace stackTrace,
     ProviderContainer container,
   ) {
-    logger.e('[FAIL]: ${provider.describe}');
+    logger.e('[ERROR]: ${provider.describe}');
   }
 }
 

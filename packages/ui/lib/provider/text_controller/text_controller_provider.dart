@@ -4,6 +4,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'text_controller_provider.g.dart';
 
+
 @riverpod
 class TextController extends _$TextController {
   @override

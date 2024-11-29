@@ -21,7 +21,7 @@ Future<Dio> dio(
 }) async {
   final talker = Talker();
 
-  final token = await ref.read(tokenRepositoryProvider.future);
+  final token = await ref.watch(tokenRepositoryProvider.future);
 
   final dio = Dio(
     BaseOptions(

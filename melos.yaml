@@ -25,11 +25,6 @@ scripts:
     packageFilters:
       dirExists: lib
 
-  upgrade:
-    run: flutter pub upgrade --major-versions && flutter pub outdated
-    packageFilters:
-      dirExists: lib
-
   analyze:
     run: flutter analyze .
     packageFilters:

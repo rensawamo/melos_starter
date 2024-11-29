@@ -9,6 +9,7 @@ export 'provider/text_controller/text_controller_provider.dart';
 // widget
 export 'widget/app_base_frame.dart';
 export 'widget/app_circle_indicator.dart';
+export 'widget/app_custom_app_bar.dart';
 export 'widget/app_data_not_available.dart';
-export 'widget/app_retry_network_connect.dart';
+export 'widget/app_error.dart';
 export 'widget/appbar_for_screen.dart';
