@@ -34,16 +34,12 @@ class IntroductionPage extends ConsumerWidget {
             title: 'Lets use this application as a reference!',
             body: 'Page2',
             image: Image.asset(
-              'assets/images/introduction/coffee_color.png',
+               height: 150,
+              width: 150,
+              'assets/images/introduction/operation_smartphone_simple.png',
             ),
           ),
-          PageViewModel(
-            title: 'I will be using Riverpod a lot!',
-            body: 'Page3!',
-            image: Image.asset(
-              'assets/images/introduction/many_documents_color.png',
-            ),
-          ),
+       
         ],
         onDone: () async {
           const HomePageData().go(context);
