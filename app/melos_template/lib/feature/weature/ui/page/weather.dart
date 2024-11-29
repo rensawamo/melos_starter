@@ -62,24 +62,28 @@ class WeatherPage extends ConsumerWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
-                asyncValue.when(
-                  skipLoadingOnRefresh: false,
-                  skipLoadingOnReload: false,
-                  data: (state) {
-                    if (state.weatherData == null) {
-                      return const Center(
-                        child: Text('No data available'),
-                      );
+                Builder(
+                  builder: (context) {
+                    switch (asyncValue) {
+                      case AsyncData(:final value):
+                        if (value.weatherData == null) {
+                          return const Center(
+                            child: Text('No data available'),
+                          );
+                        }
+                        return WeatherDetails(state: value);
+                      case AsyncError(:final error):
+                        return AppErrorInfoWidget(
+                          error: error,
+                          onRefresh: () =>
+                              ref.invalidate(weatherNotifierProvider),
+                        );
+                      case _:
+                        return const Center(
+                          child: AppCircleIndicator(),
+                        );
                     }
-                    return WeatherDetails(state: state);
                   },
-                  loading: () => const AppCircleIndicator(),
-                  error: (error, stack) => AppErrorInfoWidget(
-                    error: error,
-                    onRefresh: () {
-                      ref.invalidate(weatherNotifierProvider);
-                    },
-                  ),
                 ),
               ],
             ),
