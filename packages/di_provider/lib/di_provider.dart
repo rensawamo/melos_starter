@@ -1,9 +1,5 @@
-/// Support for doing something awesome.
-///
-/// More dartdocs go here.
-library;
-
 export 'connectivity/connectivity_provider.dart';
+export 'firebase/firebase_messaging_provider.dart';
 export 'firebase/firebase_storage_provider.dart';
 export 'firebase/firebase_store_provider.dart';
 export 'flavor/flavor_provider.dart';

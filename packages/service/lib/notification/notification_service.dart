@@ -26,7 +26,6 @@ class NotificationService {
   final _localNotifications = FlutterLocalNotificationsPlugin();
   var _isFlutterLocalNotificationsInitialized = false;
 
-  /// 初期化時に FirebaseMessaging インスタンスと通知チャンネル情報を渡す
   static void createInstance(
     FirebaseMessaging messaging, {
     List<AndroidNotificationChannelGroup> notificationChannelGroups = const [],

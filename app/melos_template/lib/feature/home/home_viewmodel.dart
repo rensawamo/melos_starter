@@ -18,9 +18,6 @@ class HomeViewmodel extends _$HomeViewmodel {
 
   Future<void> init() async {
     try {
-      
-      
-
       final firebaseMessagingService =
           ref.read(firebaseMessagingServiceProvider);
       await firebaseMessagingService.requestPermission();

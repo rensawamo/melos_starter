@@ -5,7 +5,7 @@ class InAppMessagingService {
     return FirebaseInAppMessaging.instance.triggerEvent(event);
   }
 
-  Future<void> disable(bool value) {
+  Future<void> disable({required bool value}) {
     return FirebaseInAppMessaging.instance.setMessagesSuppressed(value);
   }
 }

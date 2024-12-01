@@ -57,6 +57,7 @@ Future<void> main() async {
         flavorProvider.overrideWithValue(flavor),
         packageInfoProvider.overrideWithValue(packageInfo),
         sharedPreferencesProvider.overrideWithValue(sharedPreferences),
+        firebaseMessagingProvider.overrideWithValue(FirebaseMessaging.instance),
       ],
       observers: const [ProviderLogger()],
       child: const App(),

@@ -18,6 +18,7 @@ class App extends ConsumerWidget {
       title: 'melos template',
       theme: themeLight(),
       darkTheme: themeDark(),
+      
       localizationsDelegates: L10n.localizationsDelegates,
       supportedLocales: L10n.supportedLocales,
       themeMode: themeMode,
