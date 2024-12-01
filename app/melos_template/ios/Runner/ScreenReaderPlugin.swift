@@ -8,7 +8,7 @@ import Flutter
 
 final class ScreenReaderPlugin {
     private enum MethodChannelType: String {
-        case screenReader = "com.example.com/method/screenReader"
+        case screenReader = "com.example.melos_template/method/screenReader"
         var value: String { return self.rawValue }
         
         enum MethodNameType: String {
@@ -18,7 +18,7 @@ final class ScreenReaderPlugin {
     }
     
     private enum EventChannelType: String {
-        case screenReader = "com.example.com/event/screenReader/fetchEnable"
+        case screenReader = "com.example.melos_template/event/screenReader/fetchEnable"
         var value: String { return self.rawValue }
     }
     

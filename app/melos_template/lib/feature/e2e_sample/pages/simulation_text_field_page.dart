@@ -1,5 +1,5 @@
 import 'package:core_foundation/foundation.dart';
-import 'package:core_ui/widget/app_base_frame.dart';
+import 'package:core_ui/ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

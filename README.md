@@ -8,11 +8,11 @@ Android: melos_template/android/app/src/YOURFLAVOR/google-services.json
 
 iOS: melos_template/ios/YOURFLAVOR/GoogleService-Info.plist
 
-| environment | package        | app           |
+| environment | android        | iOS           |app           |
 | ---- | ------------------- | ------------------ |
-| dev | com.example.com.dev | dev.template |
-| stg | com.example.com.stg | stg.template |
-| prod | com.example.com     | template   |
+| dev | com.example.melos_template.dev | com.example.melosTemplate.dev  | dev.template |
+| stg | com.example.melos_template.stg |  com.example.melosTemplate.stg  |stg.template |
+| prod | com.example.melos_template    | com.example.melosTemplate | template   |
 
 Install Dependencies
 ```sh
@@ -36,6 +36,7 @@ packages/
 ├── service/         
 ├── test_util/      
 ├── ui/             
+├── utility/             
 melos.yaml          
 
 ```
@@ -48,7 +49,7 @@ melos.yaml
 | `service/`          | Defines **common business logic** used throughout the app. Acts as an **anti-corruption layer** to prevent third-party services from affecting internal app logic.          |
 | `test_util/`        | Contains **utilities for testing**, including Fake implementations of `shared_preferences` and `flutter_secure_storage` for unit and integration tests. These fakes are used to simulate data storage behavior in tests. |
 | `ui/`               | Contains **UI components** like screens and widgets used to build the front-end of the application in Flutter.                                                              |
-
+| `core_utility/`     | Provides shared utility functions and helper classes used across the application, such as date formatters.                                                                  |
 
 
 ## Dependency Packages

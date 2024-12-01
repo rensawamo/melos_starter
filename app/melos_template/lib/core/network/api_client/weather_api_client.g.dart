@@ -97,11 +97,12 @@ class _WeatherApiClient implements WeatherApiClient {
 // RiverpodGenerator
 // **************************************************************************
 
-String _$weatherApiClientHash() => r'4f1ba17608335e5695a997894da23686b389a13c';
+String _$weatherApiClientHash() => r'3fcf9d23cd877f6f2d9993014075a739536a638a';
 
 /// See also [weatherApiClient].
 @ProviderFor(weatherApiClient)
-final weatherApiClientProvider = AutoDisposeProvider<WeatherApiClient>.internal(
+final weatherApiClientProvider =
+    AutoDisposeFutureProvider<WeatherApiClient>.internal(
   weatherApiClient,
   name: r'weatherApiClientProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -113,6 +114,6 @@ final weatherApiClientProvider = AutoDisposeProvider<WeatherApiClient>.internal(
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-typedef WeatherApiClientRef = AutoDisposeProviderRef<WeatherApiClient>;
+typedef WeatherApiClientRef = AutoDisposeFutureProviderRef<WeatherApiClient>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

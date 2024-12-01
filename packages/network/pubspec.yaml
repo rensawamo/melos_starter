@@ -16,6 +16,8 @@ dependencies:
     path: ../foundation
   core_repository:
     path: ../repository
+  core_utility: 
+    path: ../utility
   core_service:
     path: ../service
   core_model:
@@ -29,9 +31,9 @@ dependencies:
   freezed_annotation: ^2.4.1
   json_annotation: ^4.9.0
   connectivity_plus: ^6.0.5
-  riverpod_annotation: ^2.3.3
-  riverpod_generator: ^2.4.0
-  flutter_riverpod: ^2.5.1
+  riverpod_annotation: 2.6.1
+  riverpod_generator: ^2.6.3
+  flutter_riverpod: ^2.6.1
   talker_flutter:
   talker_dio_logger:
   dio: ^5.7.0

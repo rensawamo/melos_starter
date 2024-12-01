@@ -1,7 +1,7 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:core_di_provider/di_provider.dart';
-import 'package:core_foundation/foundation.dart';
 import 'package:core_service/service.dart';
+import 'package:core_utility/utility.dart';
 import 'package:melos_template/feature/home/home_state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -18,9 +18,6 @@ class HomeViewmodel extends _$HomeViewmodel {
 
   Future<void> init() async {
     try {
-      final notificationService = ref.read(notificationServiceProvider);
-      await notificationService.init();
-
       final firebaseMessagingService =
           ref.read(firebaseMessagingServiceProvider);
       await firebaseMessagingService.requestPermission();

@@ -1,4 +1,4 @@
-package com.example.com
+package com.example.melos_template
 
 import androidx.annotation.NonNull
 import io.flutter.embedding.android.FlutterActivity

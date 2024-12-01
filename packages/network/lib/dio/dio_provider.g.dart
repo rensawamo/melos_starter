@@ -6,7 +6,7 @@ part of 'dio_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$dioHash() => r'22b951c1d1cc1f4a6624c6374826f02992b16a79';
+String _$dioHash() => r'e2800e64d837a126433a378abf3518589eead91a';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -34,19 +34,21 @@ class _SystemHash {
 const dioProvider = DioFamily();
 
 /// See also [dio].
-class DioFamily extends Family<Dio> {
+class DioFamily extends Family<AsyncValue<Dio>> {
   /// See also [dio].
   const DioFamily();
 
   /// See also [dio].
   DioProvider call({
     bool isRequireAuthenticate = true,
+    bool roDisableRetry = false,
     Duration connectTimeout = const Duration(seconds: 7),
     Duration receiveTimeout = const Duration(seconds: 7),
     Duration sendTimeout = const Duration(seconds: 7),
   }) {
     return DioProvider(
       isRequireAuthenticate: isRequireAuthenticate,
+      roDisableRetry: roDisableRetry,
       connectTimeout: connectTimeout,
       receiveTimeout: receiveTimeout,
       sendTimeout: sendTimeout,
@@ -59,6 +61,7 @@ class DioFamily extends Family<Dio> {
   ) {
     return call(
       isRequireAuthenticate: provider.isRequireAuthenticate,
+      roDisableRetry: provider.roDisableRetry,
       connectTimeout: provider.connectTimeout,
       receiveTimeout: provider.receiveTimeout,
       sendTimeout: provider.sendTimeout,
@@ -81,10 +84,11 @@ class DioFamily extends Family<Dio> {
 }
 
 /// See also [dio].
-class DioProvider extends AutoDisposeProvider<Dio> {
+class DioProvider extends FutureProvider<Dio> {
   /// See also [dio].
   DioProvider({
     bool isRequireAuthenticate = true,
+    bool roDisableRetry = false,
     Duration connectTimeout = const Duration(seconds: 7),
     Duration receiveTimeout = const Duration(seconds: 7),
     Duration sendTimeout = const Duration(seconds: 7),
@@ -92,6 +96,7 @@ class DioProvider extends AutoDisposeProvider<Dio> {
           (ref) => dio(
             ref as DioRef,
             isRequireAuthenticate: isRequireAuthenticate,
+            roDisableRetry: roDisableRetry,
             connectTimeout: connectTimeout,
             receiveTimeout: receiveTimeout,
             sendTimeout: sendTimeout,
@@ -103,6 +108,7 @@ class DioProvider extends AutoDisposeProvider<Dio> {
           dependencies: DioFamily._dependencies,
           allTransitiveDependencies: DioFamily._allTransitiveDependencies,
           isRequireAuthenticate: isRequireAuthenticate,
+          roDisableRetry: roDisableRetry,
           connectTimeout: connectTimeout,
           receiveTimeout: receiveTimeout,
           sendTimeout: sendTimeout,
@@ -116,19 +122,21 @@ class DioProvider extends AutoDisposeProvider<Dio> {
     required super.debugGetCreateSourceHash,
     required super.from,
     required this.isRequireAuthenticate,
+    required this.roDisableRetry,
     required this.connectTimeout,
     required this.receiveTimeout,
     required this.sendTimeout,
   }) : super.internal();
 
   final bool isRequireAuthenticate;
+  final bool roDisableRetry;
   final Duration connectTimeout;
   final Duration receiveTimeout;
   final Duration sendTimeout;
 
   @override
   Override overrideWith(
-    Dio Function(DioRef provider) create,
+    FutureOr<Dio> Function(DioRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
@@ -140,6 +148,7 @@ class DioProvider extends AutoDisposeProvider<Dio> {
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
         isRequireAuthenticate: isRequireAuthenticate,
+        roDisableRetry: roDisableRetry,
         connectTimeout: connectTimeout,
         receiveTimeout: receiveTimeout,
         sendTimeout: sendTimeout,
@@ -148,7 +157,7 @@ class DioProvider extends AutoDisposeProvider<Dio> {
   }
 
   @override
-  AutoDisposeProviderElement<Dio> createElement() {
+  FutureProviderElement<Dio> createElement() {
     return _DioProviderElement(this);
   }
 
@@ -156,6 +165,7 @@ class DioProvider extends AutoDisposeProvider<Dio> {
   bool operator ==(Object other) {
     return other is DioProvider &&
         other.isRequireAuthenticate == isRequireAuthenticate &&
+        other.roDisableRetry == roDisableRetry &&
         other.connectTimeout == connectTimeout &&
         other.receiveTimeout == receiveTimeout &&
         other.sendTimeout == sendTimeout;
@@ -165,6 +175,7 @@ class DioProvider extends AutoDisposeProvider<Dio> {
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
     hash = _SystemHash.combine(hash, isRequireAuthenticate.hashCode);
+    hash = _SystemHash.combine(hash, roDisableRetry.hashCode);
     hash = _SystemHash.combine(hash, connectTimeout.hashCode);
     hash = _SystemHash.combine(hash, receiveTimeout.hashCode);
     hash = _SystemHash.combine(hash, sendTimeout.hashCode);
@@ -175,9 +186,12 @@ class DioProvider extends AutoDisposeProvider<Dio> {
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-mixin DioRef on AutoDisposeProviderRef<Dio> {
+mixin DioRef on FutureProviderRef<Dio> {
   /// The parameter `isRequireAuthenticate` of this provider.
   bool get isRequireAuthenticate;
+
+  /// The parameter `roDisableRetry` of this provider.
+  bool get roDisableRetry;
 
   /// The parameter `connectTimeout` of this provider.
   Duration get connectTimeout;
@@ -189,12 +203,14 @@ mixin DioRef on AutoDisposeProviderRef<Dio> {
   Duration get sendTimeout;
 }
 
-class _DioProviderElement extends AutoDisposeProviderElement<Dio> with DioRef {
+class _DioProviderElement extends FutureProviderElement<Dio> with DioRef {
   _DioProviderElement(super.provider);
 
   @override
   bool get isRequireAuthenticate =>
       (origin as DioProvider).isRequireAuthenticate;
+  @override
+  bool get roDisableRetry => (origin as DioProvider).roDisableRetry;
   @override
   Duration get connectTimeout => (origin as DioProvider).connectTimeout;
   @override

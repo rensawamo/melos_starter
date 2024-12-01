@@ -1,4 +1,5 @@
 import 'package:core_foundation/foundation.dart';
+import 'package:core_utility/utility.dart';
 import 'package:flutter/material.dart';
 
 class AppErrorDialog {
@@ -6,21 +7,25 @@ class AppErrorDialog {
 
   static Future<void> showErrorDialog(
     BuildContext context,
-    AppError error,
+    Object error,
   ) async {
     if (!context.mounted) {
       logger.e('context is not mounted');
       return;
     }
-    switch (error.type) {
-      case AppErrorType.unknownError:
-        await _showUnknownErrorDialog(error.type.value, context);
-      case AppErrorType.networkError:
-        await _showNetworkErrorDialog(error.type.value, context);
-      case AppErrorType.notFound:
-        await _showNotFoundErrorDialog(error.type.value, context);
-      default:
-        await _showCustomErrorDialog(context, error);
+    if (error is AppError) {
+      switch (error.type) {
+        case AppErrorType.unknownError:
+          await _showUnknownErrorDialog(error.type.value, context);
+        case AppErrorType.networkError:
+          await _showNetworkErrorDialog(error.type.value, context);
+        case AppErrorType.notFound:
+          await _showNotFoundErrorDialog(error.type.value, context);
+        default:
+          await _showCustomErrorDialog(context, error);
+      }
+    } else {
+      await _showUnknownErrorDialog('Unknown Error', context);
     }
   }
 

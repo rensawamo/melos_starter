@@ -1,4 +1,4 @@
-import 'package:core_foundation/foundation.dart';
+import 'package:core_utility/utility.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 

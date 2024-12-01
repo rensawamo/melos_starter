@@ -1,4 +1,4 @@
-package com.example.com;
+package com.example.melos_template;
 
 import androidx.test.platform.app.InstrumentationRegistry;
 import org.junit.Test;
