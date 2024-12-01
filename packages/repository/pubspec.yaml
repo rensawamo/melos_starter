@@ -27,6 +27,9 @@ dependencies:
   flutter_riverpod: ^2.6.1
   riverpod_generator: ^2.6.3
   freezed_annotation: ^2.4.4
+  permission_handler: ^11.3.1
+  app_settings: ^5.1.1
+  firebase_messaging: ^15.0.0
   # path: ^1.8.0
 
 dev_dependencies:

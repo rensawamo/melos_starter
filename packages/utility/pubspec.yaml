@@ -20,6 +20,7 @@ dependencies:
   riverpod_generator: ^2.6.3
   url_launcher: ^6.3.1
   intl: ^0.19.0
+  app_settings: ^5.1.1
   logger: ^2.4.0
   timeago: ^3.7.0
   talker_flutter: ^4.4.1

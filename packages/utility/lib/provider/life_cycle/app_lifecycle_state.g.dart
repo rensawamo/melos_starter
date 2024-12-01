@@ -1,26 +1,27 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'token_repository.dart';
+part of 'app_lifecycle_state.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$tokenRepositoryHash() => r'48a4a5ac3221141215c82f6e985605b36a8c1b52';
+String _$appLifecycleStateHash() => r'974a53ea7166aaa18ea48de54b1900c68667c39b';
 
-/// See also [TokenRepository].
-@ProviderFor(TokenRepository)
-final tokenRepositoryProvider =
-    AutoDisposeAsyncNotifierProvider<TokenRepository, Token>.internal(
-  TokenRepository.new,
-  name: r'tokenRepositoryProvider',
+/// See also [appLifecycleState].
+@ProviderFor(appLifecycleState)
+final appLifecycleStateProvider = Provider<AppLifecycleState>.internal(
+  appLifecycleState,
+  name: r'appLifecycleStateProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$tokenRepositoryHash,
+      : _$appLifecycleStateHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$TokenRepository = AutoDisposeAsyncNotifier<Token>;
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef AppLifecycleStateRef = ProviderRef<AppLifecycleState>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

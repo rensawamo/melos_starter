@@ -4,7 +4,6 @@ import 'package:core_ui/ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:melos_template/core/foundation/extension/l10_extension.dart';
-import 'package:melos_template/feature/setting/widget/setting_switch_tile.dart';
 
 class SettingPage extends ConsumerWidget {
   const SettingPage({super.key});
@@ -19,15 +18,14 @@ class SettingPage extends ConsumerWidget {
       ),
       body: ListView(
         children: [
+          // ヘッダー部分
           Container(
             padding: const EdgeInsets.all(10),
             height: context.mediaQueryHeight * .25,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                SizedBox(
-                  height: context.mediaQueryHeight * .015,
-                ),
+                SizedBox(height: context.mediaQueryHeight * .015),
                 Container(
                   padding: const EdgeInsets.all(10),
                   width: context.mediaQueryHeight * .15,
@@ -60,9 +58,6 @@ class SettingPage extends ConsumerWidget {
                 ),
               ],
             ),
-          ),
-          const SettingsSwitchTile(
-            icon: Icons.brightness_6,
           ),
         ],
       ),
