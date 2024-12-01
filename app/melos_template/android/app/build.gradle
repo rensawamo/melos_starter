@@ -51,7 +51,7 @@ apply plugin: 'com.google.firebase.crashlytics'
 // END: FlutterFire Configuration
 
 android {
-    namespace "com.example.com"
+    namespace "com.example.melos_template"
     compileSdkVersion 34
     ndkVersion flutter.ndkVersion
 
@@ -72,7 +72,7 @@ android {
     defaultConfig {
         testInstrumentationRunner "pl.leancode.patrol.BrowserstackPatrolJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: "true"
-        applicationId "com.example.com"
+        applicationId "com.example.melos_template"
         if (dartEnvironmentVariables.flavor != 'prod') {
             applicationIdSuffix ".${dartEnvironmentVariables.flavor}"
         }

@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:core_foundation/foundation.dart';
 import 'package:core_network/interceptor/default_retry_evaluator.dart';
 import 'package:core_network/interceptor/retry_status.dart';
-import 'package:core_service/auth/auth_service_provider.dart';
+import 'package:core_service/service.dart';
 import 'package:core_utility/utility.dart';
 import 'package:dio/dio.dart';
 

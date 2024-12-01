@@ -8,11 +8,11 @@ Android: melos_template/android/app/src/YOURFLAVOR/google-services.json
 
 iOS: melos_template/ios/YOURFLAVOR/GoogleService-Info.plist
 
-| environment | package        | app           |
+| environment | android        | iOS           |app           |
 | ---- | ------------------- | ------------------ |
-| dev | com.example.com.dev | dev.template |
-| stg | com.example.com.stg | stg.template |
-| prod | com.example.com     | template   |
+| dev | com.example.melos_template.dev | com.example.melosTemplate.dev  | dev.template |
+| stg | com.example.melos_template.stg |  com.example.melosTemplate.stg  |stg.template |
+| prod | com.example.melos_template    | com.example.melosTemplate | template   |
 
 Install Dependencies
 ```sh

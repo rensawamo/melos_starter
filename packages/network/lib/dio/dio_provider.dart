@@ -1,7 +1,7 @@
 import 'package:core_foundation/foundation.dart';
 import 'package:core_network/interceptor/retry_intercepter.dart';
 import 'package:core_repository/repository.dart';
-import 'package:core_service/auth/auth_service_provider.dart';
+import 'package:core_service/service.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';

@@ -1,5 +1,4 @@
 import 'package:core_foundation/foundation.dart';
-import 'package:core_service/service.dart';
 import 'package:core_ui/ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -16,8 +15,6 @@ class HomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final vm = ref.watch(homeViewmodelProvider.notifier);
-
-    final notificationService = ref.read(notificationServiceProvider);
 
     return AppBarFrame(
       hasPrevButton: false,
@@ -58,10 +55,6 @@ class HomePage extends ConsumerWidget {
                 const SizedBox(height: 16),
                 ElevatedButton.icon(
                   onPressed: () {
-                    notificationService.showNotification(
-                      title: 'Hello!',
-                      body: 'This is a notification from the app!',
-                    );
                     const E2ESamplePageData().push<void>(context);
                   },
                   icon: const Icon(

@@ -1,4 +1,4 @@
-package com.example.com
+package com.example.melos_template
 
 import android.content.Context
 import android.content.Context.ACCESSIBILITY_SERVICE
@@ -12,7 +12,7 @@ import io.flutter.plugin.common.MethodChannel
 class ScreenReaderPlugin {
 
     private enum class MethodChannelType(val value: String) {
-        SCREEN_READER("com.example.com/method/screenReader"),
+        SCREEN_READER("com.example.melos_template/method/screenReader"),
         ;
 
         enum class MethodNameType(val value: String) {
@@ -22,7 +22,7 @@ class ScreenReaderPlugin {
     }
 
     private enum class EventChannelType(val value: String) {
-        SCREEN_READER_FETCH_ENABLE("com.example.com/event/screenReader/fetchEnable"),
+        SCREEN_READER_FETCH_ENABLE("com.example.melos_template/event/screenReader/fetchEnable"),
         ;
     }
 

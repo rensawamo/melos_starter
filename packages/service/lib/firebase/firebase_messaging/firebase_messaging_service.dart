@@ -8,7 +8,7 @@ import 'package:rxdart/rxdart.dart';
 
 part 'firebase_messaging_service.g.dart';
 
-@Riverpod(keepAlive: true)
+@riverpod
 FirebaseMessagingService firebaseMessagingService(
   Ref ref,
 ) {

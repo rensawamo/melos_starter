@@ -6,5 +6,5 @@ part 'firebase_storage_provider.g.dart';
 
 @Riverpod(keepAlive: true)
 FirebaseStorage firebaseStorage(Ref ref) {
-  return FirebaseStorage.instance;
+  throw UnimplementedError();
 }

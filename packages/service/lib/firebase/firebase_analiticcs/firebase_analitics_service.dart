@@ -4,7 +4,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'firebase_analitics_service.g.dart';
 
-@Riverpod(keepAlive: true)
+@riverpod
 FirebaseAnalyticsService firebaseAnalyticsService(
   Ref ref,
 ) {
