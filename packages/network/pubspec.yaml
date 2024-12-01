@@ -16,12 +16,10 @@ dependencies:
     path: ../foundation
   core_repository:
     path: ../repository
-  core_utility: 
+  core_utility:
     path: ../utility
   core_service:
     path: ../service
-  core_model:
-    path: ../model
 
   core_di_provider:
     path: ../di_provider
