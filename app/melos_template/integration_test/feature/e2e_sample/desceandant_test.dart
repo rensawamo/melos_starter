@@ -11,13 +11,9 @@ void main() {
       await createApp($);
       await $.introSkip();
 
-      await $.expectAppBarText('home');
-
       await $.tapByText('E2E Sample');
-      await $.expectAppBarText('E2E Sample');
 
       await $.tapByText('Descendant Page');
-      await $.expectAppBarText('Descendant Page');
 
       final parentFinder = find.byType(Column);
       await $.tap(

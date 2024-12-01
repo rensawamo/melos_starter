@@ -6,11 +6,11 @@ part of 'package_info_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$packageInfoHash() => r'41becc3addedc53e378ee1d1462ccfd8ccf6cce1';
+String _$packageInfoHash() => r'1758b03ad90499bfb24a03dcff6e93eae9681c5f';
 
 /// See also [packageInfo].
 @ProviderFor(packageInfo)
-final packageInfoProvider = Provider<PackageInfo>.internal(
+final packageInfoProvider = AutoDisposeProvider<PackageInfo>.internal(
   packageInfo,
   name: r'packageInfoProvider',
   debugGetCreateSourceHash:
@@ -21,6 +21,6 @@ final packageInfoProvider = Provider<PackageInfo>.internal(
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-typedef PackageInfoRef = ProviderRef<PackageInfo>;
+typedef PackageInfoRef = AutoDisposeProviderRef<PackageInfo>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

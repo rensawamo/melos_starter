@@ -20,8 +20,7 @@ Future<Dio> dio(
   Duration sendTimeout = const Duration(seconds: 7),
 }) async {
   final talker = Talker();
-
-  final token = await ref.watch(tokenRepositoryProvider.future);
+  final token = await ref.read(tokenRepositoryProvider.future);
 
   final dio = Dio(
     BaseOptions(

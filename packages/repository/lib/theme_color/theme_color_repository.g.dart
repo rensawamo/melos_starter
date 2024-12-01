@@ -7,7 +7,7 @@ part of 'theme_color_repository.dart';
 // **************************************************************************
 
 String _$themeColorRepositoryHash() =>
-    r'f78187928073aa81d41594a06bee2205f502bc70';
+    r'7e577f1968fb091fcccf0b4612b76e549eba3b32';
 
 /// See also [ThemeColorRepository].
 @ProviderFor(ThemeColorRepository)

@@ -10,7 +10,7 @@ part 'weather_api_client.g.dart';
 
 @riverpod
 Future<WeatherApiClient> weatherApiClient(Ref ref) async {
-  final dio = await ref.watch(dioProvider(isRequireAuthenticate: false).future);
+  final dio = await ref.read(dioProvider(isRequireAuthenticate: false).future);
 
   return WeatherApiClient(dio, baseUrl: ApiEndpoint.openWeather);
 }

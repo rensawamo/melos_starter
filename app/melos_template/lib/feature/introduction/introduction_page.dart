@@ -1,6 +1,5 @@
 import 'package:core_di_provider/di_provider.dart';
 import 'package:core_foundation/foundation.dart';
-import 'package:core_ui/ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:introduction_screen/introduction_screen.dart';
@@ -12,34 +11,33 @@ class IntroductionPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return AppBarFrame(
-      hasAppbar: false,
-      init: () {
-        final sharedPreferences = ref.read(sharedPreferencesProvider);
-        const key = AppSharedPreferenceKey.appIsIntroDoneKey;
-        sharedPreferences.setBool(key.name, true);
-      },
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final sharedPreferences = ref.read(sharedPreferencesProvider);
+      const key = AppSharedPreferenceKey.appIsIntroDoneKey;
+      sharedPreferences.setBool(key.name, true);
+    });
+
+    return Scaffold(
       body: IntroductionScreen(
         pages: [
           PageViewModel(
             title: 'Welcome to melos template!',
             body: 'Page1',
             image: Image.asset(
+              'assets/images/introduction/aisome_company_color.png',
               height: 150,
               width: 150,
-              'assets/images/introduction/aisome_company_color.png',
             ),
           ),
           PageViewModel(
-            title: 'Lets use this application as a reference!',
+            title: "Let's use this application as a reference!",
             body: 'Page2',
             image: Image.asset(
-               height: 150,
-              width: 150,
               'assets/images/introduction/operation_smartphone_simple.png',
+              height: 150,
+              width: 150,
             ),
           ),
-       
         ],
         onDone: () async {
           const HomePageData().go(context);

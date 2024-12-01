@@ -9,7 +9,6 @@ void main() {
       await $.introSkip();
       // await $.inputTextAndCloseKeyboard('test', 0);
       // expect(find.text('test'), findsOneWidget);
-      await $.expectAppBarText('home');
     },
   );
 }

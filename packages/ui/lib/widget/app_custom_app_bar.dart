@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
     required this.title,
     super.key,
+    this.hasBackButton = true,
     this.leftWidget,
     this.titleLogo,
     this.rightWidget,
   });
 
+  final bool hasBackButton;
   final String title;
   final dynamic titleLogo;
   final Widget? leftWidget;
@@ -35,13 +38,15 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             child: Stack(
               alignment: AlignmentDirectional.centerStart,
               children: [
-                leftWidget ??
-                    IconButton(
-                      icon: const Icon(Icons.arrow_back_ios),
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                    ),
+                if (leftWidget != null)
+                  leftWidget!
+                else if (hasBackButton)
+                  IconButton(
+                    icon: const Icon(Icons.arrow_back_ios),
+                    onPressed: () {
+                      context.pop();
+                    },
+                  ),
                 Center(
                   child: _titleContents(context),
                 ),

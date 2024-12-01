@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 part 'shard_preferences_provider.g.dart';
 
-@Riverpod(keepAlive: true)
+@riverpod
 SharedPreferences sharedPreferences(
   Ref ref,
 ) {

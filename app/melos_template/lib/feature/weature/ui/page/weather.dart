@@ -6,12 +6,32 @@ import 'package:melos_template/core/foundation/extension/l10_extension.dart';
 import 'package:melos_template/feature/weature/notifier/weather_notifier.dart';
 import 'package:melos_template/feature/weature/ui/component/weather_detail.dart';
 
-class WeatherPage extends ConsumerWidget {
+class WeatherPage extends ConsumerStatefulWidget {
   const WeatherPage({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final textController = ref.watch(TextControllerProvider(0));
+  ConsumerState<WeatherPage> createState() => _WeatherPageState();
+}
+
+class _WeatherPageState extends ConsumerState<WeatherPage> {
+  late TextEditingController textController;
+
+  @override
+  void initState() {
+    super.initState();
+
+    textController = TextEditingController();
+    textController.text = 'Tokyo';
+  }
+
+  @override
+  void dispose() {
+    textController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final asyncValue = ref.watch(weatherNotifierProvider(textController.text));
 
     return GestureDetector(

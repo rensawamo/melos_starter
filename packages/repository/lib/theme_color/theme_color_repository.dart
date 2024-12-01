@@ -18,14 +18,14 @@ class ThemeColorRepository extends _$ThemeColorRepository {
     return state;
   }
 
-  Future<void> loadTheme() async {
+  void loadTheme() {
     final themeIndex =
         _sharedPreferences.getInt(_themeKey.name) ?? ThemeMode.light.index;
     state = ThemeMode.values[themeIndex];
   }
 
-  Future<void> setTheme(ThemeMode themeMode) async {
+  void setTheme(ThemeMode themeMode) {
     state = themeMode;
-    await _sharedPreferences.setInt(_themeKey.name, themeMode.index);
+    _sharedPreferences.setInt(_themeKey.name, themeMode.index);
   }
 }

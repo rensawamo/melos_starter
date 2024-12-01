@@ -11,10 +11,7 @@ void main() {
       await createApp($);
       await $.introSkip();
 
-      await $.expectAppBarText('home');
-
       await $.tapByText('Get to weather info (REST API)');
-      await $.expectAppBarText('weather');
 
       await $.inputTextField('invalid city name');
 

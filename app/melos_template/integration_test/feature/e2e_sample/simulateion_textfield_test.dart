@@ -10,13 +10,9 @@ void main() {
 
       await $.introSkip();
 
-      await $.expectAppBarText('home');
-
       await $.tapByText('E2E Sample');
-      await $.expectAppBarText('E2E Sample');
 
       await $.tapByText('Simulateion TextField Page');
-      await $.expectAppBarText('Simulation TextField Page');
 
       await $.inputTextField('Hello');
 

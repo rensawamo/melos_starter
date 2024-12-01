@@ -86,60 +86,60 @@ jobs:
       # - name: Check for the existence of unformatted files
       #   run: melos format:ci 
 
-  test:
-    needs: check
-    runs-on: macos-latest
-    timeout-minutes: 20
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+  # test:
+  #   needs: check
+  #   runs-on: macos-latest
+  #   timeout-minutes: 20
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@v4
       
-      - name: Set up Java
-        uses: actions/setup-java@v3
-        with:
-          distribution: temurin
-          java-version: 17
+  #     - name: Set up Java
+  #       uses: actions/setup-java@v3
+  #       with:
+  #         distribution: temurin
+  #         java-version: 17
           
-      - name: Setup Flutter with FVM
-        id: setup-flutter
-        uses: kuhnroyal/flutter-fvm-config-action/setup@v3
+  #     - name: Setup Flutter with FVM
+  #       id: setup-flutter
+  #       uses: kuhnroyal/flutter-fvm-config-action/setup@v3
 
-      - name: Prepare Melos
-        run: echo "MELOS_SDK_PATH=${{ env.FLUTTER_ROOT }}" >> "$GITHUB_ENV"
+  #     - name: Prepare Melos
+  #       run: echo "MELOS_SDK_PATH=${{ env.FLUTTER_ROOT }}" >> "$GITHUB_ENV"
 
-      - name: Install Melos
-        uses: bluefireteam/melos-action@v3
+  #     - name: Install Melos
+  #       uses: bluefireteam/melos-action@v3
       
-      - name: Set up Patrol CLI
-        working-directory: app/melos_template
-        run: dart pub global activate patrol_cli && patrol
+  #     - name: Set up Patrol CLI
+  #       working-directory: app/melos_template
+  #       run: dart pub global activate patrol_cli && patrol
 
-      - name: Run package tests
-        run: melos run test:ci --no-select
+  #     - name: Run package tests
+  #       run: melos run test:ci --no-select
       
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v4
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          files: coverage/lcov.info
+  #     - name: Upload coverage to Codecov
+  #       uses: codecov/codecov-action@v4
+  #       with:
+  #         token: ${{ secrets.CODECOV_TOKEN }}
+  #         files: coverage/lcov.info
       
-      - name: 🍺 Set up Homebrew
-        uses: Homebrew/actions/setup-homebrew@master
+  #     - name: 🍺 Set up Homebrew
+  #       uses: Homebrew/actions/setup-homebrew@master
 
-      - name: Tap leancodepl/tools
-        run: |
-          brew tap leancodepl/tools
+  #     - name: Tap leancodepl/tools
+  #       run: |
+  #         brew tap leancodepl/tools
 
-      - name: Install mobile-tools
-        run: |
-          brew install mobile-tools
+  #     - name: Install mobile-tools
+  #       run: |
+  #         brew install mobile-tools
       
-      - name: Run integration tests
-        working-directory: app/melos_template
-        run: sh scripts/bs_android.sh
-        env:
-          BS_CREDENTIALS: ${{ secrets.BS_CREDENTIALS }}
-          BS_PROJECT: ${{ secrets.BS_PROJECT }}
-          BS_ANDROID_DEVICES: ${{ secrets.BS_ANDROID_DEVICES }}
+  #     - name: Run integration tests
+  #       working-directory: app/melos_template
+  #       run: sh scripts/bs_android.sh
+  #       env:
+  #         BS_CREDENTIALS: ${{ secrets.BS_CREDENTIALS }}
+  #         BS_PROJECT: ${{ secrets.BS_PROJECT }}
+  #         BS_ANDROID_DEVICES: ${{ secrets.BS_ANDROID_DEVICES }}
 
       

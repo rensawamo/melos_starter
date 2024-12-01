@@ -1,5 +1,4 @@
 import 'package:core_foundation/foundation.dart';
-import 'package:core_ui/ui.dart';
 import 'package:flutter/material.dart';
 import 'package:melos_template/core/foundation/constant/e2e_key.dart';
 
@@ -20,27 +19,6 @@ extension CommonOperations on PatrolIntegrationTester {
     await pumpAndSettle();
 
     await grantNotificationPermission();
-  }
-
-  Future<void> openSettings() async {
-    final appBar = find.descendant(
-      of: find.byType(AppBarFrame),
-      matching: find.byType(AppBar),
-    );
-    await tap(
-      find.descendant(of: appBar, matching: find.byIcon(Icons.settings)),
-    );
-  }
-
-  Future<void> expectAppBarText(String text) async {
-    final appBar = find.descendant(
-      of: find.byType(AppBarFrame),
-      matching: find.byType(AppBar),
-    );
-    await expectLater(
-      find.descendant(of: appBar, matching: find.text(text)),
-      findsOneWidget,
-    );
   }
 
   Future<void> expectAppErrorDialogAndClose(AppError error) async {

@@ -1,4 +1,3 @@
-import 'package:core_ui/widget/app_base_frame.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -26,8 +25,10 @@ class DescendantPageState extends ConsumerState<DescendantPage> {
 
   @override
   Widget build(BuildContext context) {
-    return AppBarFrame(
-      title: 'Descendant Page',
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Descendant Page'),
+      ),
       body: Center(
         child: Container(
           width: 300,
@@ -44,7 +45,10 @@ class DescendantPageState extends ConsumerState<DescendantPage> {
                   children: [
                     Text(
                       'Counter: $_counter',
-                      style: const TextStyle(fontSize: 24),
+                      style: const TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ],
                 ),
