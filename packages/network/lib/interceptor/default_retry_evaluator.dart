@@ -24,6 +24,7 @@ class DefaultRetryEvaluator {
       }
     } else {
       shouldRetry = error.type != DioExceptionType.cancel &&
+          error.type != DioExceptionType.connectionError &&
           error.error is! FormatException;
     }
     currentAttempt = attempt;
