@@ -9,7 +9,7 @@ AndroidOptions _getAndroidOptions() => const AndroidOptions(
       // sharedPreferencesName: '',
     );
 
-@Riverpod(keepAlive: true)
+@riverpod
 FlutterSecureStorage secureStorage(Ref ref) {
   return FlutterSecureStorage(aOptions: _getAndroidOptions());
 }

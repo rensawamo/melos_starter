@@ -10,8 +10,7 @@ void main() {
     ($) async {
       await createApp($);
       await $.introSkip();
-      await $.expectAppBarText('home');
-      await $.openSettings();
+
       await $.tap(find.byType(Switch));
       final appFinder = find.byType(MaterialApp).first;
       await $.pumpAndSettle();

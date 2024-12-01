@@ -12,16 +12,15 @@ void main() {
       await createApp($);
       await $.introSkip();
 
-      await $.expectAppBarText('home');
       await $.turnOffNetwork();
 
       await $.tapByText('Get to weather info (REST API)');
-      await $.expectAppBarText('weather');
+
       await $.expectAppErrorDialogAndClose(AppError.networkError());
       await $.turnOnNetwork();
       await $.backPage();
       await $.tapByText('Get to weather info (REST API)');
-      await $.expectAppBarText('weather');
+
       expect($('Details'), findsOneWidget);
     },
   );

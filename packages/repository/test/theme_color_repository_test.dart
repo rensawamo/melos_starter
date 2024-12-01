@@ -30,7 +30,7 @@ void main() {
         ThemeMode.dark.index,
       );
       // Act
-      await themeColorRepository.loadTheme();
+      themeColorRepository.loadTheme();
 
       // Assert
       final theme = container.read(themeColorRepositoryProvider);
@@ -40,7 +40,7 @@ void main() {
     test('loadTheme should load the default theme when nothing is saved',
         () async {
       // Act
-      await themeColorRepository.loadTheme();
+      themeColorRepository.loadTheme();
 
       // Assert
       final theme = container.read(themeColorRepositoryProvider);
@@ -49,7 +49,7 @@ void main() {
 
     test('setTheme should save the theme to SharedPreferences', () async {
       // Arrange
-      await themeColorRepository.setTheme(ThemeMode.dark);
+      themeColorRepository.setTheme(ThemeMode.dark);
       // Act
       final loadedTheme = fakeSharedPreferences.getInt(key);
       // Assert

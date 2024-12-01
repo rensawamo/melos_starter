@@ -1,5 +1,4 @@
-import 'package:core_foundation/foundation.dart';
-import 'package:core_ui/ui.dart';
+import 'package:core_foundation/extension/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -12,17 +11,31 @@ class SimulationTextFieldPage extends ConsumerStatefulWidget {
 
 class SimulationTextFieldPageState
     extends ConsumerState<SimulationTextFieldPage> {
+  late TextEditingController textController;
   String submittedText = '';
+
+  @override
+  void initState() {
+    super.initState();
+    textController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    textController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final textController = ref.watch(textControllerProvider(0));
-
-    return AppBarFrame(
-      title: 'Simulation TextField Page',
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Simulation TextField Page'),
+      ),
       body: GestureDetector(
         behavior: HitTestBehavior.opaque,
         onTap: () {
-          context.hideKeyboard();
+          FocusScope.of(context).unfocus();
         },
         child: Padding(
           padding: const EdgeInsets.all(16),
@@ -49,8 +62,10 @@ class SimulationTextFieldPageState
               const SizedBox(height: 24),
               Text(
                 'Submitted Text: $submittedText',
-                style:
-                    const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ],
           ),

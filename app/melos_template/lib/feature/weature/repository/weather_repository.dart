@@ -8,7 +8,7 @@ part 'weather_repository.g.dart';
 
 @riverpod
 Future<WeatherRepository> weatherRepository(Ref ref) async {
-  final apiClient = await ref.watch(weatherApiClientProvider.future);
+  final apiClient = await ref.read(weatherApiClientProvider.future);
   return WeatherRepository(apiClient);
 }
 

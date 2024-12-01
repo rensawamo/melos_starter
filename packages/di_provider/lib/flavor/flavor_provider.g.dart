@@ -6,11 +6,11 @@ part of 'flavor_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$flavorHash() => r'034afac5cb627981977cb9398af6b8329eb70c03';
+String _$flavorHash() => r'fcb861f4613aaefd626637558f3ec1303b891101';
 
 /// See also [flavor].
 @ProviderFor(flavor)
-final flavorProvider = Provider<Flavor>.internal(
+final flavorProvider = AutoDisposeProvider<Flavor>.internal(
   flavor,
   name: r'flavorProvider',
   debugGetCreateSourceHash:
@@ -21,6 +21,6 @@ final flavorProvider = Provider<Flavor>.internal(
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-typedef FlavorRef = ProviderRef<Flavor>;
+typedef FlavorRef = AutoDisposeProviderRef<Flavor>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

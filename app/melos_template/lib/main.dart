@@ -58,6 +58,8 @@ Future<void> main() async {
         packageInfoProvider.overrideWithValue(packageInfo),
         sharedPreferencesProvider.overrideWithValue(sharedPreferences),
         firebaseMessagingProvider.overrideWithValue(FirebaseMessaging.instance),
+        firebaseCrashlyticsProvider
+            .overrideWithValue(FirebaseCrashlytics.instance),
       ],
       observers: const [ProviderLogger()],
       child: const App(),

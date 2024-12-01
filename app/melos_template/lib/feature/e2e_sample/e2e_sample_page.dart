@@ -1,4 +1,4 @@
-import 'package:core_ui/widget/app_base_frame.dart';
+import 'package:core_ui/ui.dart';
 import 'package:flutter/material.dart';
 import 'package:melos_template/core/router/data/app_route_data.dart';
 import 'package:melos_template/core/router/data/page/page_route_data.dart';
@@ -8,8 +8,10 @@ class E2ESamplePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppBarFrame(
-      title: 'E2E Sample',
+    return Scaffold(
+      appBar: const CustomAppBar(
+        title: 'E2E Sample',
+      ),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(16),
@@ -21,8 +23,9 @@ class E2ESamplePage extends StatelessWidget {
                 onPressed: () {
                   const SimulationTextFieldPageData().push<void>(context);
                 },
+                icon: const Icon(Icons.text_fields),
                 label: const Text(
-                  'Simulateion TextField Page',
+                  'Simulation TextField Page',
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
@@ -43,6 +46,7 @@ class E2ESamplePage extends StatelessWidget {
                 onPressed: () {
                   const DescendantPageData().push<void>(context);
                 },
+                icon: const Icon(Icons.pages),
                 label: const Text(
                   'Descendant Page',
                   style: TextStyle(

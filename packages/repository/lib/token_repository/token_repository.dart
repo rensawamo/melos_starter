@@ -7,7 +7,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'token_repository.g.dart';
 
-@Riverpod(keepAlive: true)
+@riverpod
 class TokenRepository extends _$TokenRepository {
   late final FlutterSecureStorage _secureStorage;
   final _key = AppSecureStorageKey.appTokenRepositoryKey;

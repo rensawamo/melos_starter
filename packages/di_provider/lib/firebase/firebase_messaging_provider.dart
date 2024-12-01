@@ -4,7 +4,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'firebase_messaging_provider.g.dart';
 
-@Riverpod(keepAlive: true)
+@riverpod
 FirebaseMessaging firebaseMessaging(Ref ref) {
   // for mono repo
   throw UnimplementedError();

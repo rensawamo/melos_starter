@@ -4,7 +4,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'connectivity_provider.g.dart';
 
-@Riverpod(keepAlive: true)
+@riverpod
 Connectivity connectivity(Ref ref) {
   return Connectivity();
 }
