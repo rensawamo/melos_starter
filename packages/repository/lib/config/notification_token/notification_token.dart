@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:core_di_provider/di_provider.dart';
-import 'package:core_repository/notification_token/model/notification_token.dart';
+import 'package:core_repository/config/notification_token/model/notification_token.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
