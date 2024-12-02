@@ -53,10 +53,15 @@ class NotificationService {
     // Get FCM token
     final token = await firebaseMessaging.getToken();
     logger.d('FCM Token: $token');
+    print('FCM Token: $token');
   }
 
   Future<void> _requestPermission() async {
     final settings = await firebaseMessaging.requestPermission();
+    await firebaseMessaging.setForegroundNotificationPresentationOptions(
+      alert: true,
+      sound: true,
+    );
     logger.d('Permission status: ${settings.authorizationStatus}');
   }
 

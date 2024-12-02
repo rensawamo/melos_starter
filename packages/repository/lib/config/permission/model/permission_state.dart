@@ -7,7 +7,6 @@ part 'permission_state.g.dart';
 class PermissionStateModel with _$PermissionStateModel {
   const factory PermissionStateModel({
     @Default(false) bool notification,
-    @Default(false) bool backgroundLocation,
   }) = _PermissionStateModel;
 
   factory PermissionStateModel.fromJson(Map<String, dynamic> json) =>
