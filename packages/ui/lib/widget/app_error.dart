@@ -1,4 +1,4 @@
-import 'package:core_utility/utility.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 class AppErrorInfoWidget extends StatelessWidget {
@@ -24,39 +24,58 @@ class AppErrorInfoWidget extends StatelessWidget {
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(16),
-        child: InkWell(
-          borderRadius: BorderRadius.circular(12),
-          onTap: () async {
-            logger.d('AppErrorInfoWidget: onTap');
-            if (onRefresh != null) {
-              onRefresh?.call();
-            }
-          },
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-              color: Colors.transparent,
-              border: Border.all(color: iconColor, width: 1.5),
-            ),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Icon(
-                  icon,
-                  color: iconColor,
-                ),
-                Text(
-                  label,
-                  style: TextStyle(
-                    color: labelColor,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
+        child: Column(
+          children: [
+            if (error is DioException)
+              ...() {
+                final dioError = error as DioException;
+                return [
+                  Text(
+                    dioError.type.name,
+                    style: const TextStyle(
+                      color: Colors.red,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
+                  const SizedBox(height: 16),
+                ];
+              }(),
+            InkWell(
+              borderRadius: BorderRadius.circular(12),
+              onTap: () async {
+                if (onRefresh != null) {
+                  onRefresh?.call();
+                }
+              },
+              child: Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  color: Colors.transparent,
+                  border: Border.all(color: iconColor, width: 1.5),
                 ),
-              ],
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      icon,
+                      color: iconColor,
+                    ),
+                    Text(
+                      label,
+                      style: TextStyle(
+                        color: labelColor,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );
